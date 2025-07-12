@@ -473,7 +473,7 @@ racines_schemes_arabes = {
         "ar-*a**ũ": "terre, terrain, sol",
         "ar-*a*a*a-u": "réduire en poussière, ronger",
         "ar-*a*a*ũ": "ver de bois",
-        "ar-*a*i*a-a": "être purulent",
+        "ar-*a*i*a-a": "s'établir",
         "ar-*a*u*a": "être herbu, convenable",
         "ar-*a*²a*a": "arrêter, s'arrêter",
         "ar-*a*î*ũ": "abondant ; digne ; large",
