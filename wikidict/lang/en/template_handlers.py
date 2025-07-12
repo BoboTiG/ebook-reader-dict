@@ -193,9 +193,9 @@ def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, 
 
 
 def misc_variant_no_term(title: str, tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    if data["notext"] in ("1", "yes"):
+    if data["notext"]:
         return ""
-    return data.get("title", title if data["nocap"] in ("1", "yes") else capitalize(title))
+    return data.get("title", title if data["nocap"] else capitalize(title))
 
 
 def render_accent(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -2728,12 +2728,19 @@ def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     """
     >>> render_uncertain("unc", ["en"], defaultdict(str))
     'Uncertain'
+    >>> render_uncertain("unc", ["en", "unclear"], defaultdict(str))
+    'unclear'
     >>> render_uncertain("uncertain", ["en"], defaultdict(str, {"nocap": "1"}))
     'uncertain'
     >>> render_uncertain("uncertain", ["en"], defaultdict(str, {"title": "Not certain"}))
     'Not certain'
     """
-    return misc_variant_no_term("uncertain", tpl, parts, data, word=word)
+    if len(parts) > 1:
+        title = parts[-1]
+        data["nocap"] = "1"
+    else:
+        title = "uncertain"
+    return misc_variant_no_term(title, tpl, parts, data, word=word)
 
 
 def render_univerbation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
