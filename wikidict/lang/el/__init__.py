@@ -398,9 +398,17 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     ['/ˈni.xta/']
     >>> find_pronunciations("{{ΔΦΑ|el|ˈni.ði.mos}}", "el")
     ['/ˈni.ði.mos/']
+    >>> find_pronunciations("{{ΔΦΑ|0=-|el|ˈni.ði.mos}}", "el")
+    ['/ˈni.ði.mos/']
     """
-    pattern = re.compile(rf"\{{ΔΦΑ(?:\|γλ={locale})?(?:\|{locale})?\|([^}}\|]+)")
-    return [f"/{p}/" for p in unique(pattern.findall(code))]
+    res: list[str] = []
+    for tpl in re.findall(r"\{\{(ΔΦΑ\|[^\}]+)\}\}", code):
+        parts = [part.strip() for part in tpl.split("|")]
+        if f"γλ={locale}" not in parts and locale not in parts:
+            continue
+        if parts := [part for part in parts if "=" not in part and part not in {"ΔΦΑ", locale}]:
+            res.append(f"/{parts[-1]}/")
+    return unique(res)
 
 
 def text_language(lang_iso: str, *, args: dict[str, str] = defaultdict(str)) -> str:

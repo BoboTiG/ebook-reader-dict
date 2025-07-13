@@ -614,9 +614,7 @@ def render_ΔΦΑ(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     >>> render_ΔΦΑ("ΔΦΑ", ["fr", "as.tʁa.kɑ̃"], defaultdict(str))
     'ΔΦΑ : /as.tʁa.kɑ̃/'
     """
-    if len(parts) < 2:
-        return ""
-    return f"ΔΦΑ : /{parts[1]}/"
+    return "" if len(parts) < 2 else f"ΔΦΑ : /{parts[1]}/"
 
 
 def render_ταξ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
