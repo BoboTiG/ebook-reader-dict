@@ -1448,7 +1448,7 @@ racines_schemes_arabes = {
         "ar-mu*â*i*ũ": "appliqué",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "se faire répéter",
-        "ar-sti**â*@ũ": "reconquête",
+        "ar-sti**a*@ũ": "reconquête",
         "ar-ta**î*ũ": "accoutumance",
         "ar-ta*a*²a*a": "s'habituer à",
         "ar-ta*a*²u*ũ": "accoutumance",
@@ -2297,6 +2297,7 @@ racines_schemes_arabes = {
     },  # 42
     "ar-Hdd": {
         "aa_sens": "coupant, acéré",
+        "ar-***ũ": "",
         "ar-*a**ũ": "aiguisé",
         "ar-*a*a*a-i": "être tranchant, être furieux, s'emporter",
         "ar-*a*a*a-u": "aiguiser ; empêcher, limiter",
@@ -2323,9 +2324,10 @@ racines_schemes_arabes = {
         "ar-musta**a*ũ": "fer à aiguiser",
         "ar-n*a*a*a": "être aiguisé ; être en colère",
         "ar-sta**a*a": "aiguiser ; raser ; se mettre en colère",
+        "ar-ta**î*ũ": "aiguisage",
         "ar-ta*a*²a*a": "être déterminé",
         "ar-ta*â*a*a": "se combattre",
-    },  # 29
+    },  # 31
     "ar-HfZ": {
         "aa_sens": "garder",
         "ar-***ũ": "",
@@ -3445,7 +3447,7 @@ racines_schemes_arabes = {
         "ar-n*a*a*a": "se montrer docile",
         "ar-n*i*â*ũ": "docilité",
         "ar-sta**a*a": "pouvoir",
-        "ar-sti**â*@ũ": "capacité",
+        "ar-sti**a*@ũ": "capacité",
         "ar-ta*a*²a*a": "se soumettre",
         "ar-ta*a*²u*ũ": "spontanéité",
         "ar-ta*â*a*a": "se conformer à",
@@ -3520,9 +3522,10 @@ racines_schemes_arabes = {
         "ar-musta**i*ũ": "éparpillé",
         "ar-n*a*a*a": "être fendu",
         "ar-sta**a*a": "prendre sa volée",
+        "ar-sti**a*@ũ": "envol",
         "ar-ta*a*²a*a": "mal augurer",
         "ar-ta*â*a*a": "tourbillonner",
-    },  # 30
+    },  # 31
     "ar-V'b": {
         "aa_sens": "loup, toupet",
         "ar-***ũ": "",
@@ -5372,7 +5375,7 @@ racines_schemes_arabes = {
         "ar-musta**i*ũ": "circulaire",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "s'entourer",
-        "ar-sti**â*@ũ": "circonférence",
+        "ar-sti**a*@ũ": "circonférence",
         "ar-ta**î*ũ": "circonférence",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
@@ -7310,7 +7313,7 @@ racines_schemes_arabes = {
         "ar-muta*â*i*ũ": "qui fait le mort",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "chercher la mort",
-        "ar-sti**â*@ũ": "lutte désespérée",
+        "ar-sti**a*@ũ": "lutte désespérée",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "faire le mort",
     },  # 33
@@ -8363,7 +8366,7 @@ racines_schemes_arabes = {
         "ar-musta**i*ũ": "droit",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "se dresser",
-        "ar-sti**â*@ũ": "droiture",
+        "ar-sti**a*@ũ": "droiture",
         "ar-ta**î*ũ": "disposition",
         "ar-ta*a*²a*a": "être raffermi",
         "ar-ta*â*a*a": "engager une lutte",
@@ -8907,7 +8910,7 @@ racines_schemes_arabes = {
         "ar-musta**i*ũ": "homme vertueux",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "flairer",
-        "ar-sti**â*@ũ": "repos",
+        "ar-sti**a*@ũ": "repos",
         "ar-sti**â*ũ": "repos",
         "ar-ta*a*²a*a": "éventer",
         "ar-ta*â*a*a": "alterner",
