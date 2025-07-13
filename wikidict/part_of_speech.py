@@ -162,7 +162,7 @@ MERGE = {
         "loc nom": "nome",
         "pref": "prefisso",
         "prep": "preposizione",
-        "pron pos": "pronome",
+        "pron poss": "pronome possessivo",
         "sost form": "sostantivo",
         "sost": "sostantivo",
         "suff": "suffisso",
