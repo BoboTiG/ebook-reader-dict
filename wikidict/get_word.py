@@ -14,6 +14,14 @@ if TYPE_CHECKING:
     from .stubs import Word
 
 
+def bold(value: str) -> str:
+    return value if "NO_COLORS" in os.environ else f"\033[1m{value}\033[22m"
+
+
+def italic(value: str) -> str:
+    return value if "NO_COLORS" in os.environ else f"\033[3m{value}\033[23m"
+
+
 def get_word(word: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{utils.guess_lang_origin(locale)}.wiktionary.org/w/index.php?title={word}&action=raw"
@@ -31,9 +39,15 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
             return repr(text)
         text = text.replace("<br>", "\n")
         text = text.replace("<br/>", "\n")
+        text = re.sub(r"<b>([^<]+)</b>", lambda m: bold(m[1]), text)
+        text = re.sub(r"<i>([^<]+)</i>", lambda m: italic(m[1]), text)
         text = re.sub(r"<[^>]+/?>", "", text)
-        text = text.replace("&minus;", "-")
+        text = text.replace("&gt;", ">")
+        text = text.replace("&lt;", "<")
+        text = text.replace("&mdash;", "—")
+        text = text.replace("&minus;", "−")
         text = text.replace("&nbsp;", " ")
+        text = text.replace("&ndash;", "–")
         text = text.replace("&thinsp;", " ")
         text = text.replace("&times;", "×")
         text = text.replace(" ,", ",")
@@ -46,45 +60,49 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         word,
         utils.convert_pronunciation(details.pronunciations).lstrip(),
         strip_html(utils.convert_gender(details.genders).lstrip()),
-        "\n",
     )
 
-    index = 1
-    for definition in details.definitions:
-        if isinstance(definition, tuple):
-            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
-                if isinstance(subdef, tuple):
-                    for rn, subsubdef in enumerate(subdef, 1):
-                        print(
-                            f"{int_to_roman(rn).lower()}.".rjust(12),
-                            strip_html(subsubdef),
-                        )
-                else:
-                    print(f"{a}.".rjust(8), strip_html(subdef))
-        else:
-            print(f"{index}.".rjust(4), strip_html(definition))
-            index = index + 1
+    for pos, definitions in sorted(details.definitions.items(), key=lambda kv: kv[0]):
+        print("\n", bold(pos))
+        index = 1
+        for definition in definitions:
+            if not isinstance(definition, tuple):
+                print(f"{index}.".rjust(4), strip_html(definition))
+                index = index + 1
+                continue
 
-    if details.definitions and details.etymology:
+            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
+                if not isinstance(subdef, tuple):
+                    print(f"{a}.".rjust(8), strip_html(subdef))
+                    continue
+
+                for rn, subsubdef in enumerate(subdef, 1):
+                    print(f"{int_to_roman(rn).lower()}.".rjust(12), strip_html(subsubdef))
+
+    if details.etymology:
         print("\n")
         for etymology in details.etymology:
-            if isinstance(etymology, tuple):
-                for i, sub_etymology in enumerate(etymology, 1):
-                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
-            else:
+            if not isinstance(etymology, tuple):
                 print(strip_html(etymology))
+                continue
+
+            for i, sub_etymology in enumerate(etymology, 1):
+                print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
 
     if details.variants:
         print("\n[variants]", ", ".join(iter(details.variants)))
 
+    print()
     utils.check_for_missing_templates(all_templates)
 
 
 def set_output(locale: str, word: str) -> None:
     """It is very specific to GitHub Actions, and will set the job summary with helpful information."""
-    if "CI" in os.environ:
-        with open(os.environ["GITHUB_STEP_SUMMARY"], "ab") as fh:
-            fh.write(f"[{locale.upper()}] {word!r}\n".encode())
+    if "CI" not in os.environ:
+        return
+
+    with open(os.environ["GITHUB_STEP_SUMMARY"], "ab") as fh:
+        fh.write(f"[{locale.upper()}] {word!r}\n".encode())
 
 
 def main(locale: str, word: str, *, raw: bool = False) -> int:

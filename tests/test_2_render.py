@@ -42,19 +42,12 @@ def test_render_word_with_empty_subdefinition(page: Callable[[str, str], str]) -
     assert details
 
     defs = details.definitions
-    assert len(defs) == 2
-    assert isinstance(defs[0], str)
-    assert isinstance(defs[1], tuple)
-
-    subdefs = defs[1]
-    assert len(subdefs) == 2
-    assert isinstance(subdefs[0], str)
-    assert isinstance(subdefs[1], tuple)
-
-    subsubdefs = subdefs[1]
-    assert len(subsubdefs) == 1
-    assert isinstance(subsubdefs[0], str)
-    assert subsubdefs[0]
+    assert defs == {
+        "Nom": [
+            "<i>(Botanique)</i> Espèce de mauves, grandes plantes laineuses aux feuilles entières ou à 3 lobes et à bordure dentée, et aux fleurs assez grandes de couleur blanc rosé, avec les anthères des étamines rougeâtres.",
+            ("Sub sub list with empty definition", ("ok",)),
+        ],
+    }
 
 
 def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists() -> None:
@@ -135,28 +128,34 @@ def test_missing_templates(keep_unfinished: bool, workers: int, caplog: pytest.L
             pronunciations=[],
             genders=[],
             etymology=[],
-            definitions=[
-                "Première lettre et première voyelle de l’alphabet latin (minuscule). {{unknown-1}}.",
-                "Chiffre hexadécimal dix (minuscule) {{unknown-2}}.",
-                "{{unknown-3}}",
-            ],
+            definitions={
+                "Lettre": [
+                    "Première lettre et première voyelle de l’alphabet latin (minuscule). {{unknown-1}}.",
+                    "Chiffre hexadécimal dix (minuscule) {{unknown-2}}.",
+                    "{{unknown-3}}",
+                ]
+            },
             variants=[],
         ),
         "b": Word(
             pronunciations=[],
             genders=[],
             etymology=[],
-            definitions=["Deuxième lettre et première consonne de l’alphabet latin (minuscule). {{unknown-1}}."],
+            definitions={
+                "Lettre": ["Deuxième lettre et première consonne de l’alphabet latin (minuscule). {{unknown-1}}."]
+            },
             variants=[],
         ),
         "c": Word(
             pronunciations=[],
             genders=[],
             etymology=[],
-            definitions=[
-                "Troisième lettre et deuxième consonne de l’alphabet latin (minuscule). {{unknown-1}}.",
-                "{{unknown-3}}",
-            ],
+            definitions={
+                "Lettre": [
+                    "Troisième lettre et deuxième consonne de l’alphabet latin (minuscule). {{unknown-1}}.",
+                    "{{unknown-3}}",
+                ]
+            },
             variants=[],
         ),
     }

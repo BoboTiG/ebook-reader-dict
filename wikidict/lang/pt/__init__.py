@@ -13,9 +13,10 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 section_patterns = ("#", r"\*", ":#")
+sublist_patterns = ("#", r"\*")
 section_level = 1
 section_sublevels = (2,)
-head_sections = ("{{-pt-}}", "{{-mult-}}", "{{-ia-}}")
+head_sections = ("{{-pt-}}", "{{-mult-}}")
 etyl_section = ("{{etimologia|pt}}", "{{etimologia|mult}}", "etimologia")
 _sections = [
     "abreviação",
@@ -344,15 +345,34 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode('#<li value="2"> [[toca]], [[covil]]', "pt")
     '# [[toca]], [[covil]]'
 
+    >>> adjust_wikicode(":# [[plural]] [[de]] '''[[anão]]'''", "pt")
+    '# {{flexion|anão}}'
+    >>> adjust_wikicode("* [[plural]] [[de]] '''[[anão]]'''", "pt")
+    '# {{flexion|anão}}'
     >>> adjust_wikicode("# [[plural]] [[de]] '''[[anão]]'''", "pt")
     '# {{flexion|anão}}'
     >>> adjust_wikicode("# plural de [[anão]]", "pt")
     '# {{flexion|anão}}'
 
+    >>> adjust_wikicode("*{{f}} de [[objetivo]]", "pt")
+    '# {{flexion|objetivo}}'
+
+    >>> adjust_wikicode("# plural de [[anão]]", "pt")
+    '# {{flexion|anão}}'
+    >>> adjust_wikicode("# feminino plural de [[sardenho]]", "pt")
+    '# {{flexion|sardenho}}'
+
     >>> adjust_wikicode("# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''", "pt")
     '# {{flexion|ensimesmar}}'
     >>> adjust_wikicode("#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''", "pt")
     '# {{flexion|ensimesmar}}'
+    >>> adjust_wikicode("#terceira pessoa do singular  do presente indicativo  do verbo [[ensimesmar]]", "pt")
+    '# {{flexion|ensimesmar}}'
+    >>> adjust_wikicode("# [[infinitivo pessoal]] da [[terceira pessoa]] do [[plural]] do verbo '''[[acarretar]]'''", "pt")
+    '# {{flexion|acarretar}}'
+
+    >>> adjust_wikicode("# [[particípio]] do verbo '''[[abotecar]]'''", "pt")
+    '# {{flexion|abotecar}}'
     """
     # `=={{Substantivo|pt}}<sup>1</sup>==` → `=={{Substantivo 1|pt}}==`
     code = re.sub(r"==\s*\{\{Substantivo\|(\w+)\}\}\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \2|\1}}==", code)
@@ -367,14 +387,33 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # Variants
     #
 
+    start = rf"^(?:{'|'.join(section_patterns)})\s*"
+
     # `# [[plural]] [[de]] '''[[anão]]'''` → `# {{flexion|anão}}`
     # `# plural de [[anão]]` → `# {{flexion|anão}}`
-    code = re.sub(r"^#\s*\[*plural.+'*\[\[([^\]]+)+\].*", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+    # `# feminino plural de [[anão]]` → `# {{flexion|anão}}`
+    code = re.sub(
+        rf"{start}\[*(?:feminino)?\s*plural.+'*\[\[([^\]]+)+\].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    # `# {{f}} de [[objetivo]]` → `# {{flexion|objetivo}}`
+    code = re.sub(rf"{start}\{{\{{f\}}\}} de \[\[([^\]]+)+\].*", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
 
     # `# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
     # `#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
     code = re.sub(
-        r"^#\s*\[\[.+ do \[\[.+ do \[\[.+ do \[*verbo\]* '*\[\[([^\]]+)+\].*",
+        rf"{start}\[?\[?.+ (?:da|do) \[?\[?.+ do \[?\[?.+ do \[*verbo\]* '*\[\[([^\]]+)+\].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    # `# [[particípio]] do verbo '''[[abotecar]]'''` → `# {{flexion|abotecar}}`
+    code = re.sub(
+        rf"{start}\[?\[?(?:gerúndio|particípio)\]?\]? do \[*verbo\]* '*\[\[([^\]]+)+\].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.MULTILINE,

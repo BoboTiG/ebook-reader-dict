@@ -15,7 +15,6 @@ from ...user_functions import (
     underline,
 )
 from ...utils import process_special_pipe_template
-from .. import defaults
 from .langs import langs
 
 
@@ -854,6 +853,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "art-déf": "Article défini",
         "article défini": "Article défini",
         "article indéfini": "Article indéfini",
+        "article": "Article",
         "conj": "Conjonction",
         "conjonction": "Conjonction",
         "conj-coord": "Conjonction de coordination",
@@ -867,6 +867,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "nom-pr": "Nom propre",
         "nom propre": "Nom propre",
         "num": "Numéral",
+        "numéral": "Numéral",
         "onom": "Onomatopée",
         "onoma": "Onomatopée",
         "onomatopée": "Onomatopée",
@@ -874,6 +875,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "particule": "Particule",
         "phrase": "Locution-phrase",
         "préf": "Préfixe",
+        "préfixe": "Préfixe",
         "prénom": "Prénom",
         "prép": "Préposition",
         "préposition": "Préposition",
@@ -1831,8 +1833,6 @@ template_mapping = {
     "Unité": render_unite,
     "unité": render_unite,
     "univerbation": render_modele_etym,
-    "w": defaults.render_wikilink,
-    "W": defaults.render_wikilink,
     "ws": render_wikisource,
     "zh-lien": render_zh_lien,
     #

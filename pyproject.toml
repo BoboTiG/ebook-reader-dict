@@ -34,6 +34,7 @@ warn_return_any = true
 addopts = """
     --cov-report=term-missing:skip-covered
     --cov=wikidict
+    --no-cov-on-fail
     --strict-markers
     -vvv
 """

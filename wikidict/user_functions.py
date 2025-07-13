@@ -455,6 +455,16 @@ def person(word: str, parts: list[str]) -> str:
     return res
 
 
+def ruby(text: str, top: str) -> str:
+    """
+    Render a Ruby HTML annotation.
+
+        >>> ruby("A", "B")
+        '<ruby>A<rt>B</rt></ruby>'
+    """
+    return f"<ruby>{text}<rt>{top}</rt></ruby>"
+
+
 def sentence(parts: list[str]) -> str:
     """
     Capitalize the first item in *parts* and concat with the second one.
@@ -602,6 +612,7 @@ __all__ = (
     "number",
     "parenthesis",
     "person",
+    "ruby",
     "sentence",
     "small",
     "small_caps",

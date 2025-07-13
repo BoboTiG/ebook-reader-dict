@@ -1,24 +1,41 @@
 from collections import defaultdict
 
-from bs4 import BeautifulSoup
-
-from ... import constants
 from ...user_functions import extract_keywords_from, italic, superscript
-from .. import defaults
+from ...utils import process_templates
+from .etymologies import etymologies
 from .langs_short import langs_short
 
 
-def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """For etymology content, need to run code to get text from other wiktionary page."""
-    # Fetching that endpoint for 1.3+ million of words is not a solution, skipping for now.
-    return ""
-    if not parts or not (etyl := parts[0].split("|")[0]):
-        return ""
-    url = f"https://ru.wiktionary.org/wiki/Шаблон:{tpl}:{etyl}"
-    page = constants.SESSION.get(url).content
-    soup = BeautifulSoup(page, features="html.parser")
-    content = soup.find("div", class_="mw-parser-output")
-    return str(content.getText())
+def render_этимология(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_этимология("этимология", [], defaultdict(str, {"и": "ru"}))
+    '??'
+    >>> render_этимология("этимология", [""], defaultdict(str, {"и": "ru"}))
+    '??'
+    >>> render_этимология("этимология", ["", "да"], defaultdict(str, {"и": "ru"}))
+    '??'
+
+    >>> render_этимология("этимология", ["-аза", "да"], defaultdict(str, {"и": "ru"}))
+    'др.-греч.\xa0-ασις, от διάστασις «разделение»'
+
+    >>> render_этимология("этимология", ["летний", "девяти", "девять"], defaultdict(str), word="девятилетний")
+    'девяти- (от девять) + -летний; первая часть — из праслав.\xa0*devęt-, от кот. в числе прочего произошли: ст.-слав. дєвѧть, укр. де́в’ять, болг. де́вет, сербохорв. де̏ве̑т, словенск. devȇt, чешск. devět, словацк. deväť, польск. dziewięć, в.-луж. dźewjeć, н.-луж. źewjeś; восходит к праиндоевр. *(e)newem, *newn; вторая часть — из праслав.\xa0*lěto, от кот. в числе прочего произошли: ст.-слав. лѣто (др.-греч. χρόνος, ἔτος, ἐνιαυτός), русск. лето, укр. лíто, белор. сле́цiць «согреть», сле́тный «тепловатый», смол., болг. ля́то, сербохорв. ље̏то, словенск. lẹ́to, чешск. léto, словацк. lеtо, польск. lаtо, в.-луж., н.-луж. lěto'
+
+    >>> render_этимология("этимология", ["-б"], defaultdict(str), word="девятилетний")
+    '{{unhandled etymology|-б}}'
+    """
+    if not (which_one := parts[0] if parts else ""):
+        return "??"
+
+    if not (text := etymologies.get(which_one)):
+        return f"{{{{unhandled etymology|{parts[0]}}}}}"
+
+    if len(parts) > 2:
+        text = text.replace("{{{1}}}", parts[1])
+        text = text.replace("{{{2}}}", parts[2])
+        text = process_templates(word, text, "ru")
+
+    return text
 
 
 def get_definition(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -86,6 +103,8 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     'зачин нем. Fahne add, add2 «знамя, знамя2, знамя3» (comment)'
     >>> render_lang("lang", ["de", "Fahne", "знамя"], defaultdict(str, {"скр": "1"}))
     'Fahne «знамя»'
+    >>> render_lang("lang", ["de", "Fahne", ""], defaultdict(str, {"скр": "1"}))
+    'Fahne'
     >>> render_lang("lang", ["ru", "зна́мя"], defaultdict(str, {}))
     'русск. зна́мя'
     >>> render_lang("lang", ["el"], defaultdict(str, {}))
@@ -105,7 +124,7 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         text += f" {add}"
     if add := data["add2"]:
         text += f" {add}"
-    if parts:
+    if parts := [p for p in parts if p]:
         text += f" «{', '.join(parts)}»"
     if comment := data["comment"]:
         text += f" ({comment})"
@@ -270,6 +289,43 @@ def render_через(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return f"от {text} {italic(parts[1])}"
 
 
+def render_однокр(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_однокр("однокр.", [], defaultdict(str))
+    '<i>однокр.</i>'
+    >>> render_однокр("однокр.", ["глядеть"], defaultdict(str))
+    '<i>однокр.</i> к глядеть'
+    """
+    text = "<i>однокр.</i>"
+    if parts:
+        text += f" к {parts[0]}"
+    return text
+
+
+def render_прист_СИ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_прист_СИ("прист-СИ", ["д", "18"], defaultdict(str))
+    'дольной единицы измерения, составляющей 1/10<sup>18</sup> от исходной единицы'
+    >>> render_прист_СИ("прист-СИ", ["к", "18"], defaultdict(str))
+    'кратной единицы измерения, составляющей 10<sup>18</sup> от исходной единицы'
+    """
+    text = ("дольной" if parts[0] == "д" else "кратной") + " единицы измерения, составляющей "
+    text += f"1/10<sup>{parts[1]}</sup>" if parts[0] == "д" else f"10<sup>{parts[1]}</sup>"
+    text += " от исходной единицы"
+    return text
+
+
+def render_хим_элем(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_хим_элем("хим-элем", ["89", "Ac", "радиоактивный металл"], defaultdict(str))
+    '<i>хим.</i> химический элемент с атомным номером 89, обозначается химическим символом Ac, радиоактивный металл'
+    """
+    text = f"<i>хим.</i> химический элемент с атомным номером {parts.pop(0)}, обозначается химическим символом {parts.pop(0)}"
+    if parts:
+        text += f", {parts[0]}"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("прич.", ["зыбить"], defaultdict(str))
@@ -286,9 +342,7 @@ template_mapping = {
     "lang": render_lang,
     "lang2": render_lang,
     "t": render_t,
-    "w": defaults.render_wikilink,
-    "W": defaults.render_wikilink,
-    "этимология": get_etymology,
+    "этимология": render_этимология,
     "значение": get_definition,
     "помета": render_помета,
     "кавычки": render_кавычки,
@@ -300,6 +354,9 @@ template_mapping = {
     "морфема": render_морфема,
     "отчество": render_отчество,
     "через": render_через,
+    "однокр.": render_однокр,
+    "прист-СИ": render_прист_СИ,
+    "хим-элем": render_хим_элем,
     #
     # Variants
     #

@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 import regex
 import wikitextparser
 
-from . import constants, svg
+from . import constants, part_of_speech, svg
 from .hiero_utils import render_hiero
 from .lang import (
     last_template_handler,
@@ -51,6 +51,10 @@ MAGIC_WORDS = {
 Template = namedtuple("Template", "placeholder value")
 SPECIAL_TEMPLATES = {
     "{{!}}": Template("##pipe##!##pipe##", "|"),
+    "{{!(}}": Template("##pipe##!(##pipe##", "&#91;"),
+    "{{)!}}": Template("##pipe##)!##pipe##", "&#93;"),
+    "{{(}}": Template("##pipe##!{##pipe##", "&#123;"),
+    "{{)}}": Template("##pipe##}!##pipe##", "&#125;"),
     "{{=}}": Template("##equal##!##equal##", "="),
 }
 
@@ -220,12 +224,119 @@ def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) 
 
 
 @cache
+def format_pos(locale: str, value: str) -> str:
+    """Properly format the part of speech (POS).
+
+    >>> format_pos("da", "{{pers-pronom 1}}")
+    'Pronomen'
+    >>> format_pos("da", "formelt subjekt")
+    'Formelt Subjekt'
+    >>> format_pos("da", "verb")
+    'Verbum'
+    >>> format_pos("da", "verbum")
+    'Verbum'
+
+    >>> format_pos("de", "{{bedeutungen}}")
+    'Bedeutungen'
+    >>> format_pos("de", "{{Bedeutungen}}{{Anker|Dasort}}")
+    'Bedeutungen'
+    >>> format_pos("de", "bedeutungen")
+    'Bedeutungen'
+
+    >>> format_pos("el", "{{έκφραση|el}}")
+    'Έκφραση'
+    >>> format_pos("el", "έκφραση")
+    'Έκφραση'
+
+    >>> format_pos("en", "proper noun 1")
+    'Proper Noun'
+    >>> format_pos("en", "proper noun")
+    'Proper Noun'
+
+    >>> format_pos("eo", "{{signifoj}}")
+    'Signifo'
+    >>> format_pos("eo", "{{vortospeco|adverbo, vortgrupo|eo}}")
+    'Adverbo'
+    >>> format_pos("eo", "signifo")
+    'Signifo'
+
+    >>> format_pos("es", "{{verbo transitivo|es|terciopersonal}}")
+    'Verbo'
+    >>> format_pos("es", "{{verbo|es|terciopersonal}}")
+    'Verbo'
+    >>> format_pos("es", "verbo transitivo")
+    'Verbo'
+    >>> format_pos("es", "verbo")
+    'Verbo'
+
+    >>> format_pos("fr", "{{s|lettre|fr}}")
+    'Lettre'
+    >>> format_pos("fr", "adjectif démonstratif")
+    'Adjectif'
+    >>> format_pos("fr", "lettre")
+    'Lettre'
+
+    >>> format_pos("it", "{{loc nom}}")
+    'Nome'
+    >>> format_pos("it", "{{nome}}")
+    'Nome'
+    >>> format_pos("it", "nome")
+    'Nome'
+
+    >>> format_pos("no", "verb 1")
+    'Verb'
+    >>> format_pos("no", "egennavn, toponym")
+    'Egennavn'
+    >>> format_pos("no", "verb")
+    'Verb'
+
+    >>> format_pos("pt", "substantivo1")
+    'Substantivo'
+    >>> format_pos("pt", "substantivo 1")
+    'Substantivo'
+    >>> format_pos("pt", "substantivo²")
+    'Substantivo'
+    >>> format_pos("pt", "substantivo <small>''Feminino''</small>")
+    'Substantivo'
+    >>> format_pos("pt", "{{locução substantiva|pt}}<sup><small>2</small></sup>")
+    'Locução'
+    >>> format_pos("pt", "pronome pessoal")
+    'Pronome'
+    >>> format_pos("pt", "verbo")
+    'Verbo'
+
+    >>> format_pos("ro", "{{verb auxiliar}}")
+    'Verb'
+    >>> format_pos("ro", "verb")
+    'Verb'
+    """
+    for pattern in part_of_speech.PATTERNS.get(locale, []):
+        value = pattern(r"\1", value)
+    value = part_of_speech.MERGE.get(locale, {}).get(value, value)
+    return value.strip().title()
+
+
+@cache
+def is_cyrillic(char: str) -> bool:
+    """Check if a character is Cyrillic."""
+    return (
+        "\u0400" <= char <= "\u04ff"  # Cyrillic
+        or "\u0500" <= char <= "\u052f"  # Cyrillic Supplement
+        or "\u2de0" <= char <= "\u2dff"  # Cyrillic Extended-A
+        or "\ua640" <= char <= "\ua69f"  # Cyrillic Extended-B
+        or "\u1c80" <= char <= "\u1c8f"  # Cyrillic Extended-C
+    )
+
+
+@cache
 def guess_prefix(word: str) -> str:
     """Determine the word prefix for the given *word*.
 
     Inspiration: https://github.com/pettarin/penelope/blob/master/penelope/prefix_kobo.py#L16
     Inspiration: https://pgaskin.net/dictutil/dicthtml/prefixes.html
     Inspiration: me ᕦ(ò_óˇ)ᕤ
+
+    Converted from https://github.com/pgaskin/dictutil/blob/v0.3.2/kobodict/util.go#L44.
 
     Note: for words like "°GL", the Kobo will first check "11.html" and then "gl.html",
           so to speed-up the lookup, let's store such words into "11.html".
@@ -246,6 +357,12 @@ def guess_prefix(word: str) -> str:
 
         >>> guess_prefix("test")
         'te'
+        >>> guess_prefix("a-")
+        '11'
+        >>> guess_prefix("-an")
+        '11'
+        >>> guess_prefix("GB")
+        'gb'
         >>> guess_prefix("a")
         'aa'
         >>> guess_prefix("aa")
@@ -254,12 +371,30 @@ def guess_prefix(word: str) -> str:
         'aa'
         >>> guess_prefix("Èe")
         'èe'
+        >>> guess_prefix("Ȅe")
+        'ȅe'
+        >>> guess_prefix("eȄ")
+        'eȅ'
+        >>> guess_prefix("Ȅ!")
+        '11'
+        >>> guess_prefix("ébahir")
+        'éb'
+        >>> guess_prefix("kébab")
+        'ké'
+        >>> guess_prefix("aérer")
+        'aé'
+        >>> guess_prefix("living-room")
+        'li'
         >>> guess_prefix("multiple words")
         'mu'
         >>> guess_prefix("àççèñts")
         'àç'
         >>> guess_prefix("à")
         'àa'
+        >>> guess_prefix("a1")
+        '11'
+        >>> guess_prefix("ô")
+        'ôa'
         >>> guess_prefix("ç")
         'ça'
         >>> guess_prefix("")
@@ -268,20 +403,66 @@ def guess_prefix(word: str) -> str:
         '11'
         >>> guess_prefix(" x")
         'xa'
+        >>> guess_prefix("x ")
+        'xa'
+        >>> guess_prefix(" xx")
+        'xa'
+        >>> guess_prefix(" ")
+        '11'
+        >>> guess_prefix("  ")
+        '11'
+        >>> guess_prefix("   ")
+        '11'
+        >>> guess_prefix("\t\t")
+        '11'
+        >>> guess_prefix("\t\t\t")
+        '11'
+        >>> guess_prefix("  x")
+        '11'
+        >>> guess_prefix("  xy")
+        '11'
+        >>> guess_prefix("  xyz")
+        '11'
+        >>> guess_prefix("x z")
+        'xa'
         >>> guess_prefix(" 123")
         '11'
         >>> guess_prefix("42")
         '11'
         >>> guess_prefix("x 23")
         'xa'
+        >>> guess_prefix("д")
+        'д'
+        >>> guess_prefix(" д")
+        'д'
+        >>> guess_prefix("д ")
+        'д'
+        >>> guess_prefix(" дд")
+        'д'
+        >>> guess_prefix("aд")
+        'aд'
+        >>> guess_prefix("дa")
+        'дa'
+        >>> guess_prefix("aдa")
+        'aд'
         >>> guess_prefix("дaд")
         'дa'
         >>> guess_prefix("未未")
-        '11'
+        '未未'
         >>> guess_prefix("未")
+        '未a'
+        >>> guess_prefix("  未")
         '11'
         >>> guess_prefix(" 未")
-        '11'
+        '未a'
+        >>> guess_prefix("x未")
+        'x未'
+        >>> guess_prefix("未x")
+        '未x'
+        >>> guess_prefix("xy未")
+        'xy'
+        >>> guess_prefix("还没")
+        '还没'
         >>> guess_prefix(".vi")
         '11'
         >>> guess_prefix("/aba")
@@ -293,12 +474,81 @@ def guess_prefix(word: str) -> str:
         >>> guess_prefix("°GL")
         '11'
         >>> guess_prefix("وهيبة")
+        'وه'
+        >>> guess_prefix("!")
         '11'
+        >>> guess_prefix("!!")
+        '11'
+        >>> guess_prefix("!!!")
+        '11'
+        >>> guess_prefix("x!")
+        '11'
+        >>> guess_prefix("x!!")
+        '11'
+        >>> guess_prefix("xx!")
+        'xx'
+        >>> guess_prefix("xxx!")
+        'xx'
+        >>> guess_prefix("  !")
+        '11'
+        >>> guess_prefix(" !!")
+        '11'
+        >>> guess_prefix(" !!!")
+        '11'
+        >>> guess_prefix(" !")
+        '11'
+        >>> guess_prefix("  !!")
+        '11'
+        >>> guess_prefix("   !!!")
+        '11'
+        >>> guess_prefix(" x!")
+        'xa'
+        >>> guess_prefix(" x!!")
+        'xa'
+        >>> guess_prefix(" xx!")
+        'xa'
+        >>> guess_prefix(" xxx!")
+        'xa'
+        >>> guess_prefix("x\\x00y")
+        'xa'
+        >>> guess_prefix("\\x00xy")
+        '11'
+
+        Past problematic cases:
+        >>> guess_prefix("İslahiye")
+        'is'
+        >>> guess_prefix("б/а")
+        ''
+        >>> guess_prefix("б-p")
+        'б-'
+
+        Japanese seems unreliable as of now:
+        https://github.com/pgaskin/dictutil/blob/6708cff9a06dbd088ec2267a2314028a9a00b5a7/kobodict/util_test.go#L47-L51
+        >>> guess_prefix("あ")
+        'あa'
+        >>> guess_prefix("アークとう")
+        'アー'
     """
-    prefix = word.strip()[:2].lower().strip()
-    if not prefix or prefix[0].isnumeric():
+    if "\x00" in (prefix := word):
+        prefix = prefix.split("\x00", 1)[0]
+
+    if len(prefix) > 2:
+        prefix = prefix[:2]
+    prefix = prefix.strip()
+
+    # Special lowercasing: handle Turkish 'İ' (U+0130) to 'i'.
+    # Turkish 'İ' (U+0130) lowercases to 'i̇' (i + combining dot above), but Kobo and Go convert it to 'i'.
+    # So we manually convert 'İ' to 'i'.
+    if not (prefix := "".join("i" if char == "\u0130" else char.lower() for char in prefix)):
         return "11"
-    return prefix.ljust(2, "a") if all(c.isalpha() and c.islower() for c in prefix) else "11"
+
+    if is_cyrillic(prefix[0]):
+        return "" if prefix[-1] == "/" else prefix
+
+    if len(prefix) < 2:
+        prefix += "a"
+
+    return prefix if prefix.isalpha() else "11"
 
 
 def clean(text: str) -> str:
@@ -508,8 +758,8 @@ def clean(text: str) -> str:
     text = sub(r"\s{1,}\.", ".", text)
 
     # <<bar>> → foo
-    # <<foo/bar>> → bar
     text = sub(r"<<([^/>]+)>>", "\\1", text)
+    # <<foo/bar>> → bar
     # text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 
     # Convert single "< ", and " >" to HTML quotes
@@ -543,8 +793,8 @@ def process_templates(
         ''
         >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
         'OH<sub>2</sub>|OH<sub>2</sub>'
-        >>> process_templates("EPR=ER", "{{alternative form of|mul|ER{{=}}EPR}}", "en")
-        '<i>Alternative form of</i> <b>ER=EPR</b>'
+        >>> process_templates("EPR=ER", "{{fchim|ER{{=}}EPR}}", "fr")
+        'ER=EPR'
 
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<svg ...'
@@ -607,6 +857,9 @@ def process_templates(
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
 
+    for tpl in re.findall(r"({{[^{}]*}})", text):
+        text = text.replace(tpl, transform(word, tpl[2:-2], locale, all_templates=all_templates))
+
     text = text.replace(OPEN_DOUBLE_CURLY, "{{")
     text = text.replace(CLOSE_DOUBLE_CURLY, "}}")
 
@@ -623,7 +876,7 @@ def process_templates(
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
 
-    if not KEEP_UNFINISHED and "{{" in text:
+    if not KEEP_UNFINISHED and ("{{" in text or "}}" in text):
         if all_templates:
             all_templates.append(("", word, "skipped"))
         return ""

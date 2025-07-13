@@ -505,6 +505,7 @@ langs = {
     "id": "Indonésio",
     "ie": "Interlíngue",
     "ig": "Ibo",
+    "igl": "Igala",
     "igs": "Glosa",
     "ii": "Yi",
     "iir-pro": "Protoindo-iraniano",
@@ -515,7 +516,6 @@ langs = {
     "ilo": "Ilocano",
     "ilu": "Iliun",
     "ilw": "Talur",
-    "inc-pro": "Protoindo-ariano",
     "ine": "Indo-europeu",
     "ine-bsl-pro": "Protobalto-eslávico",
     "ine-pro": "Protoindo-europeu",
@@ -884,6 +884,7 @@ langs = {
     "my": "Birmanês",
     "mye": "Myene",
     "myf": "Bambassi",
+    "myn-pro": "Protomaia",
     "myp": "Mura-Pirahã",
     "myv": "Erzya",
     "mzn": "Mazandarani",
@@ -1309,6 +1310,7 @@ langs = {
     "tr": "Turco",
     "trc": "Triqui de Copala",
     "tri": "Tirió",
+    "trk-pro": "Proto-túrquico",
     "trp": "Kok-borok",
     "trs": "Triqui de Chicahuaxtla",
     "trv": "Taroco",
@@ -1497,5 +1499,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,492
+}  # 1,494
 # END

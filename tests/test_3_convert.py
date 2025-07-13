@@ -4,6 +4,7 @@ from unittest.mock import patch
 from zipfile import ZipFile
 
 import pytest
+from marisa_trie import Trie
 
 from wikidict import constants, convert
 from wikidict.constants import ASSET_CHECKSUM_ALGO
@@ -34,38 +35,40 @@ Version sans étymologies :
 Mis à jour le"""
 
 WORDS = {
-    "empty": Word([], [], [], [], []),
-    "foo": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], []),
-    "foos": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1", ("ssdef 1",))], ["baz"]),
-    "baz": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], ["foobar"]),
-    "empty1": Word([], [], [], [], ["foo"]),
-    "empty2": Word([], [], [], [], ["empty1"]),
+    "empty": Word([], [], [], {}, []),
+    "foo": Word(["pron"], ["gender"], ["etyl"], {"Noun": ["def 1", ("sdef 1",)]}, []),
+    "foos": Word(["pron"], ["gender"], ["etyl"], {"Noun": ["def 1", ("sdef 1", ("ssdef 1",))]}, ["baz"]),
+    "baz": Word(["pron"], ["gender"], ["etyl"], {"Noun": ["def 1", ("sdef 1",)]}, ["foobar"]),
+    "empty1": Word([], [], [], {}, ["foo"]),
+    "empty2": Word([], [], [], {}, ["empty1"]),
     "Multiple Etymologies": Word(
         ["pron"],
         ["gender"],
         ["etyl 1", ("setyl 1",)],
-        ["def 1", ("sdef 1",)],
+        {"Noun": ["def 1", ("sdef 1",)]},
         [],
     ),
     "Multiple Etymology": Word(
         ["pron0"],
         ["gender0"],
         ["etyl0"],
-        ["def 0"],
+        {"Noun": ["def 0"]},
         ["Multiple Etymologies"],
     ),
     "GIF": Word(
         ["pron"],
         ["gender"],
         ["etyl"],
-        [
-            '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
-            ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
-            "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
-            "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
-            "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
-            'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
-        ],
+        {
+            "Noun": [
+                '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
+                ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
+                "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
+                "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
+                "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
+                'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
+            ]
+        },
         ["gif"],
     ),
 }
@@ -116,48 +119,94 @@ def test_simple() -> None:
     assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # Check the Kobo ZIP content
+    expected_files = [
+        "11.html",
+        constants.ZIP_INSTALL,
+        "aa.html",
+        "ac.html",
+        "ba.html",
+        "bo.html",
+        "co.html",
+        "de.html",
+        "dj.html",
+        "du.html",
+        "ef.html",
+        "em.html",
+        "en.html",
+        "ge.html",
+        "gr.html",
+        "gè.html",
+        "ic.html",
+        "ko.html",
+        "mi.html",
+        "mu.html",
+        "na.html",
+        "pi.html",
+        "pr.html",
+        "ra.html",
+        "sa.html",
+        "si.html",
+        "sl.html",
+        "te.html",
+        "tu.html",
+        "ve.html",
+        "words",
+        constants.ZIP_WORDS_COUNT,
+        constants.ZIP_WORDS_SNAPSHOT,
+        "ép.html",
+        "œc.html",
+        "πa.html",
+    ]
+    expected_trie_keys = [
+        "-aux",
+        "-eresse",
+        "42",
+        "5E",
+        "Bogotanais",
+        "DES",
+        "Slovène",
+        "Turgeon",
+        "a",
+        "accueil",
+        "acrologie",
+        "barbe à papa",
+        "base",
+        "bath",
+        "chacune",
+        "colligeait",
+        "colliger",
+        "corollaires",
+        "corps portant",
+        "djed",
+        "dubitatif",
+        "effluve",
+        "employer",
+        "en",
+        "encyclopædie",
+        "geler",
+        "greffier",
+        "gèlent",
+        "ich",
+        "koro",
+        "minute",
+        "minuter",
+        "minutes",
+        "mutiner",
+        "naguère",
+        "pinyin",
+        "précepte",
+        "rance",
+        "sapristi",
+        "silicone",
+        "suis",
+        "tests-definitions",
+        "venoient",
+        "éperon",
+        "œcuménique",
+        "π",
+    ]
     with ZipFile(dicthtml) as fh:
-        expected = [
-            "11.html",
-            constants.ZIP_INSTALL,
-            "aa.html",
-            "ac.html",
-            "ba.html",
-            "bo.html",
-            "ch.html",
-            "co.html",
-            "de.html",
-            "dj.html",
-            "du.html",
-            "ef.html",
-            "em.html",
-            "en.html",
-            "ge.html",
-            "gr.html",
-            "gè.html",
-            "ic.html",
-            "ko.html",
-            "mi.html",
-            "mu.html",
-            "na.html",
-            "pi.html",
-            "pr.html",
-            "ra.html",
-            "sa.html",
-            "si.html",
-            "sl.html",
-            "su.html",
-            "te.html",
-            "tu.html",
-            "ve.html",
-            "words",
-            constants.ZIP_WORDS_COUNT,
-            constants.ZIP_WORDS_SNAPSHOT,
-            "ép.html",
-            "œc.html",
-            "πa.html",
-        ]
-        assert sorted(fh.namelist()) == expected
+        assert sorted(fh.namelist()) == expected_files
 
         # testfile returns the name of the first corrupt file, or None
         errors = fh.testzip()
@@ -168,16 +217,21 @@ def test_simple() -> None:
         print(install_txt)
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
 
+        # Check the trie
+        trie = Trie()
+        trie.map(fh.read("words"))
+        assert sorted(trie.keys()) == expected_trie_keys
+
     # Check the StarDict ZIP content
+    expected_files = [
+        "dict-data.dict.dz",
+        "dict-data.idx",
+        "dict-data.ifo",
+        "dict-data.syn",
+        "res/db28a816.gif",
+    ]
     with ZipFile(stardict) as fh:
-        expected = [
-            "dict-data.dict.dz",
-            "dict-data.idx",
-            "dict-data.ifo",
-            "dict-data.syn",
-            "res/db28a816.gif",
-        ]
-        assert sorted(fh.namelist()) == expected
+        assert sorted(fh.namelist()) == expected_files
 
         # testfile returns the name of the first corrupt file, or None
         errors = fh.testzip()
@@ -249,16 +303,16 @@ def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: 
 
 
 FORMATTED_WORD_KOBO = """\
-<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></p><var><variant name="multiple etymology"/></var></w>
+<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></p><var><variant name="multiple etymology"/></var></w>
 """
 FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
-<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
+<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
 """
 FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
 : pron <i>gender</i>.
 & Multiple Etymology
-<html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
+<html><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
 
 
 """
@@ -266,7 +320,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
 : pron <i>gender</i>.
 & Multiple Etymology
-<html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
+<html><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
 
 """
@@ -305,42 +359,55 @@ WORDS_VARIANTS_FR = words = {
         pronunciations=["\\ɛtʁ\\"],
         genders=[],
         etymology=[],
-        definitions=["Définition de 'estre'."],
+        definitions={"Verbe": ["Définition de 'estre'."]},
         variants=[],
     ),
     "être": Word(
         pronunciations=["\\ɛtʁ\\"],
         genders=["m"],
         etymology=[],
-        definitions=[
-            "Définition de 'être'.",
-        ],
+        definitions={
+            "Verbe": [
+                "Définition de 'être'.",
+            ]
+        },
         variants=[],
     ),
     "suis": Word(
         pronunciations=["\\sɥi\\"],
         genders=[],
         etymology=[],
-        definitions=[],
+        definitions={},
         variants=["suivre", "être", "estre"],
     ),
     "suivre": Word(
         pronunciations=["\\sɥivʁ\\"],
         genders=[],
         etymology=[],
-        definitions=["Définition de 'suivre'."],
+        definitions={"Verbe": ["Définition de 'suivre'."]},
         variants=[],
     ),
 }
 WORDS_VARIANTS_ES = {
-    "gastadan": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastada"]),
-    "gastada": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastado"]),
-    "gastado": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastar"]),
+    "gastadan": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["gastada"]),
+    "gastada": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["gastado"]),
+    "gastado": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["gastar"]),
     "gastar": Word(
         pronunciations=[],
         genders=[],
         etymology=[],
-        definitions=["Definition of 'gastar'."],
+        definitions={"Verb": ["Definition of 'gastar'."]},
+        variants=[],
+    ),
+}
+WORDS_VARIANTS_ES_2 = {
+    "-foba": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["-fobo"]),
+    "-fobas": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["-foba", "-fobo"]),
+    "-fobo": Word(
+        pronunciations=[],
+        genders=[],
+        etymology=[],
+        definitions={"Suffix": ["-phobe", "-phobic"]},
         variants=[],
     ),
 }
@@ -404,6 +471,27 @@ def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
     assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar
 
 
+def test_kobo_format_variants_duplicates(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_ES_2
+    variants = convert.make_variants(words)
+    formatter = convert.KoboFormat("es", tmp_path, words, variants, "20250702")
+
+    assert formatter.make_groups(words) == {
+        "11": {
+            "-foba": words["-foba"],
+            "-fobas": words["-fobas"],
+            "-fobo": words["-fobo"],
+        }
+    }
+
+    foba = "".join(formatter.handle_word("-foba", words))
+    fobas = "".join(formatter.handle_word("-fobas", words))
+    fobo = "".join(formatter.handle_word("-fobo", words))
+    assert not foba
+    assert not fobas
+    assert '<var><variant name="-foba"/><variant name="-fobas"/></var>' in fobo
+
+
 def test_df_format(tmp_path: Path) -> None:
     words = WORDS_VARIANTS_FR
     variants = convert.make_variants(words)
@@ -415,28 +503,28 @@ def test_df_format(tmp_path: Path) -> None:
         output.read_text(encoding="utf-8")
         == r"""@ estre
 : \ɛtʁ\
-<html><ol><li>Définition de 'estre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'estre'.</li></ol></html>
 
 @ être
 : \ɛtʁ\ <i>m</i>.
-<html><ol><li>Définition de 'être'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'être'.</li></ol></html>
 
 @ suis
 : <b>estre</b> \ɛtʁ\
-<html><ol><li>Définition de 'estre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'estre'.</li></ol></html>
 
 @ suis
 : <b>suivre</b> \sɥivʁ\
-<html><ol><li>Définition de 'suivre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'suivre'.</li></ol></html>
 
 @ suis
 : <b>être</b> \ɛtʁ\ <i>m</i>.
-<html><ol><li>Définition de 'être'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'être'.</li></ol></html>
 
 @ suivre
 : \sɥivʁ\
 & suis
-<html><ol><li>Définition de 'suivre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'suivre'.</li></ol></html>
 
 """
     )
@@ -516,5 +604,5 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
             mocked_dw.assert_any_call(convert.get_primary_formatters(), *args, include_etymology=include_etymology)
             mocked_dw.assert_any_call(convert.get_secondary_formatters(), *args, include_etymology=False)
             mocked_rmf.assert_any_call(*args, include_etymology=False)
-        mocked_dw.call_count == 4
-        mocked_rmf.call_count == 2
+        assert mocked_dw.call_count == 4
+        assert mocked_rmf.call_count == 2

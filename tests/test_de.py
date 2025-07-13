@@ -15,10 +15,12 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "<i>Informatik (seit 1972):</i> das At; notwendiger Bestandteil und Trennzeichen zwischen Benutzername und Domainname bei E-Mail-Adressen",
-                "<i>Informatik:</i> das At; Syntax-Bestandteil einiger Programmiersprachen (beispielsweise als Präfix vor Array-Variablen in der Programmiersprache Perl)",
-            ],
+            {
+                "Bedeutungen": [
+                    "<i>Informatik (seit 1972):</i> das At; notwendiger Bestandteil und Trennzeichen zwischen Benutzername und Domainname bei E-Mail-Adressen",
+                    "<i>Informatik:</i> das At; Syntax-Bestandteil einiger Programmiersprachen (beispielsweise als Präfix vor Array-Variablen in der Programmiersprache Perl)",
+                ]
+            },
             [],
         ),
         (
@@ -26,7 +28,7 @@ from wikidict.utils import process_templates
             ["[siːaɪ̯ˈɛɪ̯]"],
             ["mf"],
             ["Abkürzung von Central Intelligence Agency"],
-            ["US-amerikanischer Auslandsnachrichtendienst"],
+            {"Bedeutungen": ["US-amerikanischer Auslandsnachrichtendienst"]},
             [],
         ),
         (
@@ -36,13 +38,15 @@ from wikidict.utils import process_templates
             [
                 "Dem seit 1960 im Duden lexikalisierten Wort liegt die englische Kollokation <i>at/on the volley</i> ‚aus der Luft‘ zugrunde.",
             ],
-            [
-                "<i>Sport:</i> aus der Luft (angenommen und direkt kraftvoll abgespielt), ohne dass eine Bodenberührung des Sportgeräts vorher stattgefunden hat",
-            ],
+            {
+                "Bedeutungen": [
+                    "<i>Sport:</i> aus der Luft (angenommen und direkt kraftvoll abgespielt), ohne dass eine Bodenberührung des Sportgeräts vorher stattgefunden hat"
+                ]
+            },
             [],
         ),
-        ("trage", ["[ˈtʁaːɡə]"], [], [], [], ["tragen"]),
-        ("daß", [], [], [], [], ["dass"]),
+        ("trage", ["[ˈtʁaːɡə]"], [], [], {}, ["tragen"]),
+        ("daß", [], [], [], {}, ["dass"]),
     ],
 )
 def test_parse_word(

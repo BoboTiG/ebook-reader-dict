@@ -2036,6 +2036,7 @@ langs = {
     "de-AT-vie": "Viennese German",
     "de-CH": "Switzerland German",
     "de-bal": "Baltic German",
+    "de-ear": "Early New High German",
     "dec": "Dagik",
     "ded": "Dedua",
     "dee": "Dewoin",
@@ -3172,7 +3173,7 @@ langs = {
     "hoe": "Horom",
     "hoh": "Hobyót",
     "hoi": "Holikachuk",
-    "hoj": "Hadothi",
+    "hoj": "Hadoti",
     "hok": "Hokan",
     "hol": "Holu",
     "hom": "Homa",
@@ -8428,6 +8429,7 @@ langs = {
     "trk-cmn": "Common Turkic",
     "trk-cmn-pro": "Proto-Common Turkic",
     "trk-dkh": "Dukhan",
+    "trk-eog": "Early Old Oghuz",
     "trk-kar": "Karluk",
     "trk-kbu": "Kipchak-Bulgar",
     "trk-kcu": "Kipchak-Cuman",
@@ -9892,7 +9894,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,887
+}  # 9,889
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

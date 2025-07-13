@@ -12,6 +12,7 @@ import multiprocessing
 import os
 import shutil
 from collections import defaultdict
+from copy import deepcopy
 from datetime import date, timedelta
 from functools import partial
 from pathlib import Path
@@ -35,56 +36,57 @@ if TYPE_CHECKING:
 # Kobo-related dictionaries
 WORD_TPL_KOBO = Template(
     """\
-<w>
-    <p>
-        <a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}
-        <br/>
-        <br/>
-        <ol>
-            {% for definition in definitions %}
-                {% if definition is string %}
-                    <li>{{ definition }}</li>
-                {% else %}
-                    <ol style="list-style-type:lower-alpha">
-                        {% for sub_def in definition %}
-                            {% if sub_def is string %}
-                                <li>{{ sub_def }}</li>
-                            {% else %}
-                                <ol style="list-style-type:lower-roman">
-                                    {% for sub_sub_def in sub_def %}
-                                        <li>{{ sub_sub_def }}</li>
-                                    {% endfor %}
-                                </ol>
-                            {% endif %}
-                        {% endfor %}
+<w><p><a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}<br/><br/>
+{%- for pos, pos_definitions in definitions -%}
+    <b>{{ pos }}</b><ol>
+    {%- for definition in pos_definitions -%}
+        {%- if definition is string -%}
+            <li>{{ definition }}</li>
+        {%- else -%}
+            <ol style="list-style-type:lower-alpha">
+            {%- for sub_def in definition -%}
+                {%- if sub_def is string -%}
+                    <li>{{ sub_def }}</li>
+                {%- else -%}
+                    <ol style="list-style-type:lower-roman">
+                        {%- for sub_sub_def in sub_def -%}
+                            <li>{{ sub_sub_def }}</li>
+                        {%- endfor -%}
                     </ol>
-                {% endif %}
-            {% endfor %}
-        </ol>
-        {% if etymologies %}
-            {% for etymology in etymologies %}
-                {% if etymology is string %}
-                    <p>{{ etymology }}</p>
-                {% else %}
-                    <ol>
-                        {% for sub_etymology in etymology %}
-                            <li>{{ sub_etymology }}</li>
-                        {% endfor %}
-                    </ol>
-                {% endif %}
-            {% endfor %}
-            <br/>
-        {% endif %}
-    </p>
-    {% if variants %}
-        <var>
-        {%- for variant in variants -%}
-            <variant name="{{ variant }}"/>
-        {%- endfor -%}
-        </var>
-    {% endif %}
+                {%- endif -%}
+            {%- endfor -%}
+            </ol>
+        {%- endif -%}
+    {%- endfor -%}
+    </ol>
+{%- endfor -%}
+{%- if etymologies -%}
+    {%- for etymology in etymologies -%}
+        {%- if etymology is string -%}
+            <p>{{ etymology }}</p>
+        {%- else -%}
+            <ol>
+            {%- for sub_etymology in etymology -%}
+                <li>{{ sub_etymology }}</li>
+            {%- endfor -%}
+            </ol>
+        {%- endif -%}
+    {%- endfor -%}
+    <br/>
+{%- endif -%}
+</p>
+{%- if variants -%}
+    <var>
+    {%- for variant in variants -%}
+        <variant name="{{ variant }}"/>
+    {%- endfor -%}
+    </var>
+{%- endif -%}
 </w>
-"""
+""",
+    trim_blocks=True,
+    lstrip_blocks=True,
+    keep_trailing_newline=True,
 )
 
 # DictFile-related dictionaries
@@ -99,8 +101,10 @@ WORD_TPL_DICTFILE = Template(
 {%- for variant in variants %}
 & {{ variant }}
 {%- endfor %}
-<html><ol>
-    {%- for definition in definitions -%}
+<html>
+{%- for pos, pos_definitions in definitions -%}
+    <b>{{ pos }}</b><ol>
+    {%- for definition in pos_definitions -%}
         {%- if definition is string -%}
             <li>{{ definition }}</li>
         {%- else -%}
@@ -119,7 +123,8 @@ WORD_TPL_DICTFILE = Template(
             </ol>
         {%- endif -%}
     {%- endfor -%}
-</ol>
+    </ol>
+{%- endfor -%}
 {%- if etymologies -%}
     {%- for etymology in etymologies -%}
         {%- if etymology is string -%}
@@ -138,6 +143,9 @@ WORD_TPL_DICTFILE = Template(
 
 """
 )
+
+# Threshold before issuing a warning to catch potentially problematic variants
+MAX_VARIANTS = 128
 
 log = logging.getLogger(__name__)
 
@@ -159,18 +167,19 @@ class BaseFormat:
     ) -> None:
         self.lang_src, self.lang_dst = utils.guess_locales(locale)
         self.output_dir = output_dir
-        self.words = words.copy()
-        self.variants = variants.copy()
+        self.words = words
+        self.variants = variants
         self.snapshot = snapshot
         self.include_etymology = include_etymology
         self.start = monotonic()
         self.words_count = 0
         self.variants_count = 0
+        self.id = f"{type(self).__name__} {self.lang_src.upper()}-{self.lang_dst.upper()} {'' if include_etymology else 'no'}etym"
 
         logging.basicConfig(level=logging.INFO)
         log.info(
             "[%s] Starting the conversion with %s words, and %s variants ...",
-            type(self).__name__,
+            self.id,
             f"{len(words):,}",
             f"{len(variants):,}",
         )
@@ -195,7 +204,7 @@ class BaseFormat:
         )
 
     def handle_word(self, word: str, words: Words) -> Generator[str]:
-        details = words[word]
+        details = deepcopy(words[word])
         current_words = {word: details}
         guess_prefix = utils.guess_prefix
         word_group_prefix = guess_prefix(word)
@@ -211,12 +220,12 @@ class BaseFormat:
                 if root := self.words.get(variant):
                     current_words[variant] = root
 
-        all_variants = self.variants
         for current_word, current_details in sorted(current_words.items()):
             if not current_details.definitions:
                 continue
 
-            if variants := all_variants.get(current_word, []):
+            all_variants = self.variants
+            if variants := deepcopy(all_variants.get(current_word, [])):
                 # Add variants of empty* variant, only 1 redirection:
                 #   [ES] gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
                 # Note: the process works backward: from gastar up to gastado up to gastada.
@@ -226,7 +235,7 @@ class BaseFormat:
                         and not wv.definitions
                         and (new_variants := all_variants.get(variant))
                     ):
-                        variants.extend(new_variant for new_variant in new_variants if new_variant != current_word)
+                        variants.extend(new_variants)
 
                 # Filter out variants:
                 #   - variants being identical to the word (it happens when altering `current_words`, cf [***])
@@ -235,21 +244,23 @@ class BaseFormat:
                 variants = [
                     variant
                     for variant in variants
-                    if variant != word and guess_prefix(variant) == current_word_group_prefix
+                    if variant != word
+                    and variant != current_word
+                    and guess_prefix(variant) == current_word_group_prefix
                 ]
 
                 if isinstance(self, KoboFormat):
                     # Variant must be normalized by trimming whitespace and lowercasing it
                     variants = [variant.lower().strip() for variant in variants]
 
-            self.words_count += 1
-            self.variants_count += len(variants)
+                if len(variants := list(set(variants))) > MAX_VARIANTS:
+                    log.warning("Word %r has too many variants (%d): %r", current_word, len(variants), variants)
 
             yield self.render_word(
                 self.template,
                 word=word,
                 current_word=(current_word if isinstance(self, KoboFormat) or current_word != word else ""),
-                definitions=current_details.definitions,
+                definitions=current_details.definitions.items(),
                 pronunciation=utils.convert_pronunciation(current_details.pronunciations)
                 if current_details.pronunciations
                 else "",
@@ -261,35 +272,43 @@ class BaseFormat:
     def process(self) -> None:
         raise NotImplementedError()
 
-    @staticmethod
-    def render_word(template: Template, **kwargs: Any) -> str:
-        return "".join(line.strip() for line in template.render(**kwargs).splitlines()) + "\n"
+    def render_word(self, template: Template, **kwargs: Any) -> str:
+        self.variants_count += len(kwargs["variants"])
+        self.words_count += 1
+        return template.render(**kwargs)
 
     def compute_checksum(self, file: Path) -> None:
         checksum = hashlib.new(constants.ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
         checksum_file = file.with_suffix(f"{file.suffix}.{constants.ASSET_CHECKSUM_ALGO}")
         checksum_file.write_text(f"{checksum} {file.name}")
-        log.info("[%s] Crafted %s (%s)", type(self).__name__, checksum_file.name, checksum)
+        log.info("[%s] Crafted %s (%s)", self.id, checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
         if type(self).__name__ in {KoboFormat.__name__, DictFileFormat.__name__}:
             log.info(
                 "[%s] Effective words + variants: %s + %s => %s",
-                type(self).__name__,
+                self.id,
                 f"{self.words_count:,}",
                 f"{self.variants_count:,}",
                 f"{self.words_count + self.variants_count:,}",
             )
-            log.info("[%s] utils.guess_prefix() %s", type(self).__name__, utils.guess_prefix.cache_info())
+            log.info("[%s] utils.guess_prefix() %s", self.id, utils.guess_prefix.cache_info())
 
         log.info(
             "[%s] Generated %s (%s bytes) in %s",
-            type(self).__name__,
+            self.id,
             file.name,
             f"{file.stat().st_size:,}",
             timedelta(seconds=monotonic() - self.start),
         )
         self.compute_checksum(file)
+
+        log.info(
+            "[%s] Finished the conversion with %s words, and %s variants, as expected.",
+            self.id,
+            f"{len(self.words):,}",
+            f"{len(self.variants):,}",
+        )
 
 
 class KoboFormat(BaseFormat):
@@ -358,8 +377,9 @@ class KoboFormat(BaseFormat):
         # First, create individual HTML files
         wordlist: list[str] = []
         for prefix, words in self.groups.items():
-            to_compress.append(self.save_html(prefix, words, tmp_dir))
-            wordlist.extend(word for word, details in words.items() if details.definitions)
+            if html := self.save_html(prefix, words, tmp_dir):
+                to_compress.append(html)
+            wordlist.extend(words.keys())
 
         # Then create the special "words" file
         to_compress.append(self.craft_index(wordlist, tmp_dir))
@@ -390,7 +410,7 @@ class KoboFormat(BaseFormat):
 
         self.summary(final_file)
 
-    def save_html(self, name: str, words: Words, output_dir: Path) -> Path:
+    def save_html(self, name: str, words: Words, output_dir: Path) -> Path | None:
         """Generate individual HTML files.
 
         Content of the HTML file:
@@ -403,8 +423,9 @@ class KoboFormat(BaseFormat):
         """
 
         # Save to uncompressed HTML
+        if not (data := "".join(line for word in words for line in self.handle_word(word, self.words))):
+            return None
         raw_output = output_dir / f"{name}.raw.html"
-        data = "".join(line for word in words for line in self.handle_word(word, words))
         raw_output.write_text(data, encoding="utf-8")
 
         # Compress the HTML with gzip
@@ -429,14 +450,11 @@ class DictFileFormat(BaseFormat):
 
     def process(self) -> None:
         file = self.dictionary_file(self.output_file)
-        data = "".join(line for word in self.words for line in self.handle_word(word, self.words))
+        words = self.words
+        data = "".join(formatted_word for word in words for formatted_word in self.handle_word(word, words))
         file.write_text(data, encoding="utf-8")
 
         self.summary(file)
-
-    @staticmethod
-    def render_word(template: Template, **kwargs: Any) -> str:
-        return template.render(**kwargs)
 
 
 class DictFileFormatForMobi(DictFileFormat):
@@ -662,7 +680,7 @@ def run_mobi_formatter(
     stats = defaultdict(list)
     for word, details in words.copy().items():
         if len(word) > 127:
-            log.info("[Mobi] Truncated word too long: %r", word)
+            log.info("[Mobi %s] Truncated word too long: %r", locale.upper(), word)
             truncated = word[:127]
             words[truncated] = words.pop(word)
             word = truncated
@@ -673,7 +691,12 @@ def run_mobi_formatter(
         new_words = words.copy()
         threshold = 1
         while len(stats) > 256:
-            log.info("[Mobi] Removing words with unique characters count at %d (total is %d)", threshold, len(stats))
+            log.info(
+                "[Mobi %s] Removing words with unique characters count at %d (total is %d)",
+                locale.upper(),
+                threshold,
+                len(stats),
+            )
             for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
                 if len(related_words) == threshold:
                     for w in related_words:
@@ -684,7 +707,8 @@ def run_mobi_formatter(
             threshold += 1
 
         log.info(
-            "[Mobi] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
+            "[Mobi %s] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
+            locale.upper(),
             f"{len(words) - len(new_words):,}",
             f"{len(new_words):,}",
             len(stats),
@@ -693,7 +717,8 @@ def run_mobi_formatter(
         variants = make_variants(words)
     else:
         log.info(
-            "[Mobi] Untouched words for .mobi (total words count is %s, unique characters count is %d)",
+            "[Mobi %s] Untouched words for .mobi (total words count is %s, unique characters count is %d)",
+            locale.upper(),
             f"{len(words):,}",
             len(stats),
         )
@@ -703,7 +728,7 @@ def run_mobi_formatter(
     try:
         run_formatter(MobiFormat, *args, include_etymology=include_etymology)
     except Exception:
-        log.exception("Error with the Mobi conversion")
+        log.exception("[Mobi %s] Error with the Mobi conversion", locale.upper())
 
 
 def run_formatter(

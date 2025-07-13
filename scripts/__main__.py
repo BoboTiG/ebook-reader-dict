@@ -1,8 +1,10 @@
 import os
 import subprocess
 import sys
+from datetime import timedelta
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
+from time import monotonic
 
 # TODO: Use the official API after https://github.com/astral-sh/ruff/issues/659 is done
 from ruff_api import FormatOptions, format_string
@@ -44,6 +46,7 @@ FILES = {
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
     "ru-labels.py": "wikidict/lang/ru/labels.py",
+    "ru-etymologies.py": "wikidict/lang/ru/etymologies.py",
     "ru-langs.py": "wikidict/lang/ru/langs.py",
     "ru-langs-short.py": "wikidict/lang/ru/langs_short.py",
     "sv-langs.py": "wikidict/lang/sv/langs.py",
@@ -52,7 +55,7 @@ FILES = {
 # En error will be raised when the percentage of deletions from the new content
 # compared to the original content is higher than this percent.
 # Note: the behaviour can be skipped by using the `MANUAL=1` envar.
-MAX_PERCENT_DELETIONS = 1 / 100
+MAX_PERCENT_DELETIONS = 2 / 100
 
 
 class MarkersNotFoundError(ValueError):
@@ -117,6 +120,7 @@ def main() -> int:
     elif "CI" in os.environ:
         processes = 2
 
+    start = monotonic()
     with ThreadPool(processes=processes) as pool:
         for _ in pool.starmap(process_script, tasks):
             pass
@@ -128,6 +132,8 @@ def main() -> int:
         print(error)
         print()
 
+    elapsed = timedelta(seconds=monotonic() - start)
+    print(f"Scripts synchronized in {elapsed}!")
     return len(errors)
 
 

@@ -56,7 +56,6 @@ core_sections = [
     "nom",
     "numéral",
     "onomatopée",
-    "onomatopée",
     "particule",
     "phrase",
     "postposition",
@@ -71,9 +70,6 @@ core_sections = [
     "préfixe",
     "prénom",
     "préposition",
-    "pronom indéfini",
-    "pronom personnel",
-    "pronom relatif",
     "substantif",
     "suffixe",
     "symbole",
@@ -392,6 +388,8 @@ templates_multi = {
     "numéros": 'f\'n{superscript("os")}{parts[1] if len(parts) > 1 else ""}\'',
     # {{o}}
     "o": "superscript('o')",
+    # {{param1ou2|s|ſ}}
+    "param1ou2": "f'{parts[1]} ou {parts[2]}'",
     # {{Pas clair|...}}
     "Pas clair": 'f\'{underline(parts[1]) if len(parts) > 1 else ""}{small("&nbsp;")}{superscript(italic(strong("Pas clair")))}\'',
     # {{petites capitales|Dupont}}
@@ -424,7 +422,7 @@ templates_multi = {
     # {{registre|traditionnellement}}
     "registre": "italic(f\"({capitalize(parts[1])})\") if len(parts) > 1 else ''",
     # {{ruby|泡盛|あわもり}}
-    "ruby": "f'<ruby>{parts[1]}<rt>{parts[2]}</rt></ruby>'",
+    "ruby": "ruby(parts[1], parts[2])",
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
     # {{SIC}}
@@ -942,11 +940,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("=== {{s|caractère}} ===\\n{{hangeul unicode}}", "fr")
     '=== {{s|caractère}} ===\\n# {{hangeul unicode}}'
 
+    >>> adjust_wikicode("* ''Féminin (singulier) de'' {{lien|terne|fr}}.", "fr")
+    '# {{flexion|terne}}'
     >>> adjust_wikicode("# ''Féminin singulier de'' {{lien|terne|fr}}.", "fr")
     '# {{flexion|terne}}'
-
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
     '# {{flexion|pressant}}'
+    >>> adjust_wikicode("#''Féminin (singulier) de '' [[chacun]].", "fr")
+    '# {{flexion|chacun}}'
     >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
     '# {{flexion|anisophylle}}'
     >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
@@ -985,17 +986,21 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # Variants
     #
 
+    start = rf"^(?:{'|'.join(section_patterns)})\s*'+"
+
     # `# ''Féminin singulier de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
+    # `# ''Féminin (singulier) de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
     code = re.sub(
-        r"^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\{\{lien\|([^\|]+)\|.*",
+        rf"{start}.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\{{\{{lien\|([^\|]+)\|.*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
 
     # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {flexion|pouvoir}}`
+    # `# ''Participe passé masculin (singulier) du verbe'' [[pouvoir]].` → `# {flexion|pouvoir}}`
     code = re.sub(
-        r"^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        rf"{start}.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -1013,14 +1018,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
         ]
     )
     code = re.sub(
-        rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        rf"{start}(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
     # `# ''Pluriel de'' {{lien|anisophylle|fr}}.` → `# {{flexion|anisophylle}}`
     code = re.sub(
-        rf"^#\s*'+(?:{forms}).*'\s*\{{\{{lien\|([^\|]+)\|.*",
+        rf"{start}(?:{forms}).*'\s*\{{\{{lien\|([^\|]+)\|.*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -1029,14 +1034,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {flexion|venir}}`
     # `''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].` → `# {flexion|manger}}`
     code = re.sub(
-        r"^#\s*'+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        rf"{start}(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
     # `# ''Troisième personne du singulier du subjonctif présent du verbe'' {{lien|venir|fr}}.` → `# {flexion|venir}}`
     code = re.sub(
-        r"^#\s*'+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\{\{lien\|([^\|]+)\|.*",
+        rf"{start}(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\{{\{{lien\|([^\|]+)\|.*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,

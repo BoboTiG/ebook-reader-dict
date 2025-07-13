@@ -5,757 +5,204 @@ Auto-generated with `python -m scripts`.
 
 # START
 form_of_templates = {
-    "abbreviation of": {
-        "text": "Abbreviation of",
-        "dot": True,
-    },
-    "abbr of": {
-        "text": "Abbreviation of",
-        "dot": True,
-    },
-    "abbrev of": {
-        "text": "Abbreviation of",
-        "dot": True,
-    },
-    "abstract noun of": {
-        "text": "abstract noun of",
-        "dot": False,
-    },
-    "acronym of": {
-        "text": "Acronym of",
-        "dot": True,
-    },
-    "active participle of": {
-        "text": "active participle of",
-        "dot": False,
-    },
-    "adj form of": {
-        "text": "inflection of:",
-        "dot": False,
-    },
-    "agent noun of": {
-        "text": "agent noun of",
-        "dot": False,
-    },
-    "an of": {
-        "text": "agent noun of",
-        "dot": False,
-    },
-    "alternative case form of": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alt case": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "altcase": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alt case form": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alt case form of": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alt case of": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alternative form of": {
-        "text": "Alternative form of",
-        "dot": False,
-    },
-    "alt form": {
-        "text": "Alternative form of",
-        "dot": False,
-    },
-    "altform": {
-        "text": "Alternative form of",
-        "dot": False,
-    },
-    "alt form of": {
-        "text": "Alternative form of",
-        "dot": False,
-    },
-    "alternative plural of": {
-        "text": "plural of kilometer",
-        "dot": False,
-    },
-    "alternative reconstruction of": {
-        "text": "Alternative reconstruction of",
-        "dot": False,
-    },
-    "alternative spelling of": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "alt sp": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "altspell": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "alt spell": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "altsp": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "alt sp of": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "alt spelling of": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "alternative typography of": {
-        "text": "alternative typography of",
-        "dot": False,
-    },
-    "alt typ": {
-        "text": "alternative typography of",
-        "dot": False,
-    },
-    "aphetic form of": {
-        "text": "Aphetic form of",
-        "dot": False,
-    },
-    "apocopic form of": {
-        "text": "Apocopic form of",
-        "dot": False,
-    },
-    "apoc of": {
-        "text": "Apocopic form of",
-        "dot": False,
-    },
-    "archaic form of": {
-        "text": "Archaic form of",
-        "dot": True,
-    },
-    "arch form": {
-        "text": "Archaic form of",
-        "dot": True,
-    },
-    "archaic inflection of": {
-        "text": "Archaic form of",
-        "dot": True,
-    },
-    "archaic spelling of": {
-        "text": "Archaic spelling of",
-        "dot": True,
-    },
-    "arc sp": {
-        "text": "Archaic spelling of",
-        "dot": True,
-    },
-    "archaic sp": {
-        "text": "Archaic spelling of",
-        "dot": True,
-    },
-    "aspirate mutation of": {
-        "text": "Aspirate mutation of",
-        "dot": True,
-    },
-    "attributive form of": {
-        "text": "attributive form of",
-        "dot": False,
-    },
-    "augmentative of": {
-        "text": "augmentative of",
-        "dot": False,
-    },
-    "aug of": {
-        "text": "augmentative of",
-        "dot": False,
-    },
-    "broad form of": {
-        "text": "broad form of",
-        "dot": False,
-    },
-    "causative of": {
-        "text": "causative of",
-        "dot": False,
-    },
-    "clipping of": {
-        "text": "Clipping of",
-        "dot": True,
-    },
-    "clip of": {
-        "text": "Clipping of",
-        "dot": True,
-    },
-    "combining form of": {
-        "text": "Combining form of",
-        "dot": False,
-    },
-    "com form": {
-        "text": "Combining form of",
-        "dot": False,
-    },
-    "comparative of": {
-        "text": "comparative degree of",
-        "dot": False,
-    },
-    "comparative degree of": {
-        "text": "comparative degree of",
-        "dot": False,
-    },
-    "comd of": {
-        "text": "comparative degree of",
-        "dot": False,
-    },
-    "construed with": {
-        "text": "construed with",
-        "dot": False,
-    },
-    "contraction of": {
-        "text": "Contraction of",
-        "dot": True,
-    },
-    "contr of": {
-        "text": "Contraction of",
-        "dot": True,
-    },
-    "dated form of": {
-        "text": "Dated form of",
-        "dot": True,
-    },
-    "dated form": {
-        "text": "Dated form of",
-        "dot": True,
-    },
-    "dated spelling of": {
-        "text": "Dated spelling of",
-        "dot": True,
-    },
-    "dated sp": {
-        "text": "Dated spelling of",
-        "dot": True,
-    },
-    "deliberate misspelling of": {
-        "text": "Deliberate misspelling of",
-        "dot": True,
-    },
-    "diminutive of": {
-        "text": "diminutive of",
-        "dot": False,
-    },
-    "dim of": {
-        "text": "diminutive of",
-        "dot": False,
-    },
-    "eclipsis of": {
-        "text": "Eclipsed form of",
-        "dot": True,
-    },
-    "eggcorn of": {
-        "text": "Eggcorn of",
-        "dot": True,
-    },
-    "ellipsis of": {
-        "text": "Ellipsis of",
-        "dot": False,
-    },
-    "elongated form of": {
-        "text": "Elongated form of",
-        "dot": True,
-    },
-    "endearing diminutive of": {
-        "text": "endearing diminutive of",
-        "dot": False,
-    },
-    "endearing form of": {
-        "text": "endearing form of",
-        "dot": False,
-    },
-    "euphemistic form of": {
-        "text": "Euphemistic form of",
-        "dot": True,
-    },
-    "euph form": {
-        "text": "Euphemistic form of",
-        "dot": True,
-    },
-    "euphemism of": {
-        "text": "Euphemistic form of",
-        "dot": True,
-    },
-    "eye dialect of": {
-        "text": "Eye dialect spelling of",
-        "dot": True,
-    },
-    "female equivalent of": {
-        "text": "female equivalent of",
-        "dot": False,
-    },
-    "feminine equivalent of": {
-        "text": "female equivalent of",
-        "dot": False,
-    },
-    "femeq": {
-        "text": "female equivalent of",
-        "dot": False,
-    },
-    "feminine of": {
-        "text": "feminine of",
-        "dot": False,
-    },
-    "feminine plural of": {
-        "text": "feminine plural of",
-        "dot": False,
-    },
-    "feminine plural past participle of": {
-        "text": "feminine plural of the past participle of",
-        "dot": False,
-    },
-    "feminine singular of": {
-        "text": "feminine singular of",
-        "dot": False,
-    },
-    "feminine singular past participle of": {
-        "text": "feminine singular of the past participle of",
-        "dot": False,
-    },
-    "form of": {
-        "text": "form of",
-        "dot": False,
-    },
-    "former name of": {
-        "text": "Former name of",
-        "dot": True,
-    },
-    "frequentative of": {
-        "text": "frequentative of",
-        "dot": False,
-    },
-    "gerund of": {
-        "text": "gerund of",
-        "dot": False,
-    },
-    "h-prothesis of": {
-        "text": "h-prothesized form of",
-        "dot": False,
-    },
-    "hard mutation of": {
-        "text": "Hard mutation of",
-        "dot": True,
-    },
-    "harmonic variant of": {
-        "text": "harmonic variant of",
-        "dot": False,
-    },
-    "honorific alternative case form of": {
-        "text": "Honorific alternative letter-case form of",
-        "dot": False,
-    },
-    "honor alt case": {
-        "text": "Honorific alternative letter-case form of",
-        "dot": False,
-    },
-    "honour alt case": {
-        "text": "Honorific alternative letter-case form of",
-        "dot": False,
-    },
-    "imperfective form of": {
-        "text": "imperfective form of",
-        "dot": False,
-    },
-    "inflection of": {
-        "text": "inflection of:",
-        "dot": False,
-    },
-    "infl of": {
-        "text": "inflection of:",
-        "dot": False,
-    },
-    "informal form of": {
-        "text": "Informal form of",
-        "dot": True,
-    },
-    "inf form": {
-        "text": "Informal form of",
-        "dot": True,
-    },
-    "informal spelling of": {
-        "text": "Informal spelling of",
-        "dot": True,
-    },
-    "initialism of": {
-        "text": "Initialism of",
-        "dot": True,
-    },
-    "init of": {
-        "text": "Initialism of",
-        "dot": True,
-    },
-    "iterative of": {
-        "text": "iterative of",
-        "dot": False,
-    },
-    "lenition of": {
-        "text": "Lenited form of",
-        "dot": True,
-    },
-    "literary form of": {
-        "text": "literary form of",
-        "dot": True,
-    },
-    "masculine noun of": {
-        "text": "masculine equivalent of",
-        "dot": False,
-    },
-    "masculine of": {
-        "text": "masculine of",
-        "dot": False,
-    },
-    "masculine plural of": {
-        "text": "masculine plural of",
-        "dot": False,
-    },
-    "masculine plural past participle of": {
-        "text": "masculine plural of the past participle of",
-        "dot": False,
-    },
-    "medieval spelling of": {
-        "text": "medieval spelling of",
-        "dot": False,
-    },
-    "men's speech form of": {
-        "text": "men's speech form of",
-        "dot": False,
-    },
-    "misconstruction of": {
-        "text": "Misconstruction of",
-        "dot": False,
-    },
-    "misromanization of": {
-        "text": "Misromanization of",
-        "dot": True,
-    },
-    "misspelling of": {
-        "text": "Misspelling of",
-        "dot": True,
-    },
-    "missp": {
-        "text": "Misspelling of",
-        "dot": True,
-    },
-    "mixed mutation of": {
-        "text": "Mixed mutation of",
-        "dot": True,
-    },
-    "nasal mutation of": {
-        "text": "Nasal mutation of",
-        "dot": True,
-    },
-    "negative of": {
-        "text": "negative form of",
-        "dot": False,
-    },
-    "neuter plural of": {
-        "text": "neuter plural of",
-        "dot": False,
-    },
-    "neuter singular of": {
-        "text": "neuter singular of",
-        "dot": False,
-    },
-    "neuter singular past participle of": {
-        "text": "neuter singular of the past participle of",
-        "dot": False,
-    },
-    "nomen sacrum form of": {
-        "text": "Nomen sacrum form of",
-        "dot": True,
-    },
-    "nominalization of": {
-        "text": "nominalization of",
-        "dot": False,
-    },
-    "nom of": {
-        "text": "nominalization of",
-        "dot": False,
-    },
-    "nonstandard form of": {
-        "text": "Nonstandard form of",
-        "dot": True,
-    },
-    "nstd form": {
-        "text": "Nonstandard form of",
-        "dot": True,
-    },
-    "nonstandard spelling of": {
-        "text": "Nonstandard spelling of",
-        "dot": True,
-    },
-    "nstd sp": {
-        "text": "Nonstandard spelling of",
-        "dot": True,
-    },
-    "noun form of": {
-        "text": "inflection of:",
-        "dot": False,
-    },
-    "nuqtaless form of": {
-        "text": "nuqtaless form of",
-        "dot": False,
-    },
-    "obsolete form of": {
-        "text": "Obsolete form of",
-        "dot": True,
-    },
-    "obs form": {
-        "text": "Obsolete form of",
-        "dot": True,
-    },
-    "obs form of": {
-        "text": "Obsolete form of",
-        "dot": True,
-    },
-    "obsolete spelling of": {
-        "text": "Obsolete spelling of",
-        "dot": False,
-    },
-    "obs sp": {
-        "text": "Obsolete spelling of",
-        "dot": False,
-    },
-    "obs sp of": {
-        "text": "Obsolete spelling of",
-        "dot": False,
-    },
-    "obsolete typography of": {
-        "text": "obsolete typography of",
-        "dot": False,
-    },
-    "obs typ": {
-        "text": "obsolete typography of",
-        "dot": False,
-    },
-    "participle of": {
-        "text": "participle of",
-        "dot": False,
-    },
-    "passive of": {
-        "text": "passive of",
-        "dot": False,
-    },
-    "passive participle of": {
-        "text": "passive participle of",
-        "dot": False,
-    },
-    "past participle form of": {
-        "text": "of the past participle of",
-        "dot": False,
-    },
-    "past participle of": {
-        "text": "past participle of",
-        "dot": False,
-    },
-    "pejorative of": {
-        "text": "Pejorative of",
-        "dot": False,
-    },
-    "perfective form of": {
-        "text": "perfective form of",
-        "dot": False,
-    },
-    "plural of": {
-        "text": "plural of",
-        "dot": False,
-    },
-    "plural": {
-        "text": "plural of",
-        "dot": False,
-    },
-    "present participle of": {
-        "text": "present participle of",
-        "dot": False,
-    },
-    "pronunciation spelling of": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
-    },
-    "pron spelling of": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
-    },
-    "pron sp of": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
-    },
-    "pron sp": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
-    },
-    "pronunciation variant of": {
-        "text": "Pronunciation variant of",
-        "dot": True,
-    },
-    "rare form of": {
-        "text": "Rare form of",
-        "dot": True,
-    },
-    "rare form": {
-        "text": "Rare form of",
-        "dot": True,
-    },
-    "rare spelling of": {
-        "text": "Rare spelling of",
-        "dot": True,
-    },
-    "rare sp": {
-        "text": "Rare spelling of",
-        "dot": True,
-    },
-    "reflexive of": {
-        "text": "reflexive of",
-        "dot": False,
-    },
-    "rfform": {
-        "text": "a form of",
-        "dot": False,
-    },
-    "romanization of": {
-        "text": "Romanization of",
-        "dot": False,
-    },
-    "romanization": {
-        "text": "Romanization of",
-        "dot": False,
-    },
-    "rom of": {
-        "text": "Romanization of",
-        "dot": False,
-    },
-    "scribal abbreviation of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scrib of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scrib abbr of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scrib abbrev of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scribal abbr of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scribal abbrev of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "short for": {
-        "text": "Short for",
-        "dot": True,
-    },
-    "singular of": {
-        "text": "singular of",
-        "dot": False,
-    },
-    "slender form of": {
-        "text": "slender form of",
-        "dot": False,
-    },
-    "soft mutation of": {
-        "text": "Soft mutation of",
-        "dot": True,
-    },
-    "spelling of": {
-        "text": "{{{2}}} spelling of",
-        "dot": False,
-    },
-    "standard form of": {
-        "text": "Standard form of",
-        "dot": True,
-    },
-    "standard spelling of": {
-        "text": "Standard spelling of",
-        "dot": True,
-    },
-    "stand sp": {
-        "text": "Standard spelling of",
-        "dot": True,
-    },
-    "superlative of": {
-        "text": "superlative degree of",
-        "dot": False,
-    },
-    "supd of": {
-        "text": "superlative degree of",
-        "dot": False,
-    },
-    "superseded spelling of": {
-        "text": "Superseded spelling of",
-        "dot": True,
-    },
-    "sup sp": {
-        "text": "Superseded spelling of",
-        "dot": True,
-    },
-    "syncopic form of": {
-        "text": "Syncopic form of",
-        "dot": False,
-    },
-    "synonym of": {
-        "text": "Synonym of",
-        "dot": False,
-    },
-    "syn of": {
-        "text": "Synonym of",
-        "dot": False,
-    },
-    "t-prothesis of": {
-        "text": "t-prothesized form of",
-        "dot": False,
-    },
-    "uncommon form of": {
-        "text": "Uncommon form of",
-        "dot": True,
-    },
-    "uncom form": {
-        "text": "Uncommon form of",
-        "dot": True,
-    },
-    "uncommon spelling of": {
-        "text": "Uncommon spelling of",
-        "dot": True,
-    },
-    "uncom sp": {
-        "text": "Uncommon spelling of",
-        "dot": True,
-    },
-    "verbal noun of": {
-        "text": "verbal noun of",
-        "dot": False,
-    },
-    "verb form of": {
-        "text": "inflection of:",
-        "dot": False,
-    },
-}  # 186
+    "abbreviation of": "abbreviation of",
+    "abbr of": "abbreviation of",
+    "abbrev of": "abbreviation of",
+    "abstract noun of": "abstract noun of",
+    "acronym of": "acronym of",
+    "active participle of": "active participle of",
+    "adj form of": "inflection of:",
+    "agent noun of": "agent noun of",
+    "alternative case form of": "alternative letter-case form of",
+    "alt case": "alternative letter-case form of",
+    "altcase": "alternative letter-case form of",
+    "alt case form": "alternative letter-case form of",
+    "alt case form of": "alternative letter-case form of",
+    "alt case of": "alternative letter-case form of",
+    "alternative form of": "alternative form of",
+    "alt form": "alternative form of",
+    "altform": "alternative form of",
+    "alt form of": "alternative form of",
+    "alternative reconstruction of": "alternative reconstruction of",
+    "alternative spelling of": "alternative spelling of",
+    "alt sp": "alternative spelling of",
+    "altspell": "alternative spelling of",
+    "alt spell": "alternative spelling of",
+    "altsp": "alternative spelling of",
+    "alt sp of": "alternative spelling of",
+    "alt spelling of": "alternative spelling of",
+    "alternative typography of": "alternative typography of",
+    "alt typ": "alternative typography of",
+    "aphetic form of": "aphetic form of",
+    "procopic form of": "aphetic form of",
+    "apocopic form of": "apocopic form of",
+    "apoc of": "apocopic form of",
+    "archaic form of": "archaic form of",
+    "arch form": "archaic form of",
+    "archaic form": "archaic form of",
+    "archaic spelling of": "archaic spelling of",
+    "arch sp": "archaic spelling of",
+    "aspirate mutation of": "aspirate mutation of",
+    "attributive form of": "attributive form of",
+    "augmentative of": "augmentative of",
+    "aug of": "augmentative of",
+    "broad form of": "broad form of",
+    "causative of": "causative of",
+    "clipped compound of": "clipped compound of",
+    "clipcomp of": "clipped compound of",
+    "clipping of": "clipping of",
+    "clip of": "clipping of",
+    "combining form of": "combining form of",
+    "comb form": "combining form of",
+    "comparative of": "comparative degree of",
+    "comparative degree of": "comparative degree of",
+    "comd of": "comparative degree of",
+    "construed with": "construed with",
+    "contraction of": "contraction of",
+    "contr of": "contraction of",
+    "dated form of": "dated form of",
+    "dated form": "dated form of",
+    "dated spelling of": "dated spelling of",
+    "dated sp": "dated spelling of",
+    "deliberate misspelling of": "deliberate misspelling of",
+    "diminutive of": "diminutive of",
+    "dim of": "diminutive of",
+    "eclipsis of": "eclipsed form of",
+    "eggcorn of": "eggcorn of",
+    "ellipsis of": "ellipsis of",
+    "elongated form of": "elongated form of",
+    "endearing diminutive of": "endearing diminutive of",
+    "endearing form of": "endearing form of",
+    "euphemistic form of": "euphemistic form of",
+    "euph form": "euphemistic form of",
+    "eye dialect of": "eye dialect spelling of",
+    "female equivalent of": "female equivalent of",
+    "femeq": "female equivalent of",
+    "feminine of": "feminine of",
+    "feminine plural of": "feminine plural of",
+    "feminine plural past participle of": "feminine plural of the past participle of",
+    "feminine singular of": "feminine singular of",
+    "feminine singular past participle of": "feminine singular of the past participle of",
+    "form of": "form of",
+    "former name of": "former name of",
+    "frequentative of": "frequentative of",
+    "gerund of": "gerund of",
+    "h-prothesis of": "h-prothesized form of",
+    "hard mutation of": "hard mutation of",
+    "harmonic variant of": "harmonic variant of",
+    "honorific alternative case form of": "Honorific alternative letter-case form of",
+    "honor alt case": "Honorific alternative letter-case form of",
+    "honour alt case": "Honorific alternative letter-case form of",
+    "imperfective form of": "imperfective form of",
+    "inflection of": "inflection of:",
+    "infl of": "inflection of:",
+    "informal form of": "informal form of",
+    "inf form": "informal form of",
+    "informal spelling of": "informal spelling of",
+    "initialism of": "initialism of",
+    "init of": "initialism of",
+    "iterative of": "iterative of",
+    "lenition of": "lenited form of",
+    "literary form of": "literary form of",
+    "masculine noun of": "masculine equivalent of",
+    "masculine of": "masculine of",
+    "masculine plural of": "masculine plural of",
+    "masculine plural past participle of": "masculine plural of the past participle of",
+    "medieval spelling of": "medieval spelling of",
+    "men's speech form of": "men's speech form of",
+    "misconstruction of": "misconstruction of",
+    "misspelling of": "misspelling of",
+    "missp": "misspelling of",
+    "mixed mutation of": "mixed mutation of",
+    "nasal mutation of": "nasal mutation of",
+    "negative of": "negative form of",
+    "neuter plural of": "neuter plural of",
+    "neuter singular of": "neuter singular of",
+    "neuter singular past participle of": "neuter singular of the past participle of",
+    "nomen sacrum form of": "nomen sacrum form of",
+    "nominalization of": "nominalization of",
+    "nom of": "nominalization of",
+    "nonstandard form of": "nonstandard form of",
+    "nstd form": "nonstandard form of",
+    "nonstandard spelling of": "nonstandard spelling of",
+    "nstd sp": "nonstandard spelling of",
+    "noun form of": "inflection of:",
+    "nuqtaless form of": "nuqtaless form of",
+    "obsolete form of": "obsolete form of",
+    "obs form": "obsolete form of",
+    "obs form of": "obsolete form of",
+    "obsolete spelling of": "obsolete spelling of",
+    "obs sp": "obsolete spelling of",
+    "obs sp of": "obsolete spelling of",
+    "obsolete typography of": "obsolete typography of",
+    "obs typ": "obsolete typography of",
+    "only used in": "only used in",
+    "only in": "only used in",
+    "participle of": "participle of",
+    "passive participle of": "passive participle of",
+    "past participle form of": "of the past participle of",
+    "past participle of": "past participle of",
+    "pejorative of": "pejorative of",
+    "perfective form of": "perfective form of",
+    "plural of": "plural of",
+    "plural": "plural of",
+    "present participle of": "present participle of",
+    "pronunciation spelling of": "pronunciation spelling of",
+    "pron spelling of": "pronunciation spelling of",
+    "pron sp of": "pronunciation spelling of",
+    "pron sp": "pronunciation spelling of",
+    "pronunciation variant of": "pronunciation variant of",
+    "rare form of": "rare form of",
+    "rare form": "rare form of",
+    "rare spelling of": "rare spelling of",
+    "rare sp": "rare spelling of",
+    "rare spelling": "rare spelling of",
+    "rare sp of": "rare spelling of",
+    "reflexive of": "reflexive of",
+    "rfform": "a form of",
+    "romanization of": "romanization of",
+    "rom of": "romanization of",
+    "scribal abbreviation of": "scribal abbreviation of",
+    "scrib of": "scribal abbreviation of",
+    "short for": "short for",
+    "singular of": "singular of",
+    "slender form of": "slender form of",
+    "soft mutation of": "soft mutation of",
+    "spelling of": "{{{2}}} spelling of",
+    "standard form of": "standard form of",
+    "standard spelling of": "standard spelling of",
+    "stand sp": "standard spelling of",
+    "superlative of": "superlative degree of",
+    "supd of": "superlative degree of",
+    "superseded spelling of": "superseded spelling of",
+    "sup sp": "superseded spelling of",
+    "syllabic abbreviation of": "syllabic abbreviation of",
+    "sylabbr of": "syllabic abbreviation of",
+    "syncopic form of": "syncopic form of",
+    "synonym of": "synonym of",
+    "syn of": "synonym of",
+    "t-prothesis of": "t-prothesized form of",
+    "uncommon form of": "uncommon form of",
+    "uncom form": "uncommon form of",
+    "uncommon form": "uncommon form of",
+    "uncom form of": "uncommon form of",
+    "uncommon spelling of": "uncommon spelling of",
+    "uncom sp": "uncommon spelling of",
+    "uncom sp of": "uncommon spelling of",
+    "uncommon sp": "uncommon spelling of",
+    "uncom spelling": "uncommon spelling of",
+    "uncommon spelling": "uncommon spelling of",
+    "uncommon sp of": "uncommon spelling of",
+    "uncom spelling of": "uncommon spelling of",
+    "verbal noun of": "verbal noun of",
+    "verb form of": "inflection of:",
+}  # 191
 # END
 
 
 # form-of templates not included in the table at https://en.wiktionary.org/wiki/Category:Form-of_templates
-form_of_templates["censored spelling of"] = {
-    "text": "Censored spelling of",
-    "dot": "true",
-}
-form_of_templates["cens sp"] = {"text": "Censored spelling of", "dot": "true"}
+form_of_templates["censored spelling of"] = "Censored spelling of"
+form_of_templates["cens sp"] = form_of_templates["censored spelling of"]
+form_of_templates["ellip of"] = form_of_templates["ellipsis of"]
+form_of_templates["fmr of"] = form_of_templates["former name of"]
+form_of_templates["init"] = form_of_templates["initialism of"]

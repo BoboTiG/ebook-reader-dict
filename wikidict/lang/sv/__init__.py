@@ -113,29 +113,6 @@ templates_other = {
     "dödform": "†",
 }
 
-_gammalstavning = {
-    "aa": "genom rättskrivningsreformen 1948",
-    "auh": "genom rättskrivningsreformen 1996",
-    "äe": "genom rättskrivningsreformen 1996",
-    "dl": "genom rättskrivningsreformen 1948",
-    "dt": "genom stavningsreformen 1906",
-    "eä": "genom sjätte upplagan av SAOL (1889)",
-    "f": "genom stavningsreformen 1906",
-    "ff": "genom rättskrivningsreformen 1996",
-    "fv": "genom stavningsreformen 1906",
-    "gk": "genom sjunde upplagan av SAOL (1900)",
-    "hv": "genom stavningsreformen 1906",
-    "ld": "genom rättskrivningsreformen 1948",
-    "qv": "genom sjätte upplagan av SAOL (1889)",
-    "sär": "genom rättskrivningsreformen 1996",
-    "ss": "genom rättskrivningsreformen 1996",
-    "th": "genom förenklingen under 1800-talet",
-    "w": "vid övergången från fraktur till antikva",
-    "wv": "genom övergången från fraktur till antikva",
-    "zs": "genom stavningsreformen 1973",
-}
-
-
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
 release_description = """\
@@ -195,13 +172,6 @@ def last_template_handler(
         'belagt i språket sedan 2025'
         >>> last_template_handler(["belagt", "sv", "2025", "nt"], "sv")
         'belagt i språket sedan 2025-talet'
-
-        >>> last_template_handler(["gammalstavning", "sv", "fv", "brev"], "sv")
-        '<i>(ålderdomligt) genom stavningsreformen 1906 ersatt av</i> brev'
-        >>> last_template_handler(["gammalstavning", "sv", "m", "Dalarna"], "sv")
-        '<i>(ålderdomligt) ersatt av</i> Dalarna'
-        >>> last_template_handler(["gammalstavning", "ejtagg=1", "sv", "fv", "övergiva"], "sv")
-        '<i>genom stavningsreformen 1906 ersatt av</i> övergiva'
 
         >>> last_template_handler(["härledning", "sv", "gmq-fsv", "nokot sin, nokon sin"], "sv")
         'fornsvenska <i>nokot sin, nokon sin</i>'
@@ -274,11 +244,6 @@ def last_template_handler(
             first_letter = "B"
             suffix = "."
         return f"{first_letter}elagt i språket sedan {year}{suffix}"
-
-    if tpl == "gammalstavning":
-        phrase = "" if data["ejtagg"] == "1" else "(ålderdomligt) "
-        cat = f"{phrase}{_gammalstavning.get(parts[1], '')} ersatt av"
-        return f"{italic(cat)} {parts[-1]}".replace("  ", " ")
 
     if tpl == "härledning":
         parts.pop(0)  # Remove the source lang

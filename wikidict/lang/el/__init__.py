@@ -135,10 +135,14 @@ templates_ignored = (
     "el-κλίση-'ωραίος'",
     "el-ρήμα",
     "ety+",
+    "Q",
+    "quote",
+    "quotation",
     "R:TELETERM",
     "wlogo",
     "ΒΠ",
     "ΠΘ",
+    "παράθεμα",
     "κλείδα-ελλ",
     "επέκταση-ετυ",
     "λείπει η ετυμολογία",
@@ -266,6 +270,8 @@ templates_multi: dict[str, str] = {
     "φόντο": "parts[-1]",
     # {{χρωμ|b80049}}
     "χρωμ": "color(parts[-1])",
+    # {{έλλ|πολυπαλλόμενο σύμφωνο}}
+    "έλλ": "f'<i>έλλειψη του</i> <b>{parts[1]}</b>'",
 }
 # Alias
 templates_multi["l2"] = templates_multi["λ2"]
@@ -305,6 +311,8 @@ templates_other = {
     "βοιωτ": "<i>βοιωτικός τύπος</i>",
     "αεν": "<i>αρσενικό, μόνο στον ενικό</i>",
     "προφορά": "Προφορά",
+    "εν": "<i>ενικός</i>",
+    "πβ": "<i>πβ.</i>",
     # It would require to support full transliterations, but as this template is used only once in Κνωσός, lets cheat!
     # cf. https://el.wiktionary.org/wiki/Module:Linb-translit/data
     "gmy-tr": "𐀒𐀜𐀰 (ko-no-so)",
@@ -535,9 +543,13 @@ def last_template_handler(
         ''
         >>> last_template_handler(["ετυμ", "ar", "el", "آجُرّ", "tr=ʾājurr"], "el")
         '<i>αραβική</i> آجُرّ (ʾājurr)'
+        >>> last_template_handler(["ετυμ", "la", "el", "Civitas Vaticana", "Cīvitās Vāticāna"], "el")
+        '<i>λατινική</i> Cīvitās Vāticāna'
         >>> last_template_handler(["der", "sa", "el","बलि-द्वीप", "tr=bali-dvīpa", "tnl=νησιά προσφορών"], "el")
         '<i>σανσκριτική</i> बलि-द्वीप (bali-dvīpa, νησιά προσφορών)'
 
+        >>> last_template_handler(["γρ", "πολυπαλλόμενο σύμφωνο", "συνών"], "el")
+        '<i>συνώνυμο του</i> <b>πολυπαλλόμενο σύμφωνο</b>'
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
         >>> last_template_handler(["γρ", "ελαιόδενδρο", "μορφή"], "el")
@@ -688,7 +700,7 @@ def last_template_handler(
     if tpl in {"ετυμ", "der"}:
         text = text_language(parts[0])
         if len(parts) > 2:
-            text += f" {parts[2]}"
+            text += f" {parts[-1]}"
         more: list[str] = []
         if tr := data["tr"]:
             more.append(tr)
@@ -828,6 +840,7 @@ def last_template_handler(
         "ειρωνικό": "ειρωνικό",
         "κυριολ": "κυριολεκτικά",
         "κυριολ+μτφρ": "κυριολεκτικά και μεταφορικά",
+        "κυριολ+μτφ": "κυριολεκτικά και μεταφορικά",
         "ετυμ en": "αγγλική",
         "ετυμ fr": "γαλλική",
         "ετυμ_en": "αγγλική",
@@ -917,6 +930,7 @@ def last_template_handler(
             "παρωχ": "παρωχημένη γραφή του",
             "σνρ": "συνηρημένη μορφή του",
             "συνων": "συνώνυμο του",
+            "συνών": "συνώνυμο του",
         }.get(desc, desc)
         return f"{italic(desc)} {strong(data['εμφ'] or parts[0])}"
 

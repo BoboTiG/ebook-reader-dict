@@ -87,8 +87,11 @@ def last_template_handler(
 
         return number(parts[0], locale_aware_fs[locale], locale_aware_ts[locale])
 
-    if tpl == "w":
+    if tpl in {"w", "W"}:
         return render_wikilink(tpl, parts, data)
+
+    if tpl == "Wikidata entity link":
+        return render_wikidata_entity_link(tpl, parts, data)
 
     # Handle the specific {{transliterator}} template (which is a Wiktionary module)
     if tpl == "transliterator":
@@ -108,6 +111,16 @@ def last_template_handler(
     from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}"
+
+
+def render_wikidata_entity_link(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_wikidata_entity_link("Wikidata entity link", ["112383134"], defaultdict(str))
+    'Steve Bruce'
+    """
+    from . import wikidata
+
+    return wikidata.ENTITIES[parts[0]]
 
 
 def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
