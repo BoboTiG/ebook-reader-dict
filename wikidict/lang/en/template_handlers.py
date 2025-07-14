@@ -274,6 +274,16 @@ def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     return small(text.replace(".", "")) if nodot else small(text)
 
 
+def render_blockquote(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_blockquote("blockquote", ["text"], defaultdict(str))
+    '<blockquote>&nbsp;&nbsp;“&nbsp;text&nbsp;”</blockquote>'
+    >>> render_blockquote("blockquote", [], defaultdict(str, {"1": "text"}))
+    '<blockquote>&nbsp;&nbsp;“&nbsp;text&nbsp;”</blockquote>'
+    """
+    return f"<blockquote>&nbsp;&nbsp;“&nbsp;{data['1'] or parts[0]}&nbsp;”</blockquote>"
+
+
 def render_bond_credit_rating(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bond_credit_rating("bond credit rating", ["a bond is upper-medium grade with low risk of default"], defaultdict(str, {"lt": "1", "s": "1", "f": "1"}))
@@ -2942,6 +2952,7 @@ template_mapping = {
     "bf": render_foreign_derivation,
     "blend of": render_morphology,
     "blend": render_morphology,
+    "blockquote": render_blockquote,
     "bond credit rating": render_bond_credit_rating,
     "bor": render_foreign_derivation,
     "bor-lite": render_foreign_derivation,
