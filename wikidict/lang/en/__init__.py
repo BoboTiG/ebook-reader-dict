@@ -207,6 +207,7 @@ templates_ignored = (
     "wikidata",
     "wikipedia",
     "Wikipedia",
+    "wikiquote",
     "wikispecies",
     "Wikispecies",
     "word",
