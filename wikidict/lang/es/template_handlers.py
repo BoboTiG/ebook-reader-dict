@@ -818,11 +818,10 @@ def render_variante(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     """
     >>> render_variante("variante", ["atiesar"], defaultdict(str))
     '<i>Variante de</i> atiesar'
-    >>> render_variante("variante", ["diezmo"], defaultdict(str, {"texto":"Variante anticuada de"}))
-    '<i>Variante anticuada de</i> diezmo'
+    >>> render_variante("variante", ["diezmo"], defaultdict(str, {"texto":"variante anticuada de"}))
+    '<i>variante anticuada de</i> diezmo'
     """
-    sentence = data["texto"] or "variante de"
-    return f"{italic(capitalize(sentence))} " + render_l("l", [parts[0]], data)
+    return f"{italic(data['texto'] or 'Variante de')} " + render_l("l", [parts[0]], data)
 
 
 def render_variantes(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
