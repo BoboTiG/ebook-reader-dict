@@ -3144,6 +3144,7 @@ template_mapping = {
     "sound-symbolic": render_sound_symbolic,
     "sound symbolic": render_sound_symbolic,
     "spelling pronunciation": render_spelling_pronunciation,
+    "spoon of": render_spoonerism,
     "spoonerism": render_spoonerism,
     "spoonerism of": render_spoonerism,
     "ss": render_semantic_shift,
