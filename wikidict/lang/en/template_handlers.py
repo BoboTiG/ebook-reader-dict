@@ -3142,6 +3142,7 @@ template_mapping = {
     "sl": render_foreign_derivation,
     "slbor": render_foreign_derivation,
     "sound-symbolic": render_sound_symbolic,
+    "sound symbolic": render_sound_symbolic,
     "spelling pronunciation": render_spelling_pronunciation,
     "spoonerism": render_spoonerism,
     "spoonerism of": render_spoonerism,
