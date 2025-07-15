@@ -3129,6 +3129,7 @@ template_mapping = {
     "rdp": render_reduplication,
     "rebracketing": render_rebracketing,
     "reduplication": render_reduplication,
+    "reduplication of": render_reduplication,
     "semantic loan": render_foreign_derivation,
     "semantic shift": render_semantic_shift,
     "semi-learned borrowing": render_foreign_derivation,
