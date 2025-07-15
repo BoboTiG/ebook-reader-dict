@@ -306,6 +306,8 @@ templates_multi = {
     "sup": "superscript(parts[1])",
     # {{syc-root|ܪ ܩ ܥ}}
     "syc-root": "parts[-1]",
+    # {{t|mi|pōhutukawa}}
+    "t": "parts[-1]",
     # {{taxfmt|Gadus macrocephalus|species|ver=170710}}
     "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
