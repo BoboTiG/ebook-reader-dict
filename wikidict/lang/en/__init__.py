@@ -284,6 +284,8 @@ templates_multi = {
     "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{orthography|&thinsp;𝼊&thinsp;}}
     "orthography": "f'⟨{parts[1]}⟩'",
+    # {overline|s}}
+    "overline": "f'<span style=\"text-decoration:overline\">{parts[1]}</span>'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{Runr-def|ᛗ}}
