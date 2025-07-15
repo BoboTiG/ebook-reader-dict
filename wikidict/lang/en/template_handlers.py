@@ -1020,6 +1020,8 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
         "cog-lite",
         "cognate",
         "etyl",
+        "false cognate",
+        "fcog",
         "langname-mention",
         "m+",
         "nc",
@@ -1049,6 +1051,8 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
             starter = "calque of "
         if tpl in {"der+"}:
             starter = "derived from "
+        if tpl in {"false cognate", "fcog"}:
+            starter = "false cognate of "
         elif tpl in {"inh+"}:
             starter = "inherited from "
         elif tpl in {"partial calque", "pcal", "pclq"}:
@@ -3030,6 +3034,8 @@ template_mapping = {
     "etydate": render_etydate,
     "etyl": render_foreign_derivation,
     "fa sp": render_fa_sp,
+    "false cognate": render_foreign_derivation,
+    "fcog": render_foreign_derivation,
     "filter-avoidance spelling of": render_fa_sp,
     "frac": render_frac,
     "g": render_g,
