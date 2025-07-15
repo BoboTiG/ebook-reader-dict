@@ -2493,6 +2493,28 @@ def render_reduplication(tpl: str, parts: list[str], data: defaultdict[str, str]
     return misc_variant("reduplication", tpl, parts, data, word=word)
 
 
+def render_semantic_shift(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_semantic_shift("ss", ["en"], defaultdict(str))
+    'semantic shift'
+    >>> render_semantic_shift("ss", ["en"], defaultdict(str, {"type": "a"}))
+    'ameliorative semantic shift'
+    >>> render_semantic_shift("ss", ["en"], defaultdict(str, {"type": "b"}))
+    'semantic broadening'
+    >>> render_semantic_shift("ss", ["en"], defaultdict(str, {"type": "n"}))
+    'semantic narrowing'
+    >>> render_semantic_shift("ss", ["en"], defaultdict(str, {"type": "p"}))
+    'pejorative semantic shift'
+    """
+    return {
+        "": "semantic shift",
+        "a": "ameliorative semantic shift",
+        "b": "semantic broadening",
+        "n": "semantic narrowing",
+        "p": "pejorative semantic shift",
+    }[data["type"]]
+
+
 def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit("SI-unit", ["en", "peta", "second", "time"], defaultdict(str))
@@ -3102,6 +3124,7 @@ template_mapping = {
     "rebracketing": render_rebracketing,
     "reduplication": render_reduplication,
     "semantic loan": render_foreign_derivation,
+    "semantic shift": render_semantic_shift,
     "semi-learned borrowing": render_foreign_derivation,
     "SI-unit": render_si_unit,
     "SI-unit-2": render_si_unit_2,
@@ -3115,6 +3138,7 @@ template_mapping = {
     "spelling pronunciation": render_spelling_pronunciation,
     "spoonerism": render_spoonerism,
     "spoonerism of": render_spoonerism,
+    "ss": render_semantic_shift,
     "suf": render_morphology,
     "suffix": render_morphology,
     "surf": render_surface_analysis,
