@@ -2872,6 +2872,14 @@ def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
         return "Unknown"
 
 
+def render_used_in_phrasal_verbs(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_used_in_phrasal_verbs("used in phrasal verbs", ["abide by"], defaultdict(str, {"lang": "en", "t": "to accept and act in accordance with"}))
+    '<i>Used in a phrasal verb:</i> <b>abide by</b> (“to accept and act in accordance with”).'
+    """
+    return f"<i>Used in a phrasal verb:</i> <b>{parts[0]}</b>{gloss_tr_poss(data, data['t'])}."
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("__variant__en-archaic third-person singular of", ["verb"], defaultdict(str))
@@ -3078,6 +3086,7 @@ template_mapping = {
     "pedialite": render_pedia,
     "phonetic alphabet": render_phonetic_alphabet,
     "phono-semantic matching": render_foreign_derivation,
+    "phrasal verb": render_used_in_phrasal_verbs,
     "piecewise doublet": render_morphology,
     "piecewise_doublet": render_morphology,
     "place": render_place,
@@ -3131,6 +3140,7 @@ template_mapping = {
     "univerbation": render_univerbation,
     "unk": render_unknown,
     "unknown": render_unknown,
+    "used in phrasal verbs": render_used_in_phrasal_verbs,
     "vern": render_vern,
     "vernacular": render_vern,
     "vi-l": render_vi_l,
