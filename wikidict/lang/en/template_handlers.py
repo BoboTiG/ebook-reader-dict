@@ -2498,7 +2498,7 @@ def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     >>> render_si_unit("SI-unit", ["en", "peta", "second", "time"], defaultdict(str))
     '(<i>metrology</i>) An SI unit of time equal to 10<sup>15</sup> seconds. Symbol: Ps'
     >>> render_si_unit("SI-unit-np", ["en", "nano", "gauss", "magnetism"], defaultdict(str))
-    '(<i>metrology</i>) An SI unit of magnetism equal to 10<sup>-9</sup> gauss.'
+    '(<i>metrology</i>) An SI unit of magnetism equal to 10<sup>−9</sup> gauss.'
     >>> render_si_unit("SI-unit", ["en", "peta", "second"], defaultdict(str))
     '(<i>metrology</i>) An SI unit of time equal to 10<sup>15</sup> seconds. Symbol: Ps'
     """
@@ -2531,7 +2531,7 @@ def render_si_unit_2(tpl: str, parts: list[str], data: defaultdict[str, str], *,
 def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit_abb("SI-unit-abb", ["femto", "mole", "amount of substance"], defaultdict(str))
-    '(<i>metrology</i>) <i>Symbol for</i> <b>femtomole</b>, an SI unit of amount of substance equal to 10<sup>-15</sup> moles'
+    '(<i>metrology</i>) <i>Symbol for</i> <b>femtomole</b>, an SI unit of amount of substance equal to 10<sup>−15</sup> moles'
     >>> render_si_unit_abb("SI-unit-abbnp", ["exa", "hertz", "frequency"], defaultdict(str))
     '(<i>metrology</i>) <i>Symbol for</i> <b>exahertz</b>, an SI unit of frequency equal to 10<sup>18</sup> hertz'
     """
