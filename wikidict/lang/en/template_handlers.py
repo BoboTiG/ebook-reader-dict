@@ -3128,6 +3128,7 @@ template_mapping = {
     "psm": render_foreign_derivation,
     "rdp": render_reduplication,
     "rebracketing": render_rebracketing,
+    "redup": render_reduplication,
     "reduplication": render_reduplication,
     "reduplication of": render_reduplication,
     "semantic loan": render_foreign_derivation,
