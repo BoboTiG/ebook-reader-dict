@@ -351,6 +351,7 @@ templates_multi["upright"] = templates_multi["noitalic"]
 
 # Templates that will be completed/replaced using custom text.
 templates_other = {
+    "'": "'",
     "--": "&nbsp;—",
     "-a-o-x": "The gender-neutral suffix <i>-x</i> replaces the gendered suffixes <i>-a/i> and <i>-o</i>.",
     "-a-o-@": "The at-sign (@) resembles both the feminine ending/element <i>a</i> and the masculine <i>o</i>.",
