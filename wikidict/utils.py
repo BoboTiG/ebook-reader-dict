@@ -653,6 +653,15 @@ def clean(text: str) -> str:
         >>> clean("<gallery>\nImage: Hydra (creature).jpg|due idre minacciose\nImage: Hydre.jpg|idra minacciosa\nImage: Chateauneuf-Randon de Joyeuse.svg|d'oro, a tre pali d'azzurro; al capo di rosso caricato di tre idre minacciose del campo<br /></gallery>")
         ''
 
+        >>> clean("<br />")
+        ''
+        >>> clean("<br>")
+        ''
+        >>> clean("{{code|html|<br />}}")
+        '{{code|html|<br />}}'
+        >>> clean("{{code|js|<br />}}")
+        '{{code|js|}}'
+
         >>> clean(" <")
         '<'
         >>> clean("< ")
@@ -699,8 +708,8 @@ def clean(text: str) -> str:
     text = sub2(r"'''(\0*+[^'\n]++.*?)(?:''')", "<b>\\1</b>", text)
     # ''foo'' → <i>foo></i>
     text = sub2(r"''(\0*+[^'\n]++.*?)(?:'')", "<i>\\1</i>", text)
-    # <br> / <br /> → ''
-    text = sub(r"<br[^>]+/?>", "", text)
+    # (outside of {{code|...}}) <br> / <br /> → ''
+    text = sub(r"(?<!code\|html\|)<br[^>]*/?>", "", text)
 
     # <nowiki/> → ''
     text = text.replace("<nowiki/>", "")

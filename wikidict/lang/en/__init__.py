@@ -232,6 +232,8 @@ templates_multi = {
     "caps": "parts[-1]",
     # {{caret notation of|null}}
     "caret notation of": "f'<i>(computing) The ASCII control character</i> <b>{parts[1]}</b> <i>in caret notation</i>.'",
+    # {{code|js|=(65535).toString(16) === 'ffff'}}
+    "code": "code(parts[1], parts[2])",
     "color panel": "color(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + (f'–{parts[2]}' if len(parts) > 2 else '') + ']')",

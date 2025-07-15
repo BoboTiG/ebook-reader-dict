@@ -444,6 +444,7 @@ def test_parse_word(
             "<i>(computing) The ASCII control character</i> <b>null</b> <i>in caret notation</i>.",
         ),
         ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>"),
+        ("{{code|js|=(65535).toString(16) === 'ffff'}}", "<code>(65535).toString(16) === 'ffff'</code>"),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
         ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>"),
         ("{{gloss|liquid H<sub>2</sub>O}}", "(liquid H<sub>2</sub>O)"),
