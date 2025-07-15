@@ -1007,6 +1007,8 @@ labels = {
     "anthropology": "anthropology",
     "anti-LGBTQ slur": "anti-LGBTQ slur",
     "antiquated": "archaic",
+    "apidology": "beekeeping",
+    "apiology": "beekeeping",
     "arachnology": "arachnology",
     "archaeological culture": "archaeology",
     "archaeological cultures": "archaeology",
@@ -1077,6 +1079,7 @@ labels = {
     "biblical character": "biblical",
     "biblical figure": "biblical",
     "bibliography": "bibliography",
+    "bicycle part": "cycling",
     "bicycle parts": "cycling",
     "bicycling": "cycling",
     "billiards": "billiards",
@@ -1837,6 +1840,7 @@ labels = {
     "meioses": "meiosis",
     "meiosis": "meiosis",
     "meiotic": "meiosis",
+    "melittology": "beekeeping",
     "men's speech": "men's speech",
     "mental health": "mental health",
     "merry-Murray": "''merry''–''Murray'' merger",
@@ -2694,7 +2698,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,689
+}  # 2,693
 
 syntaxes = {
     "&": {
