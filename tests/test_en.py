@@ -445,6 +445,8 @@ def test_parse_word(
         ),
         ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>"),
         ("{{code|js|=(65535).toString(16) === 'ffff'}}", "<code>(65535).toString(16) === 'ffff'</code>"),
+        ("{{color panel|E34234}}", "[RGB E34234]"),
+        ("{{color panel|vermilion|E34234}}", "vermilion: [RGB E34234]"),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
         ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>"),
         ("{{gloss|liquid H<sub>2</sub>O}}", "(liquid H<sub>2</sub>O)"),
