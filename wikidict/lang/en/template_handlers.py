@@ -2666,6 +2666,14 @@ def render_spoonerism(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return misc_variant("spoonerism", tpl, parts, data, word=word)
 
 
+def render_sumti(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_sumti("sumti", ["3"], defaultdict(str, {"int": "3"}))
+    'x<sub>3</sub>'
+    """
+    return f"x<sub>{parts[0]}</sub>"
+
+
 def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
@@ -3155,6 +3163,7 @@ template_mapping = {
     "ss": render_semantic_shift,
     "suf": render_morphology,
     "suffix": render_morphology,
+    "sumti": render_sumti,
     "surf": render_surface_analysis,
     "surface analysis": render_surface_analysis,
     "surface etymology": render_surface_analysis,
