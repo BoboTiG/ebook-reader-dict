@@ -460,6 +460,31 @@ def adjust_wikicode(code: str, locale: str) -> str:
     ''
     >>> adjust_wikicode("<!--\nsco\n-->", "it")
     ''
+
+    >>> adjust_wikicode("<ref name=oed/>Modelled<ref>Gerhard</ref> English<ref name=oed>Press.</ref>", "en")
+    'Modelled English'
+    >>> adjust_wikicode('From {{uder|en|la|Augeas}} {{suffix|en||an}}. {{w|Augeas}} is a figure in Greek mythology whose stables were never cleaned until {{w|Hercules}} was given the task of cleaning them.<ref name="AT">\n''Ariadne’s Thread: A Guide to International Tales Found in Classical Literature'' by William F. Hansen (2002; [http://www.cornellpress.cornell.edu/cup_detail.taf?ti_id=3674 Cornell University Press]; {{ISBN|9780801475726}}, 9780801436703), [http://books.google.co.uk/books?id=ezDlXl7gP9oC&pg=PA160&dq=%22Augean+stables%22&ei=ZAtOSoPJIY6-yQTn9ezvAg page 160]<br>  ''Herakles Cleans the Augean Stables''<br>  One of the best-known stories attached to Herakles tells how in one day he removed the dung from King Augeias’s cattle yard, which had not been cleaned in years.</ref>', "en")
+    'From {{uder|en|la|Augeas}} {{suffix|en||an}}. {{w|Augeas}} is a figure in Greek mythology whose stables were never cleaned until {{w|Hercules}} was given the task of cleaning them.'
+    >>> adjust_wikicode("<ref>{{Import:CFC}}</ref>", "en")
+    ''
+    >>> adjust_wikicode("<ref>{{Import:CFC}}</ref>bla bla bla <ref>{{Import:CFC}}</ref>", "en")
+    'bla bla bla '
+    >>> adjust_wikicode("<ref>{{Lit-Pfeifer: Etymologisches Wörterbuch|A=8}}, Seite 1551, Eintrag „Wein“<br />siehe auch: {{Literatur | Online=zitiert nach {{GBS|uEQtBgAAQBAJ|PA76|Hervorhebung=Wein}} | Autor=Corinna Leschber| Titel=„Wein“ und „Öl“ in ihren mediterranen Bezügen, Etymologie und Wortgeschichte | Verlag=Frank & Timme GmbH | Ort= | Jahr=2015 | Seiten=75–81 | Band=Band 24 von Forum: Rumänien, Culinaria balcanica, herausgegeben von Thede Kahl, Peter Mario Kreuter, Christina Vogel | ISBN=9783732901388}}.", "en")
+    ''
+    >>> adjust_wikicode('<ref name="CFC" />', "en")
+    ''
+    >>> adjust_wikicode('<ref name="CFC">{{Import:CFC}}</ref>', "en")
+    ''
+    >>> adjust_wikicode('<ref name="CFC">{{CFC\\n|foo}}</ref>', "en")
+    ''
+    >>> adjust_wikicode("<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>", "en")
+    ''
+    >>> adjust_wikicode("<ref>", "en")
+    ''
+    >>> adjust_wikicode("</ref>", "en")
+    ''
+    >>> adjust_wikicode('<ref name="Marshall 2001"><sup>he</sup></ref>', "en")
+    ''
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -501,6 +526,17 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     # {{!}} → "|"
     # code = code.replace("{{!}}", "|")
+
+    # <ref name="CFC"/> → ''
+    code = re.sub(r"<ref[^>]*/>", "", code)
+    # <ref>foo → ''
+    # <ref>foo</ref> → ''
+    # <ref name="CFC">{{Import:CFC}}</ref> → ''
+    # <ref name="CFC"><tag>...</tag></ref> → ''
+    code = re.sub(r"<ref[^>]*/?>[\s\S]*?(?:</ref>|$)", "", code)
+    # <ref> → ''
+    # </ref> → ''
+    code = code.replace("<ref>", "").replace("</ref>", "")
 
     func: Callable[[str, str], str] = lang.adjust_wikicode[locale]
     return func(code, locale)
