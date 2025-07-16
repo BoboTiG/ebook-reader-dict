@@ -274,6 +274,7 @@ def find_etymology(
             "el": {f"<b>{word}</b> &lt;"},
             "en": {
                 "Abbreviations.",
+                "See",
                 "See further at etymology 1.",
                 "Variant forms.",
                 "Unknown",
