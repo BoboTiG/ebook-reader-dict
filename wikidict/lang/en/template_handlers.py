@@ -1938,10 +1938,13 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     ]
 
     # Aliases
-    if tpl == "dbt":
-        tpl = "doublet"
+    tpl = {
+        "dbt": "doublet",
+        "piecewise_doublet": "piecewise doublet",
+        "pwdbt": "piecewise doublet",
+    }.get(tpl, tpl)
 
-    with_start_text = ["doublet", "piecewise doublet", "blend", "blend of"]
+    with_start_text = ["blend", "blend of", "doublet", "piecewise doublet"]
     parts.pop(0)  # language code
     phrase = "Compound of " if tpl == "com+" else ""
     if data["notext"] != "1" and tpl in with_start_text:
@@ -3126,6 +3129,7 @@ template_mapping = {
     "pseudo-acronym": render_pseudo_acronym_of,
     "pseudo-acronym of": render_pseudo_acronym_of,
     "psm": render_foreign_derivation,
+    "pwdbt": render_morphology,
     "rdp": render_reduplication,
     "rebracketing": render_rebracketing,
     "redup": render_reduplication,
