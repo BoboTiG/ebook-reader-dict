@@ -20,6 +20,7 @@ from ...user_functions import (
     superscript,
     term,
 )
+from . import geochronology, si_unit
 from .form_of import form_of_templates
 from .labels import labels, syntaxes
 from .langs import langs
@@ -29,7 +30,6 @@ from .places import (
     recognized_placetypes,
     recognized_qualifiers,
 )
-from .si_unit import prefix_to_exp, prefix_to_symbol, unit_to_symbol, unit_to_type
 
 
 def gender_number_specs(parts: str) -> str:
@@ -1153,6 +1153,32 @@ def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: s
     '<i>m</i> <i>or</i> <i>f pl</i>'
     """
     return " <i>or</i> ".join([gender_number_specs(part) for part in parts])
+
+
+def render_geochronology(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    Source: https://en.wiktionary.org/w/index.php?title=Template:geochronology&oldid=73432381
+
+    >>> render_geochronology("geochronology", ["en", "Hadean"], defaultdict(str))
+    '<i>(geology)</i> The Hadean eon; part of the Precambrian supereon, spanning from around 4.6 to 4 billion years ago.'
+    """
+    lang = parts.pop(0)
+    unit = parts.pop(0)
+
+    desc = "The " if lang == "en" else "the"
+    desc += f"{unit} {geochronology.unit_to_type[unit]}"
+    desc += "; " if lang == "en" else " ("
+
+    if unit in {"Precambrian", "Phanerozoic"}:
+        pass
+    elif parent := geochronology.unit_to_parent.get(unit):
+        parent_type = geochronology.unit_to_type[parent]
+        desc += f"part of the {parent} {parent_type}, "
+
+    desc += f"spanning from {geochronology.unit_span.get(unit, 'unknown time span')}"
+    desc += "." if lang == "en" else ")"
+
+    return f"<i>(geology)</i> {desc}"
 
 
 def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -2545,12 +2571,12 @@ def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     parts.pop(0)  # language
     prefix = data["2"] or (parts.pop(0) if parts else "")
     unit = data["3"] or (parts.pop(0) if parts else "")
-    category = data["4"] or (parts.pop(0) if parts else "") or unit_to_type.get(unit, "")
-    exp = prefix_to_exp.get(prefix, "")
+    category = data["4"] or (parts.pop(0) if parts else "") or si_unit.unit_to_type.get(unit, "")
+    exp = si_unit.prefix_to_exp.get(prefix, "")
     s_end = "" if unit.endswith("z") or unit.endswith("s") else "s"
     phrase = f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}{s_end}."
-    if unit in unit_to_symbol:
-        symbol = prefix_to_symbol.get(prefix, "") + unit_to_symbol.get(unit, "")
+    if unit in si_unit.unit_to_symbol:
+        symbol = f"{si_unit.prefix_to_symbol.get(prefix, '')}{si_unit.unit_to_symbol.get(unit, '')}"
         phrase += f" Symbol: {symbol}"
     return phrase
 
@@ -2564,7 +2590,7 @@ def render_si_unit_2(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     unit = data["2"] or (parts.pop(0) if parts else "")
     category = data["3"] or (parts.pop(0) if parts else "")
     alt = data["3"] or (parts.pop(0) if parts else "")
-    exp = prefix_to_exp.get(prefix, "")
+    exp = si_unit.prefix_to_exp.get(prefix, "")
     return f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix + alt)}."
 
 
@@ -2578,7 +2604,7 @@ def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], 
     prefix = data["1"] or (parts.pop(0) if parts else "")
     unit = data["2"] or (parts.pop(0) if parts else "")
     category = data["3"] or (parts.pop(0) if parts else "")
-    exp = prefix_to_exp.get(prefix, "")
+    exp = si_unit.prefix_to_exp.get(prefix, "")
     plural = "" if tpl.endswith("np") else "s"
     return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}{plural}"
 
@@ -3062,6 +3088,7 @@ template_mapping = {
     "filter-avoidance spelling of": render_fa_sp,
     "frac": render_frac,
     "g": render_g,
+    "geochronology": render_geochronology,
     "given name": render_given_name,
     "Han simp": render_han_simp,
     "he-l": render_he_l,
