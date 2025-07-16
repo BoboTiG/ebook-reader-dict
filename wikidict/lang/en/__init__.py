@@ -338,6 +338,8 @@ templates_multi = {
     "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
+    # {{trademark erosion|en|Zamboni|Frank J. Zamboni & Co. Inc.}}
+    "trademark erosion": "f'<i>{parts[2]}</i> was originally (and may still be) a trademark of {parts[3]}. Its use in the general sense is an example of trademark erosion. '",
     # {{IUPAC-1|alanine}}
     "IUPAC-1": 'f"IUPAC 1-letter symbol for {parts[1]}"',
 }
