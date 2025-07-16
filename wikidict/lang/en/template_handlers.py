@@ -1620,6 +1620,8 @@ def render_ja_r(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     """
     >>> render_ja_r("ja-r", ["羨ましい"], defaultdict(str))
     '羨ましい'
+    >>> render_ja_r("ja-r", ["羨ましい", "羨ましい"], defaultdict(str))
+    '羨ましい'
     >>> render_ja_r("ja-r", ["羨ましい", "うらやましい"], defaultdict(str))
     '<ruby>羨ましい<rt>うらやましい</rt></ruby>'
     >>> render_ja_r("ja-r", ["羨ましい", "うらやましい", "a"], defaultdict(str, {"lit": "lit"}))
@@ -1637,18 +1639,24 @@ def render_ja_r(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
     >>> render_ja_r("ryu-r", ["唐手", "とーでぃー"], defaultdict(str, {"t": "Chinese hand"}))
     '<ruby>唐手<rt>とーでぃー</rt></ruby> (“Chinese hand”)'
+
+    >>> render_ja_r("ja-compound", ["唐手", "とーでぃー"], defaultdict(str, {"t": "Chinese hand", "noquote": "1"}))
+    '<ruby>唐手<rt>とーでぃー</rt></ruby> (Chinese hand)'
     """
     if len(parts) == 1 or not parts[1]:
         text = parts[0]
     else:
-        parts[1] = parts[1].removeprefix("^")
-
-        if sep := "%" if "%" in parts[0] else " " if " " in parts[0] else "":
-            texts = [part.strip() for part in parts[0].split(sep)]
-            tops = [part.strip() for part in parts[1].split(sep)]
-            text = "".join(t if t == p else ruby(t, p) for t, p in zip(texts, tops))
+        if parts[0] == parts[1]:
+            text = parts[0]
         else:
-            text = ruby(parts[0], parts[1])
+            parts[1] = parts[1].removeprefix("^")
+
+            if sep := "%" if "%" in parts[0] else " " if " " in parts[0] else "":
+                texts = [part.strip() for part in parts[0].split(sep)]
+                tops = [part.strip() for part in parts[1].split(sep)]
+                text = "".join(t if t == p else ruby(t, p) for t, p in zip(texts, tops))
+            else:
+                text = ruby(parts[0], parts[1])
 
     more: list[str] = []
     if len(parts) > 2:
