@@ -2781,7 +2781,7 @@ def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, s
     >>> render_surface_analysis("surf", ["+suf", "en", "ignore", "ance"], defaultdict(str))
     'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
     """
-    phrase = ("b" if data["nocap"] in ("1", "yes", "y") else "B") + "y surface analysis"
+    phrase = ("b" if data["nocap"] else "B") + "y surface analysis"
     if not parts:
         return phrase
 
