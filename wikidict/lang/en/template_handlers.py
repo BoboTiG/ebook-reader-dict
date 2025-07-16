@@ -1618,22 +1618,25 @@ def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
 def render_ja_r(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_ja_r("ja-l", ["羨ましい"], defaultdict(str))
+    >>> render_ja_r("ja-r", ["羨ましい"], defaultdict(str))
     '羨ましい'
-    >>> render_ja_r("ja-l", ["羨ましい", "うらやましい"], defaultdict(str))
+    >>> render_ja_r("ja-r", ["羨ましい", "うらやましい"], defaultdict(str))
     '<ruby>羨ましい<rt>うらやましい</rt></ruby>'
-    >>> render_ja_r("ja-l", ["羨ましい", "うらやましい", "a"], defaultdict(str, {"lit": "lit"}))
+    >>> render_ja_r("ja-r", ["羨ましい", "うらやましい", "a"], defaultdict(str, {"lit": "lit"}))
     '<ruby>羨ましい<rt>うらやましい</rt></ruby> (“a”, literally “lit”)'
-    >>> render_ja_r("ja-l", ["羨ましい", "", "a"], defaultdict(str, {"lit": "lit"}))
+    >>> render_ja_r("ja-r", ["羨ましい", "", "a"], defaultdict(str, {"lit": "lit"}))
     '羨ましい (“a”, literally “lit”)'
 
-    >>> render_ja_r("ja-l", ["任天堂", "^ニンテンドー"], defaultdict(str))
+    >>> render_ja_r("ja-r", ["任天堂", "^ニンテンドー"], defaultdict(str))
     '<ruby>任天堂<rt>ニンテンドー</rt></ruby>'
 
-    >>> render_ja_r("ja-l", ["物%の%哀れ", "もの %の% あわれ"], defaultdict(str))
+    >>> render_ja_r("ja-r", ["物%の%哀れ", "もの %の% あわれ"], defaultdict(str))
     '<ruby>物<rt>もの</rt></ruby>の<ruby>哀れ<rt>あわれ</rt></ruby>'
-    >>> render_ja_r("ja-l", ["物 の 哀れ", "もの の あわれ"], defaultdict(str))
+    >>> render_ja_r("ja-r", ["物 の 哀れ", "もの の あわれ"], defaultdict(str))
     '<ruby>物<rt>もの</rt></ruby>の<ruby>哀れ<rt>あわれ</rt></ruby>'
+
+    >>> render_ja_r("ryu-r", ["唐手", "とーでぃー"], defaultdict(str, {"t": "Chinese hand"}))
+    '<ruby>唐手<rt>とーでぃー</rt></ruby> (“Chinese hand”)'
     """
     if len(parts) == 1 or not parts[1]:
         text = parts[0]
@@ -1652,6 +1655,8 @@ def render_ja_r(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         more.append(f"“{parts[2]}”")
     if lit := data["lit"]:
         more.append(f"literally “{lit}”")
+    if t := data["t"]:
+        more.append(f"“{t}”")
     if more:
         text += f" ({', '.join(more)})"
 
@@ -3206,6 +3211,7 @@ template_mapping = {
     "redup": render_reduplication,
     "reduplication": render_reduplication,
     "reduplication of": render_reduplication,
+    "ryu-r": render_ja_r,
     "semantic loan": render_foreign_derivation,
     "semantic shift": render_semantic_shift,
     "semi-learned borrowing": render_foreign_derivation,
