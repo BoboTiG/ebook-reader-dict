@@ -201,6 +201,19 @@ def misc_variant_no_term(title: str, tpl: str, parts: list[str], data: defaultdi
     return text
 
 
+def render_abbreviated(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_abbreviated("a", ["en", "LGAT"], defaultdict(str))
+    '(<i>abbreviated</i> <b>LGAT</b>)'
+    >>> render_abbreviated("a", ["en", "LGAT", "GATO"], defaultdict(str))
+    '(<i>abbreviated</i> <b>LGAT</b>, <b>GATO</b>)'
+    """
+    text = f"<i>abbreviated</i> <b>{parts[1]}</b>"
+    if len(parts) > 2:
+        text += f", <b>{parts[2]}</b>"
+    return f"({text})"
+
+
 def render_accent(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_accent("a", ["en", "ethnology"], defaultdict(str))
@@ -3069,6 +3082,7 @@ template_mapping = {
     "&lit": render_lit,
     "...": render_nb,
     "a": render_accent,
+    "abbreviated": render_abbreviated,
     "abor": render_foreign_derivation,
     "adapted borrowing": render_foreign_derivation,
     "accent": render_accent,
