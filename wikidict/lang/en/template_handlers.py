@@ -2772,17 +2772,22 @@ def render_sumti(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
 
 def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
+    >>> render_surface_analysis("surf", [], defaultdict(str))
+    'By surface analysis'
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
     'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
     >>> render_surface_analysis("surf", ["+suf", "en", "ignore", "ance"], defaultdict(str))
     'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
     """
+    phrase = ("b" if data["nocap"] in ("1", "yes", "y") else "B") + "y surface analysis"
+    if not parts:
+        return phrase
+
     if parts[0] == "+suf":
         parts.remove("+suf")
         parts[-1] = f"-{parts[-1].lstrip('-')}"
 
-    phrase = ("b" if data["nocap"] in ("1", "yes", "y") else "B") + "y surface analysis, "
-    phrase += render_morphology("af", parts, data)
+    phrase += f", {render_morphology('af', parts, data)}"
     return phrase
 
 
