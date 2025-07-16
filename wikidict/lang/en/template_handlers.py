@@ -1824,52 +1824,6 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_morphology("aff", ["en", "'gram<t:Instagram>", "-er<id:occupation>"], defaultdict(str))
     "<i>'gram</i> and <i>-er</i>"
 
-    >>> render_morphology("infix", ["en", "Mister", "x"], defaultdict(str))
-    '<i>Mister</i>&nbsp;+&nbsp;<i>-x-</i>'
-    >>> render_morphology("infix", ["en", "Mister", "-x-"], defaultdict(str))
-    '<i>Mister</i>&nbsp;+&nbsp;<i>-x-</i>'
-    >>> render_morphology("infix", ["tl", "bundok", "in"], defaultdict(str, {"t1": "mountain", "t2": "verb infix"}))
-    '<i>bundok</i> (“mountain”)&nbsp;+&nbsp;<i>-in-</i> (“verb infix”)'
-
-    >>> render_morphology("suffix", ["en", "do", "ing"], defaultdict(str))
-    '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
-
-    >>> render_morphology("prefix", ["en", "un", "do"], defaultdict(str))
-    '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
-    >>> render_morphology("prefix", ["en", "e-", "bus"], defaultdict(str))
-    '<i>e-</i>&nbsp;+&nbsp;<i>bus</i>'
-    >>> render_morphology("prefix", ["en", "toto", "lala" ], defaultdict(str, {"t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
-    '<i>alt1-</i> (<i>tr1-</i>, “t1”, pos1)&nbsp;+&nbsp;<i>lala</i>'
-    >>> render_morphology("prefix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
-    '<i>toto-</i>&nbsp;+&nbsp;<i>alt2</i> (<i>tr2</i>, “t2”, pos2)'
-    >>> render_morphology("pre", ["en", "in", "fare#Etymology_1"], defaultdict(str))
-    '<i>in-</i>&nbsp;+&nbsp;<i>fare</i>'
-
-    >>> render_morphology("suffix", ["en", "gabapentin", "-oid"], defaultdict(str))
-    '<i>gabapentin</i>&nbsp;+&nbsp;<i>-oid</i>'
-    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, { "t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
-    '<i>alt1</i> (<i>tr1</i>, “t1”, pos1)&nbsp;+&nbsp;<i>-lala</i>'
-    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
-    '<i>toto</i>&nbsp;+&nbsp;<i>-alt2</i> (<i>-tr2</i>, “t2”, pos2)'
-    >>> render_morphology("suffix", ["en", "", "cide"], defaultdict(str))
-    '&nbsp;+&nbsp;<i>-cide</i>'
-
-    >>> render_morphology("confix", ["en", "neuro", "genic"], defaultdict(str))
-    '<i>neuro-</i>&nbsp;+&nbsp;<i>-genic</i>'
-    >>> render_morphology("confix", ["en", "neuro", "gene"], defaultdict(str,{"tr2":"genic"}))
-    '<i>neuro-</i>&nbsp;+&nbsp;<i>-gene</i> (<i>-genic</i>)'
-    >>> render_morphology("confix", ["en", "be", "dew", "ed"], defaultdict(str))
-    '<i>be-</i>&nbsp;+&nbsp;<i>dew</i>&nbsp;+&nbsp;<i>-ed</i>'
-    >>> render_morphology("confix", ["en", "i-", "-tard"], defaultdict(str))
-    '<i>i-</i>&nbsp;+&nbsp;<i>-tard</i>'
-
-    >>> render_morphology("compound", ["fy", "fier", "lj"], defaultdict(str, {"t1":"far", "t2":"leap", "pos1":"adj", "pos2":"v"}))
-    '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
-    >>> render_morphology("compound", ["en", "en:where", "as"], defaultdict(str, {"gloss2":"that"}))
-    'English <i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
-    >>> render_morphology("com+", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
-    'Compound of <i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
-
     >>> render_morphology("blend", ["he", "תַּשְׁבֵּץ", "חֵץ"], defaultdict(str, {"tr1":"tashbéts", "t1":"crossword", "t2":"arrow", "tr2":"chets"}))
     'Blend of <i>תַּשְׁבֵּץ</i> (<i>tashbéts</i>, “crossword”)&nbsp;+&nbsp;<i>חֵץ</i> (<i>chets</i>, “arrow”)'
     >>> render_morphology("blend", ["en"], defaultdict(str))
@@ -1880,6 +1834,22 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'Blend of <i>extrasolar</i>&nbsp;+&nbsp;<i>solar system</i>'
     >>> render_morphology("blend", [], defaultdict(str, {"notext": "1", "1": "en", "2": "yarb", "3": "balls"}))
     '<i>yarb</i>&nbsp;+&nbsp;<i>balls</i>'
+
+    >>> render_morphology("compound", ["fy", "fier", "lj"], defaultdict(str, {"t1":"far", "t2":"leap", "pos1":"adj", "pos2":"v"}))
+    '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
+    >>> render_morphology("compound", ["en", "en:where", "as"], defaultdict(str, {"gloss2":"that"}))
+    'English <i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
+    >>> render_morphology("com+", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
+    'Compound of <i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
+
+    >>> render_morphology("confix", ["en", "neuro", "genic"], defaultdict(str))
+    '<i>neuro-</i>&nbsp;+&nbsp;<i>-genic</i>'
+    >>> render_morphology("confix", ["en", "neuro", "gene"], defaultdict(str,{"tr2":"genic"}))
+    '<i>neuro-</i>&nbsp;+&nbsp;<i>-gene</i> (<i>-genic</i>)'
+    >>> render_morphology("confix", ["en", "be", "dew", "ed"], defaultdict(str))
+    '<i>be-</i>&nbsp;+&nbsp;<i>dew</i>&nbsp;+&nbsp;<i>-ed</i>'
+    >>> render_morphology("confix", ["en", "i-", "-tard"], defaultdict(str))
+    '<i>i-</i>&nbsp;+&nbsp;<i>-tard</i>'
 
     >>> render_morphology("doublet", ["en" , "fire"], defaultdict(str))
     'Doublet of <i>fire</i>'
@@ -1893,21 +1863,59 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'Doublet of <i>ヴィエンヌ</i> (<i>Viennu</i>, “Vienne”) and <i>ウィーン</i> (<i>Wīn</i>)'
     >>> render_morphology("dbt", ["ru" , "ру́сский"], defaultdict(str, {"tr1":"rúkij", "t1":"R", "g1":"m", "pos1":"n", "lit1":"R"}))
     'Doublet of <i>ру́сский</i> <i>m</i> (<i>rúkij</i>, “R”, n, literally “R”)'
+
+    >>> render_morphology("infix", ["en", "Mister", "x"], defaultdict(str))
+    '<i>Mister</i>&nbsp;+&nbsp;<i>-x-</i>'
+    >>> render_morphology("infix", ["en", "Mister", "-x-"], defaultdict(str))
+    '<i>Mister</i>&nbsp;+&nbsp;<i>-x-</i>'
+    >>> render_morphology("infix", ["tl", "bundok", "in"], defaultdict(str, {"t1": "mountain", "t2": "verb infix"}))
+    '<i>bundok</i> (“mountain”)&nbsp;+&nbsp;<i>-in-</i> (“verb infix”)'
+
+    >>> render_morphology("prefix", ["en", "un", "do"], defaultdict(str))
+    '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
+    >>> render_morphology("prefix", ["en", "e-", "bus"], defaultdict(str))
+    '<i>e-</i>&nbsp;+&nbsp;<i>bus</i>'
+    >>> render_morphology("prefix", ["en", "toto", "lala" ], defaultdict(str, {"t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
+    '<i>alt1-</i> (<i>tr1-</i>, “t1”, pos1)&nbsp;+&nbsp;<i>lala</i>'
+    >>> render_morphology("prefix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
+    '<i>toto-</i>&nbsp;+&nbsp;<i>alt2</i> (<i>tr2</i>, “t2”, pos2)'
+    >>> render_morphology("pre", ["en", "in", "fare#Etymology_1"], defaultdict(str))
+    '<i>in-</i>&nbsp;+&nbsp;<i>fare</i>'
+
+    >>> render_morphology("suffix", ["en", "do", "ing"], defaultdict(str))
+    '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
+    >>> render_morphology("suffix", ["en", "gabapentin", "-oid"], defaultdict(str))
+    '<i>gabapentin</i>&nbsp;+&nbsp;<i>-oid</i>'
+    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, { "t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
+    '<i>alt1</i> (<i>tr1</i>, “t1”, pos1)&nbsp;+&nbsp;<i>-lala</i>'
+    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
+    '<i>toto</i>&nbsp;+&nbsp;<i>-alt2</i> (<i>-tr2</i>, “t2”, pos2)'
+    >>> render_morphology("suffix", ["en", "", "cide"], defaultdict(str))
+    '&nbsp;+&nbsp;<i>-cide</i>'
+
+    >>> render_morphology("suffixusex", ["ang", "nama", "naman"], defaultdict(str, {"g1": "m", "t1": "name", "t2": "names"}))
+    '<i>nama</i> <i>m</i> (“name”)&nbsp;+&nbsp;<i>-en → naman</i> (“names”)'
+    >>> render_morphology("sufex", ["ang", "nama", "naman"], defaultdict(str, {"g1": "m", "t1": "name", "t2": "names"}))
+    '<i>nama</i> <i>m</i> (“name”)&nbsp;+&nbsp;<i>-en → naman</i> (“names”)'
+    >>> render_morphology("usex-suffix", ["ang", "nama", "naman"], defaultdict(str, {"g1": "m", "t1": "name", "t2": "names"}))
+    '<i>nama</i> <i>m</i> (“name”)&nbsp;+&nbsp;<i>-en → naman</i> (“names”)'
     """
 
     def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
-        if tpl in {"pre", "prefix", "con", "confix"} and index == 1:
-            # remove trailing dashes
+        if tpl in {"con", "confix"} and index == parts_count:
+            chunk = re.sub(r"^-+([^-]*)$", r"\g<1>", chunk)
+            chunk = f"-{chunk}"
+        elif tpl in {"con", "confix", "pre", "prefix"} and index == 1:
+            # Remove trailing dashes
             chunk = re.sub(r"^([^-]*)-+$", r"\g<1>", chunk)
             chunk += "-"
+        elif tpl in {"in", "infix"} and index > 1:
+            chunk = f"-{chunk.strip('-')}-"
         elif tpl in {"suf", "suffix"} and index == 2:
             chunk = re.sub(r"^-+([^-]*)$", r"\g<1>", chunk)
             chunk = f"-{chunk}"
-        elif tpl in {"con", "confix"} and index == parts_count:
-            chunk = re.sub(r"^-+([^-]*)$", r"\g<1>", chunk)
-            chunk = f"-{chunk}"
-        elif tpl in {"in", "infix"} and index > 1:
-            chunk = f"-{chunk.strip('-')}-"
+        elif tpl in {"sufex", "suffixusex", "usex-suffix"} and index == parts_count:
+            chunk = f"-en → {chunk}"
         return chunk
 
     if not parts:
@@ -1934,7 +1942,10 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "pre",
         "prefix",
         "suf",
+        "sufex",
         "suffix",
+        "suffixusex",
+        "usex-suffix",
     ]
 
     # Aliases
@@ -2980,6 +2991,7 @@ template_mapping = {
     "AD": render_bce,
     "af": render_morphology,
     "affix": render_morphology,
+    "suffixusex": render_morphology,
     "aka": render_aka,
     "ante": render_dating,
     "ante2": render_ante2,
@@ -3162,6 +3174,7 @@ template_mapping = {
     "spoonerism of": render_spoonerism,
     "ss": render_semantic_shift,
     "suf": render_morphology,
+    "sufex": render_morphology,
     "suffix": render_morphology,
     "sumti": render_sumti,
     "surf": render_surface_analysis,
@@ -3188,6 +3201,7 @@ template_mapping = {
     "unk": render_unknown,
     "unknown": render_unknown,
     "used in phrasal verbs": render_used_in_phrasal_verbs,
+    "usex-suffix": render_morphology,
     "vern": render_vern,
     "vernacular": render_vern,
     "vi-l": render_vi_l,
