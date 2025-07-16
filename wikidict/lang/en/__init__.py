@@ -319,6 +319,8 @@ templates_multi = {
     "smallcaps": "small_caps(parts[1])",
     # {{speciesabbrev|C|difficile||la}}
     "speciesabbrev": "f'Used, in context, to shorten the name and simplify the pronunciation of a species name with a generic name beginning with {parts[1]} and a specific epithet of {parts[2]}.'",
+    # {{specieslite|Io (Asteraceae)|''Io'' (Asteraceae)}}
+    "specieslite": "f'{parts[-1]} on Wikispecies.'",
     # {{staco|Airport station (MTR)|Airport|Hong Kong}}
     "staco": 'f"<i>(rail transport) The station code of</i> <b>{parts[2] or parts[1]}</b> <i>in {parts[3]}</i>."',
     # {{sub|KI}}
