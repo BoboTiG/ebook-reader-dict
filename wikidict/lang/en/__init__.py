@@ -239,6 +239,8 @@ templates_italic = {
 templates_multi = {
     # {{1|interactive}}
     "1": "capitalize(parts[-1])",
+    # {{abbr|pmo.|Proto-Mongolic}}
+    "abbr": "parts[1]",
     # {{abbrev|en|goodbye}}
     "abbrev": 'f"Abbreviation of {italic(parts[-1])}"',
     # {{C.|21|st}}
