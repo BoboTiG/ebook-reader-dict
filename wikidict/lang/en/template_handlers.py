@@ -878,6 +878,16 @@ def render_displaced(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     return f"{text} <i>{parts[-1]}</i>{gloss_tr_poss(data, gloss)}"
 
 
+def render_en_proper_noun(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_en_proper_noun("en-proper noun", [], defaultdict(str, {"head": "Nutbush, TN"}))
+    '<b>Nutbush, TN</b>'
+    """
+    if not (head := data["head"]):
+        raise ValueError("en-proper noun is missing its head!")
+    return f"<b>{head}</b>"
+
+
 def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
@@ -3080,6 +3090,7 @@ template_mapping = {
     "deverbal": render_deverbal,
     "displaced": render_displaced,
     "doublet": render_morphology,
+    "en-proper noun": render_en_proper_noun,
     "etydate": render_etydate,
     "etyl": render_foreign_derivation,
     "fa sp": render_fa_sp,
