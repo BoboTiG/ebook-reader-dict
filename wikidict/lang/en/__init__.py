@@ -288,6 +288,8 @@ templates_multi = {
     "mention-gloss": 'f"“{parts[-1]}”"',
     # {{monospace|#!}}
     "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
+    # {{mul-attributive|Abbott's}}
+    "mul-attributive": "f'<i>used in taxonomic names for organisms having English names of the form \"{parts[-1]} ...\"</i>'",
     # {{mul-semaphore for|O}}
     "mul-semaphore for": "f'<i>Flag semaphore for</i> <b>{parts[-1]}</b>.'",
     # {{noitalic|ふうじん}}
