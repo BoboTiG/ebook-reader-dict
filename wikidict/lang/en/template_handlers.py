@@ -2392,12 +2392,14 @@ def render_pedlink(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 def render_pedia(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
+    >>> render_pedia("pedia", [], defaultdict(str), word="Ismene")
+    'Ismene on Wikipedia.'
     >>> render_pedia("pedia", ["foo#bar", "baz"], defaultdict(str))
     'baz on Wikipedia.'
     >>> render_pedia("pedlink", ["foo#bar"], defaultdict(str, {"nodot": "1", "i": "1"}))
     '<i>foo</i> on Wikipedia'
     """
-    text = parts[-1].split("#", 1)[0]
+    text = parts[-1].split("#", 1)[0] if parts else word
     if data["i"]:
         text = italic(text)
     text += " on Wikipedia"
