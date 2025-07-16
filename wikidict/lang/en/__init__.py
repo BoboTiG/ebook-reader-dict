@@ -272,6 +272,8 @@ templates_multi = {
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAfont|[[ʌ]]}}
     "IPAfont": "parts[1]",
+    # {{ISBN|1-86429-081-1}}
+    "ISBN": "f'ISBN {parts[1]}'",
     # {{italic|Love Island}}
     "italic": "italic(parts[1])",
     # {{ja-def|茨城}}
