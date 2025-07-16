@@ -1598,6 +1598,29 @@ def render_iso_4217(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return f"{phrase}."
 
 
+def render_ja_compound(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ja_compound("ja-compound", ["小", "しょう", "学生", "がくせい", "の", "", "料%理", "りょう%り"], defaultdict(str, {"t1": "small", "t2": "student", "pos3": "possessive particle", "t4": "cuisine"}))
+    '<ruby>小<rt>しょう</rt></ruby> (“small”) + <ruby>学生<rt>がくせい</rt></ruby> (“student”) + の (possessive particle) + <ruby>料<rt>りょう</rt></ruby><ruby>理<rt>り</rt></ruby> (“cuisine”)'
+    >>> render_ja_compound("ja-compound", ["だ", "だ", "ってば", "ってば", "よ"], defaultdict(str, {"pos1": "auxiliary", "pos2": "informal emphatic particle", "pos3": "emphatic particle"}))
+    'だ (auxiliary) + ってば (informal emphatic particle) + よ (emphatic particle)'
+    """
+    if len(parts) % 2 != 0:
+        parts.append("")
+
+    text: list[str] = []
+    idx = 1
+
+    for part1, part2 in zip(parts[::2], parts[1::2]):
+        data_ = defaultdict(str)
+        data_["t"] = data[f"t{idx}"] or data[f"pos{idx}"]
+        if data[f"pos{idx}"]:
+            data_["noquote"] = "1"
+        text.append(render_ja_r(tpl, [part1, part2], data_, word=word))
+        idx += 1
+    return concat(text, " + ")
+
+
 def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ja_l("ja-l", ["縄抜け"], defaultdict(str))
@@ -1664,7 +1687,7 @@ def render_ja_r(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     if lit := data["lit"]:
         more.append(f"literally “{lit}”")
     if t := data["t"]:
-        more.append(f"“{t}”")
+        more.append(t if data["noquote"] else f"“{t}”")
     if more:
         text += f" ({', '.join(more)})"
 
@@ -3100,6 +3123,7 @@ template_mapping = {
     "contraction": render_contraction,
     "com": render_morphology,
     "com+": render_morphology,
+    "com-ja": render_ja_compound,
     "compound": render_morphology,
     "compound+": render_morphology,
     "con": render_morphology,
@@ -3146,6 +3170,8 @@ template_mapping = {
     "inh-lite": render_foreign_derivation,
     "inh+": render_foreign_derivation,
     "inherited": render_foreign_derivation,
+    "ja-com": render_ja_compound,
+    "ja-compound": render_ja_compound,
     "ja-l": render_ja_l,
     "ja-r": render_ja_r,
     "ko-inline": render_ko_inline,
