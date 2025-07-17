@@ -273,6 +273,34 @@ def render_apocopic_form(tpl: str, parts: list[str], data: defaultdict[str, str]
     return misc_variant("apocopic form", tpl, parts, data, word=word)
 
 
+def render_ar_active_participle(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ar_active_participle("ar-active participle", [], defaultdict(str))
+    'Derived from the active participle'
+    >>> render_ar_active_participle("ar-active participle", [], defaultdict(str, {"lc": "1"}))
+    'derived from the active participle'
+    >>> render_ar_active_participle("ar-active participle", [], defaultdict(str, {"noderived": "1"}))
+    'active participle'
+    """
+    if data["noderived"]:
+        return "active participle"
+    return f"{'d' if data['lc'] else 'D'}erived from the active participle"
+
+
+def render_ar_passive_participle(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ar_passive_participle("ar-passive participle", [], defaultdict(str))
+    'Derived from the passive participle'
+    >>> render_ar_passive_participle("ar-passive participle", [], defaultdict(str, {"lc": "1"}))
+    'derived from the passive participle'
+    >>> render_ar_passive_participle("ar-passive participle", [], defaultdict(str, {"noderived": "1"}))
+    'passive participle'
+    """
+    if data["noderived"]:
+        return "passive participle"
+    return f"{'d' if data['lc'] else 'D'}erived from the passive participle"
+
+
 def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bce("B.C.E.", [], defaultdict(str))
@@ -3115,6 +3143,8 @@ template_mapping = {
     "ante2": render_ante2,
     "aphetic form": render_aphetic_form,
     "apocopic form": render_apocopic_form,
+    "ar-active participle": render_ar_active_participle,
+    "ar-passive participle": render_ar_passive_participle,
     "a.": render_dating,
     "backform": render_foreign_derivation,
     "backformation": render_foreign_derivation,

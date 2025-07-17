@@ -243,6 +243,9 @@ templates_multi = {
     "abbr": "parts[1]",
     # {{abbrev|en|goodbye}}
     "abbrev": 'f"Abbreviation of {italic(parts[-1])}"',
+    # {{ar-form|IV}}
+    # {{ar-form|IV|verb form}}
+    "ar-form": "f'{parts[2] if len(parts) > 2 else 'Form'} {parts[1]}'",
     # {{C.|21|st}}
     "C.": "parts[1] + (parts[2] if len(parts) > 2 else 'th') + f' c.'",
     # {{caps|discourse}}
@@ -281,8 +284,14 @@ templates_multi = {
     "ISBN": "f'ISBN {parts[1]}'",
     # {{italic|Love Island}}
     "italic": "italic(parts[1])",
+    # {{IUPAC-1|alanine}}
+    "IUPAC-1": 'f"IUPAC 1-letter symbol for {parts[1]}"',
+    # {{IUPAC-3|alanine}}
+    "IUPAC-3": 'f"IUPAC 3-letter symbol for {parts[1]}"',
     # {{ja-def|茨城}}
     "ja-def": 'f"{parts[1]}:"',
+    # {{key press/core|F}}
+    "key press/core": "f'<kdb>{parts[1]}</kdb>'",
     # {{lang|fr|texte}}
     "lang": "parts[-1]",
     # {{less common spelling of|en|African-like}
@@ -312,6 +321,8 @@ templates_multi = {
     "orthography": "f'⟨{parts[1]}⟩'",
     # {overline|s}}
     "overline": "f'<span style=\"text-decoration:overline\">{parts[1]}</span>'",
+    # {{PMID|17286801}}
+    "PMID": "f'PMID {parts[1]}'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{Runr-def|ᛗ}}
@@ -344,8 +355,6 @@ templates_multi = {
     "taxlink": "italic(parts[1])",
     # {{trademark erosion|en|Zamboni|Frank J. Zamboni & Co. Inc.}}
     "trademark erosion": "f'<i>{parts[2]}</i> was originally (and may still be) a trademark of {parts[3]}. Its use in the general sense is an example of trademark erosion. '",
-    # {{IUPAC-1|alanine}}
-    "IUPAC-1": 'f"IUPAC 1-letter symbol for {parts[1]}"',
 }
 templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
@@ -364,7 +373,6 @@ templates_multi["monospace"] = templates_multi["mono"]
 templates_multi["nom"] = templates_multi["nominalization"]
 templates_multi["n-g"] = templates_multi["non-gloss"]
 templates_multi["n-g-lite"] = templates_multi["non-gloss"]
-templates_multi[""] = templates_multi["non-gloss"]
 templates_multi["ng"] = templates_multi["non-gloss"]
 templates_multi["ng-lite"] = templates_multi["non-gloss"]
 templates_multi["ngd"] = templates_multi["non-gloss"]
@@ -391,6 +399,7 @@ templates_other = {
     "--": "&nbsp;—",
     "-a-o-x": "The gender-neutral suffix <i>-x</i> replaces the gendered suffixes <i>-a/i> and <i>-o</i>.",
     "-a-o-@": "The at-sign (@) resembles both the feminine ending/element <i>a</i> and the masculine <i>o</i>.",
+    "-a-us-x": "The gender-neutral suffix <i>-x</i> replaces the gendered Latinate suffixes <i>-us</i> and <i>-a</i>.",
     "=": "=",
     ",": ",",
     "Brai-ety": "Invented by Louis Braille, braille cells were arranged in numerical order and assigned to the letters of the French alphabet. Most braille alphabets follow this assignment for the 26 letters of the basic Latin alphabet or, in non-Latin scripts, for the transliterations of those letters. In such alphabets, the first ten braille letters (the first decade: ⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚) are assigned to the Latin letters A to J and to the digits 1 to 9 and 0. (Apart from '2', the even digits all have three dots: ⠃⠙⠋⠓⠚.)<br/><br/>The letters of the first decade are those cells with at least one dot in the top row and at least one in the left column, but none in the bottom row.  The next decade repeat the pattern with the addition of a dot at the lower left, the third decade with two dots in the bottom row, and the fourth with a dot on the bottom right. The fifth decade is like the first, but shifted downward one row. The first decade is supplemented by the two characters with dots in the right column and none in the bottom row, and that supplement is propagated to the other decades using the generation rules above. Finally, there are four characters with no dots in the top two rows. Many languages that use braille letters beyond the 26 of the basic Latin alphabet follow an approximation of the English or French values for additional letters.",

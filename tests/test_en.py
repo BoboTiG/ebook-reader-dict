@@ -437,6 +437,8 @@ def test_parse_word(
         ("{{abbreviation of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
         ("{{alt case|en|angstrom}}", "<i>Alternative letter-case form of</i> <b>angstrom</b>"),
         ("{{alternative spelling of|en|µs}}", "<i>Alternative spelling of</i> <b>µs</b>"),
+        ("{{ar-form|IV}}", "Form IV"),
+        ("{{ar-form|IV|verb form}}", "verb form IV"),
         ("{{C.|20}}", "20th c."),
         ("{{C.|21|st}}", "21st c."),
         (
