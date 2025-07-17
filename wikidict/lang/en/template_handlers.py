@@ -20,7 +20,7 @@ from ...user_functions import (
     superscript,
     term,
 )
-from . import geochronology, si_unit
+from . import geochronology, si_unit, wikidata
 from .form_of import form_of_templates
 from .labels import labels, syntaxes
 from .langs import langs
@@ -443,9 +443,7 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
     who = data["alt"] or data["2"] or (parts.pop(0) if parts else "unknown") or "unknown"
     if who.startswith("Q") and who[1:].isdigit():
-        from . import wikidata
-
-        who = wikidata.COINERS[who]
+        who = wikidata.person(who)
 
     phrase += who
 
@@ -2408,6 +2406,20 @@ def render_pedia(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return text
 
 
+def render_person(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_person("person", ["en"], defaultdict(str))
+    ''
+    >>> render_person("person", ["Q151874"], defaultdict(str))
+    'Russian ballet dancer Anna Pavlova'
+    >>> render_person("person", ["Q151874"], defaultdict(str, {"brackets": "1"}))
+    'Anna Pavlova (Russian ballet dancer)'
+    """
+    if not (person_id := parts[0]).startswith("Q"):
+        return ""
+    return wikidata.person(person_id, brackets=bool(data["brackets"]))
+
+
 def render_phonetic_alphabet(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_phonetic_alphabet("phonetic-alphabet", ["A"], defaultdict(str, {"NATO/ICAO": "1", "ITU/IMO": "1"}))
@@ -3251,6 +3263,7 @@ template_mapping = {
     "phrasal verb": render_used_in_phrasal_verbs,
     "piecewise doublet": render_morphology,
     "piecewise_doublet": render_morphology,
+    "person": render_person,
     "place": render_place,
     "post": render_dating,
     "post2": render_dating_full_and_short,
