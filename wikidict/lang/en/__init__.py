@@ -271,6 +271,8 @@ templates_multi = {
     "gloss": "parenthesis(parts[1])",
     # {{glossary|inflected}}
     "glossary": "parts[-1]",
+    # {{h-less dialect|have}}
+    "h-less dialect": "f'A representation of the pronunciation of {parts[1]} by someone whose dialect lacks the voiceless glottal fricative or transition (/h/).'",
     # {{i|Used only ...}}
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAfont|[[ʌ]]}}
