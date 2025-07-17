@@ -199,8 +199,6 @@ templates_multi: dict[str, str] = {
     "IPAchar": "parts[1]",
     # {{IPAstyle|ˈɑɹ.kən.sɔ}}
     "IPAstyle": "parts[1]",
-    # {{nobr|[[-ηρός]], -ηρά, -ηρόν}}
-    "nobr": "parts[-1]",
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
     # {{uni-script|ΛVΛV}}
@@ -213,12 +211,6 @@ templates_multi: dict[str, str] = {
     "νε": "italic('νέα ελληνική')",
     # {{αιτ}}
     "αιτ": "italic(strong('αιτιατική'))",
-    # {{λ2||τοπωνύμιο|τοπωνύμια}}
-    "λ2": "parts[-1]",
-    # {{β|lang=fr|Motosacoche}}
-    "β": "parts[-1]",
-    # {{β|Βίβλος Χρονική}}
-    "βθ": "parts[-1]",
     # {{θηλ ισσα|Αβαριτσιώτης|Αβαριτσιώτ(ης)}}
     "θηλ ισσα": 'f"{parts[-1]} + κατάληξη θηλυκού -ισσα"',
     # {{θηλ τρια|διευθυντής|διευθυντ(ής)}}
@@ -242,8 +234,6 @@ templates_multi: dict[str, str] = {
     "ο-πλ": "italic('ουδέτερο στον πληθυντικό')",
     # {{οπλ}}
     "οπλ": "italic('ουδέτερο, μόνο στον πληθυντικό')",
-    # {{wsp|Eruca}}
-    "wsp": "parts[-1]",
     # {{υπερθ|aa|bb}}
     "υπερθ": "f\"{italic('υπερθετικός βαθμός του')} {strong(parts[1])}\"",
     # {{συγκρ|aa|bb}}
@@ -266,18 +256,12 @@ templates_multi: dict[str, str] = {
     "λατιν": "f'(<i>λατινική γραφή: {parts[0]}</i>)'",
     # {{vertical-lr|ᠮᠣᠩᠭᠤᠯ}}
     "vertical-lr": "f'<span style=\"writing-mode:vertical-lr\">{parts[-1]}</span>'",
-    # {{φόντο|βεβαιόω}}
-    "φόντο": "parts[-1]",
     # {{χρωμ|b80049}}
     "χρωμ": "color(parts[-1])",
     # {{έλλ|πολυπαλλόμενο σύμφωνο}}
     "έλλ": "f'<i>έλλειψη του</i> <b>{parts[1]}</b>'",
 }
 # Alias
-templates_multi["l2"] = templates_multi["λ2"]
-templates_multi["s"] = templates_multi["βθ"]
-templates_multi["Wspecies"] = templates_multi["wsp"]
-templates_multi["Wikispecies"] = templates_multi["wsp"]
 templates_multi["συντμ_του"] = templates_multi["συντμ του"]
 
 # Templates that will be completed/replaced using custom style.
@@ -653,6 +637,19 @@ def last_template_handler(
         return render_template(word, template)
 
     data = extract_keywords_from(parts)
+
+    if tpl in {
+        "l2",
+        "nobr",
+        "sWikispecies",
+        "Wspecies",
+        "wsp",
+        "β",
+        "βθ",
+        "λ2",
+        "φόντο",
+    }:
+        return parts[-1]
 
     if tpl == "γραφή του":
         if len(parts) == 1:
