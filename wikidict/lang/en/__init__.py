@@ -355,6 +355,8 @@ templates_multi = {
     "taxlink": "italic(parts[1])",
     # {{trademark erosion|en|Zamboni|Frank J. Zamboni & Co. Inc.}}
     "trademark erosion": "f'<i>{parts[2]}</i> was originally (and may still be) a trademark of {parts[3]}. Its use in the general sense is an example of trademark erosion. '",
+    # {{wsource|Pro Sexto Roscio Amerino|lang=la}}
+    "wsource": "[part for part in parts[1:] if '=' not in part][-1]",
 }
 templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
@@ -400,6 +402,7 @@ templates_other = {
     "-a-o-x": "The gender-neutral suffix <i>-x</i> replaces the gendered suffixes <i>-a/i> and <i>-o</i>.",
     "-a-o-@": "The at-sign (@) resembles both the feminine ending/element <i>a</i> and the masculine <i>o</i>.",
     "-a-us-x": "The gender-neutral suffix <i>-x</i> replaces the gendered Latinate suffixes <i>-us</i> and <i>-a</i>.",
+    "-a-o-e": "The gender-neutral suffix <i>-e</i> replaces the gendered suffixes <i>-a</i> and <i>-o</i>.",
     "=": "=",
     ",": ",",
     "Brai-ety": "Invented by Louis Braille, braille cells were arranged in numerical order and assigned to the letters of the French alphabet. Most braille alphabets follow this assignment for the 26 letters of the basic Latin alphabet or, in non-Latin scripts, for the transliterations of those letters. In such alphabets, the first ten braille letters (the first decade: ⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚) are assigned to the Latin letters A to J and to the digits 1 to 9 and 0. (Apart from '2', the even digits all have three dots: ⠃⠙⠋⠓⠚.)<br/><br/>The letters of the first decade are those cells with at least one dot in the top row and at least one in the left column, but none in the bottom row.  The next decade repeat the pattern with the addition of a dot at the lower left, the third decade with two dots in the bottom row, and the fourth with a dot on the bottom right. The fifth decade is like the first, but shifted downward one row. The first decade is supplemented by the two characters with dots in the right column and none in the bottom row, and that supplement is propagated to the other decades using the generation rules above. Finally, there are four characters with no dots in the top two rows. Many languages that use braille letters beyond the 26 of the basic Latin alphabet follow an approximation of the English or French values for additional letters.",
@@ -412,6 +415,7 @@ templates_other = {
     "ndash": "&ndash;",
     "sic": "<sup>[<i>sic</i>]</sup>",
 }
+templates_other["en dash"] = templates_other["ndash"]
 
 
 # Release content on GitHub

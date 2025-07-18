@@ -1829,6 +1829,14 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return term(res)
 
 
+def render_langname(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_langname("langname", ["en"], defaultdict(str))
+    'English'
+    """
+    return langs[parts[0]]
+
+
 def render_lit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lit("&lit", ["en", "foo", "bar"], defaultdict(str, {"nodot":"1"}))
@@ -2660,6 +2668,19 @@ def render_semantic_shift(tpl: str, parts: list[str], data: defaultdict[str, str
     }[data["type"]]
 
 
+def render_sic(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_sic("SIC", [], defaultdict(str))
+    '<sup>[<i>sic</i>]</sup>'
+    >>> render_sic("SIC", ["misspelled"], defaultdict(str))
+    '<sup>[<i>sic</i> - meaning <i>misspelled</i>]</sup>'
+    """
+    text = "<sup>[<i>sic</i>"
+    if parts:
+        text += f" - meaning <i>{parts[0]}</i>"
+    return f"{text}]</sup>"
+
+
 def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit("SI-unit", ["en", "peta", "second", "time"], defaultdict(str))
@@ -3243,6 +3264,7 @@ template_mapping = {
     "l": render_foreign_derivation,
     "l-lite": render_foreign_derivation,
     "label": render_label,
+    "langname": render_langname,
     "langname-mention": render_foreign_derivation,
     "Latn-def": render_latn_def,
     "Latn-def-lite": render_latn_def,
@@ -3319,6 +3341,7 @@ template_mapping = {
     "SI-unit-abb2": render_si_unit_abb2,
     "SI-unit-abbnp": render_si_unit_abb,
     "SI-unit-np": render_si_unit,
+    "SIC": render_sic,
     "sl": render_foreign_derivation,
     "slbor": render_foreign_derivation,
     "sound-symbolic": render_sound_symbolic,
