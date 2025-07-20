@@ -917,6 +917,14 @@ def render_displaced(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     return f"{text} <i>{parts[-1]}</i>{gloss_tr_poss(data, gloss)}"
 
 
+def render_en_noun(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_en_noun("en-noun", ["?"], defaultdict(str), word="achávalite")
+    '<b>achávalite</b>'
+    """
+    return strong({"?": word}[parts[0]])
+
+
 def render_en_proper_noun(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_en_proper_noun("en-proper noun", [], defaultdict(str, {"head": "Nutbush, TN"}))
@@ -2962,8 +2970,7 @@ def at_transformer(value: str) -> str:
     if not value.startswith("@"):
         return value
     form, text = value[1:].split(":", 1)
-    form = form_of_templates[form]
-    return f"<i>{capitalize(form)}</i> <b>{text}</b>"
+    return f"<i>{capitalize(form_of_templates[form]['value'])}</i> <b>{text}</b>"
 
 
 def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -3224,6 +3231,7 @@ template_mapping = {
     "deverbal": render_deverbal,
     "displaced": render_displaced,
     "doublet": render_morphology,
+    "en-noun": render_en_noun,
     "en-proper noun": render_en_proper_noun,
     "etydate": render_etydate,
     "etyl": render_foreign_derivation,

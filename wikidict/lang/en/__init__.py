@@ -123,6 +123,7 @@ templates_ignored = (
     "dhub",
     "elements",
     "emojipic",
+    "en-preposition",
     "enum",
     "etymid",
     "etymon",
@@ -308,8 +309,10 @@ templates_multi = {
     "mul-attributive": "f'<i>used in taxonomic names for organisms having English names of the form \"{parts[-1]} ...\"</i>'",
     # {{mul-semaphore for|O}}
     "mul-semaphore for": "f'<i>Flag semaphore for</i> <b>{parts[-1]}</b>.'",
+    # {{nobold|or}}
+    "nobold": "f'</b>{parts[1]}<b>'",
     # {{noitalic|ふうじん}}
-    "noitalic": "parts[1]",
+    "noitalic": "f'</i>{parts[1]}<i>'",
     # {{nobr|1=[ ...=C=C=C=... ]}}
     "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     "nominalization": 'f"Nominalization of {italic(parts[-1])}"',
@@ -408,6 +411,7 @@ templates_other = {
     "Brai-ety": "Invented by Louis Braille, braille cells were arranged in numerical order and assigned to the letters of the French alphabet. Most braille alphabets follow this assignment for the 26 letters of the basic Latin alphabet or, in non-Latin scripts, for the transliterations of those letters. In such alphabets, the first ten braille letters (the first decade: ⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚) are assigned to the Latin letters A to J and to the digits 1 to 9 and 0. (Apart from '2', the even digits all have three dots: ⠃⠙⠋⠓⠚.)<br/><br/>The letters of the first decade are those cells with at least one dot in the top row and at least one in the left column, but none in the bottom row.  The next decade repeat the pattern with the addition of a dot at the lower left, the third decade with two dots in the bottom row, and the fourth with a dot on the bottom right. The fifth decade is like the first, but shifted downward one row. The first decade is supplemented by the two characters with dots in the right column and none in the bottom row, and that supplement is propagated to the other decades using the generation rules above. Finally, there are four characters with no dots in the top two rows. Many languages that use braille letters beyond the 26 of the basic Latin alphabet follow an approximation of the English or French values for additional letters.",
     "corruption": "corruption",
     "epi-def": "<i>Used as a specific epithet</i>",
+    "grc-ark": "Arcadocypriot",
     "internationalism": "Internationalism",
     "LR": "\u200e",
     "nbsp": "&nbsp;",
@@ -494,8 +498,12 @@ def last_template_handler(
         '<i>Initialism of</i> <b>optical character reader</b>&nbsp;(the scanning device)'
         >>> last_template_handler(["init of", "en", "optical character reader", "tr=tr", "t=t", "ts=ts"], "en")
         '<i>Initialism of</i> <b>optical character reader</b> (<i>tr</i> /ts/, “t”)'
+        >>> last_template_handler(["init of", "en", "OCR", "optical character reader", "nodot=1"], "en")
+        '<i>Initialism of</i> <b>optical character reader</b>'
         >>> last_template_handler(["init of", "en", "OCR", "optical character reader", "nodot=1", "nocap=1"], "en")
         '<i>initialism of</i> <b>optical character reader</b>'
+        >>> last_template_handler(["init of", "fr", "OCR", "optical character reader"], "en")
+        '<i>initialism of</i> <b>optical character reader</b>.'
 
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>'
@@ -533,7 +541,17 @@ def last_template_handler(
     data = extract_keywords_from(parts)
 
     if tpl in form_of_templates:
-        starter = form_of_templates[tpl]
+        form = form_of_templates[tpl]
+        starter = form["value"]
+
+        initial_cap_raw = form["initial-cap"]
+        if initial_cap_raw == "no":
+            initial_cap = False
+        elif initial_cap_raw == "English only" and locale != "en":
+            initial_cap = False
+        else:
+            initial_cap = True
+
         ender = ""
         lang = data["1"] or (parts.pop(0) if parts else "")
         word = (data["2"] or (parts.pop(0) if parts else "")).split("#", 1)[0]
@@ -545,7 +563,6 @@ def last_template_handler(
             word = word[2:]
 
         if fromtext := join_names(data, "from", " and "):
-            cap = starter[0].isupper()
             from_suffix = "form of"
             if tpl == "standard spelling of":
                 from_suffix = "standard spelling of"
@@ -559,9 +576,9 @@ def last_template_handler(
                 ender = italic(f", representing {templates_italic.get(data['from'], fromtext)} {langs[lang]}")
             if not ender:
                 starter = f"{fromtext} {from_suffix}"
-                starter = capitalize(starter) if cap else starter
 
-        starter = starter[0].lower() + starter[1:] if data["nocap"] else capitalize(starter)
+        if initial_cap and not data["nocap"]:
+            starter = capitalize(starter)
         phrase = italic(starter)
         phrase += f" {strong(word)}"
         phrase += gloss_tr_poss(data, gloss)
