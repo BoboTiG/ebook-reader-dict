@@ -287,6 +287,16 @@ def render_ar_active_participle(tpl: str, parts: list[str], data: defaultdict[st
     return f"{'d' if data['lc'] else 'D'}erived from the active participle"
 
 
+def render_ar_instance_noun(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ar_instance_noun("ar-instance noun", [], defaultdict(str))
+    'Instance noun'
+    >>> render_ar_instance_noun("ar-instance noun", [], defaultdict(str, {"lc": "1"}))
+    'instance noun'
+    """
+    return f"{'i' if data['lc'] else 'I'}nstance noun"
+
+
 def render_ar_passive_participle(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ar_passive_participle("ar-passive participle", [], defaultdict(str))
@@ -436,6 +446,35 @@ def render_clipping(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     'clipping of <i>ку́бовый краси́тель</i> (“vat dye”)'
     """
     return misc_variant("clipping", tpl, parts, data, word=word)
+
+
+def render_codepoint(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_codepoint("codepoint", ["U+2010"], defaultdict(str))
+    '‐ (U+2010 HYPHEN)'
+    >>> render_codepoint("codepoint", ["U+2010"], defaultdict(str, {"display": "0"}))
+    'U+2010 HYPHEN'
+    >>> render_codepoint("codepoint", [":"], defaultdict(str))
+    ': (U+003A COLON)'
+    """
+
+    def get_wide_ordinal(char: str) -> str:
+        if len(char) == 2:
+            res = 0x10000 + (ord(char[0]) - 0xD800) * 0x400 + (ord(char[1]) - 0xDC00)
+        else:
+            res = ord(char)
+        return f"U+{res:>04X}"
+
+    if (char := parts[0]).startswith("U+"):
+        codepoint = char
+        char = chr(int(char[2:], 16))
+    else:
+        codepoint = get_wide_ordinal(char)
+    name = unicodedata.name(char)
+
+    if data["display"] != "0" and not data["plain"]:
+        return f"{char} ({codepoint} {name})"
+    return f"{codepoint} {name}"
 
 
 def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1043,6 +1082,8 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     "(<i>ˀl'k'</i> /erāg/, “lowlands”)"
     >>> render_foreign_derivation("m", ["ar", "عَرِيق", "", "deep-rooted"], defaultdict(str))
     '<i>عَرِيق</i> (<i>ʿrīq</i>, “deep-rooted”)'
+    >>> render_foreign_derivation("m", ["grc", "Τ//τ"], defaultdict(str, {"tr": "-"}))
+    '<i>Τ / τ</i>'
 
     >>> render_foreign_derivation("langname-mention", ["en", "-"], defaultdict(str))
     'English'
@@ -1143,6 +1184,8 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
             word = word[2:]
         if word == "-":
             return phrase
+        if "//" in word:
+            word = word.replace("//", " / ")
     else:
         word = ""
 
@@ -1645,6 +1688,14 @@ def render_iso_4217(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return f"{phrase}."
 
 
+def render_ja_blend(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ja_blend("ja-blend", ["山%無し", "やま% なし", "落ち無し", "おち なし", "意味%無し", "いみ% なし"], defaultdict(str, {"t1": "no climax", "t2": "no point", "t3": "no meaning", "nocap": "1"}))
+    'blend of <ruby>山<rt>やま</rt></ruby><ruby>無し<rt>なし</rt></ruby> (“no climax”) + <ruby>落ち無し<rt>おち なし</rt></ruby> (“no point”) + <ruby>意味<rt>いみ</rt></ruby><ruby>無し<rt>なし</rt></ruby> (“no meaning”)'
+    """
+    return f"{'b' if data['nocap'] else 'B'}lend of {render_ja_compound(tpl, parts, data, word=word)}"
+
+
 def render_ja_compound(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ja_compound("ja-compound", ["小", "しょう", "学生", "がくせい", "の", "", "料%理", "りょう%り"], defaultdict(str, {"t1": "small", "t2": "student", "pos3": "possessive particle", "t4": "cuisine"}))
@@ -1656,16 +1707,28 @@ def render_ja_compound(tpl: str, parts: list[str], data: defaultdict[str, str], 
         parts.append("")
 
     text: list[str] = []
-    idx = 1
-
-    for part1, part2 in zip(parts[::2], parts[1::2]):
+    for idx, (part1, part2) in enumerate(zip(parts[::2], parts[1::2]), start=1):
         data_ = defaultdict(str)
         data_["t"] = data[f"t{idx}"] or data[f"pos{idx}"]
         if data[f"pos{idx}"]:
             data_["noquote"] = "1"
         text.append(render_ja_r(tpl, [part1, part2], data_, word=word))
-        idx += 1
     return concat(text, " + ")
+
+
+def render_ja_etym_renyokei(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ja_etym_renyokei("ja-ryk", ["受ける"], defaultdict(str))
+    "<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby><ruby>用<rp>(</rp><rt>よう</rt><rp>)</rp></ruby><ruby>形<rp>(</rp><rt>けい</rt><rp>)</rp></ruby> (<i>ren'yōkei</i>, “stem or continuative form”) of the verb 受ける."
+    >>> render_ja_etym_renyokei("ja-ryk", ["受ける", "うける"], defaultdict(str))
+    "<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby><ruby>用<rp>(</rp><rt>よう</rt><rp>)</rp></ruby><ruby>形<rp>(</rp><rt>けい</rt><rp>)</rp></ruby> (<i>ren'yōkei</i>, “stem or continuative form”) of the verb 受ける."
+    >>> render_ja_etym_renyokei("ja-ryk", ["受ける", "うける", "to receive, to get"], defaultdict(str))
+    "<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby><ruby>用<rp>(</rp><rt>よう</rt><rp>)</rp></ruby><ruby>形<rp>(</rp><rt>けい</rt><rp>)</rp></ruby> (<i>ren'yōkei</i>, “stem or continuative form”) of the verb 受ける (“to receive, to get”)."
+    """
+    text = f"<ruby>連<rp>(</rp><rt>れん</rt><rp>)</rp></ruby><ruby>用<rp>(</rp><rt>よう</rt><rp>)</rp></ruby><ruby>形<rp>(</rp><rt>けい</rt><rp>)</rp></ruby> (<i>ren'yōkei</i>, “stem or continuative form”) of the verb {parts[0]}"
+    if len(parts) > 2:
+        text += f" (“{parts[2]}”)"
+    return f"{text}."
 
 
 def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -2232,6 +2295,53 @@ def render_mul_domino_def(tpl: str, parts: list[str], data: defaultdict[str, str
     name = unicodedata.name(word)  # Example: "DOMINO TILE HORIZONTAL-00-01"
     _, domino1, domino2 = name.split("-")
     return f"<i>A domino tile, the {int(domino1)}-{int(domino2)}</i>."
+
+
+def render_mul_kanadef(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_mul_kanadef("mul-domino def", ["ク", "small", "Kana"], defaultdict(str))
+    'The katakana syllable ク in small form for the Ainu language (アイヌ イタㇰ).'
+    >>> render_mul_kanadef("mul-domino def", ["ク", "smallhalfwidth", "Kana"], defaultdict(str))
+    'The katakana syllable ク in small form (Kana) and halfwidth form.'
+    >>> render_mul_kanadef("mul-domino def", ["ク", "", "Kana"], defaultdict(str))
+    'The katakana syllable at ク行段 (row , section ) in a gojūon table.'
+    """
+    # Source: https://en.wiktionary.org/w/index.php?title=Template:mul-kanadef&oldid=60135395
+    row = parts[0]
+    match modifier := parts[1]:
+        case "゛":
+            text = f"The katakana syllable {row} with a dakuten."
+        case "゜":
+            text = f"The katakana syllable {row} with a handakuten."
+        case "small":
+            text = f"The katakana syllable {row} in small form for the Ainu language (アイヌ イタㇰ)."
+        case "halfwidth":
+            text = f"The katakana syllable {row} in halfwidth form."
+        case "smallhalfwidth":
+            text = f"The katakana syllable {row} in small form ({parts[2]}) and halfwidth form."
+        case "braille":
+            text = f"The katakana syllable {row} in Braille."
+        case "ン":
+            text = "The katakana syllable without particular 行 (row) or 段 (section) in a gojūon table, positioned at a corner."
+        case _:
+            row_map = {
+                "ア": "A",
+                "カ": "KA",
+                "サ": "SA",
+                "タ": "TA",
+                "ナ": "NA",
+                "ハ": "HA",
+                "マ": "MA",
+                "ヤ": "YA",
+                "ラ": "RA",
+                "ワ": "WA",
+            }
+            section_map = {"ア": "A", "イ": "I", "ウ": "U", "エ": "E", "オ": "O"}
+            row_ = row_map.get(row, "")
+            section = section_map.get(modifier, "")
+            text = f"The katakana syllable at {row}行{modifier}段 (row {row_}, section {section}) in a gojūon table."
+
+    return text
 
 
 def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -3172,6 +3282,7 @@ template_mapping = {
     "aphetic form": render_aphetic_form,
     "apocopic form": render_apocopic_form,
     "ar-active participle": render_ar_active_participle,
+    "ar-instance noun": render_ar_instance_noun,
     "ar-passive participle": render_ar_passive_participle,
     "a.": render_dating,
     "backform": render_foreign_derivation,
@@ -3204,6 +3315,7 @@ template_mapping = {
     "clip": render_clipping,
     "clipping": render_clipping,
     "clq": render_foreign_derivation,
+    "codepoint": render_codepoint,
     "cog": render_foreign_derivation,
     "cog-lite": render_foreign_derivation,
     "cognate": render_foreign_derivation,
@@ -3262,10 +3374,14 @@ template_mapping = {
     "inh-lite": render_foreign_derivation,
     "inh+": render_foreign_derivation,
     "inherited": render_foreign_derivation,
+    "ja-blend": render_ja_blend,
     "ja-com": render_ja_compound,
     "ja-compound": render_ja_compound,
+    "ja-etym-renyokei": render_ja_etym_renyokei,
     "ja-l": render_ja_l,
     "ja-r": render_ja_r,
+    "ja-ryk": render_ja_etym_renyokei,
+    "ja-vstem": render_ja_etym_renyokei,
     "ko-inline": render_ko_inline,
     "ko-l": render_ko_inline,
     "Köppen": render_köppen,
@@ -3295,6 +3411,7 @@ template_mapping = {
     "morse code prosign": render_morse_code_prosign,
     "mul-cjk stroke-def": render_mul_cjk_stroke_def,
     "mul-domino def": render_mul_domino_def,
+    "mul-kanadef": render_mul_kanadef,
     "name translit": render_name_translit,
     "named-after": render_named_after,
     "nb...": render_nb,
@@ -3382,6 +3499,7 @@ template_mapping = {
     "unadapted borrowing": render_foreign_derivation,
     "unc": render_uncertain,
     "uncertain": render_uncertain,
+    "unichar": render_codepoint,
     "univ": render_univerbation,
     "univerbation": render_univerbation,
     "unk": render_unknown,

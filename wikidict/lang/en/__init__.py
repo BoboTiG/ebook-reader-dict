@@ -4,6 +4,7 @@ import re
 
 from ...user_functions import flatten, unique
 from .labels import labels
+from .scripts import scripts
 
 # Float number separator
 float_separator = "."
@@ -93,6 +94,7 @@ templates_ignored = (
     "attention",
     "attn",
     "audio",
+    "book of the Bible",
     "box",
     "box-bottom",
     "box-top",
@@ -138,6 +140,7 @@ templates_ignored = (
     "img",
     "interwiktionary",
     "lena",
+    "letter_disp2",
     "listen",
     "multiple image",
     "multiple images",
@@ -309,6 +312,10 @@ templates_multi = {
     "mul-attributive": "f'<i>used in taxonomic names for organisms having English names of the form \"{parts[-1]} ...\"</i>'",
     # {{mul-semaphore for|O}}
     "mul-semaphore for": "f'<i>Flag semaphore for</i> <b>{parts[-1]}</b>.'",
+    # {{mul-symbol}}
+    "mul-symbol": "word",
+    # {{neuter equivalent of|en|dead man walking}}
+    "neuter equivalent of": "f'<i>neuter equivalent of</i> <b>{parts[2]}</b>'",
     # {{nobold|or}}
     "nobold": "f'</b>{parts[1]}<b>'",
     # {{noitalic|ふうじん}}
@@ -342,8 +349,10 @@ templates_multi = {
     "speciesabbrev": "f'Used, in context, to shorten the name and simplify the pronunciation of a species name with a generic name beginning with {parts[1]} and a specific epithet of {parts[2]}.'",
     # {{specieslite|Io (Asteraceae)|''Io'' (Asteraceae)}}
     "specieslite": "f'{parts[-1]} on Wikispecies.'",
-    # {{staco|Airport station (MTR)|Airport|Hong Kong}}
-    "staco": 'f"<i>(rail transport) The station code of</i> <b>{parts[2] or parts[1]}</b> <i>in {parts[3]}</i>."',
+    # {{sqbrace|a}}
+    "sqbrace": "f'[{parts[1]}]'",
+    # {{station code|Airport station (MTR)|Airport|Hong Kong}}
+    "station code": 'f"<i>(rail transport) The station code of</i> <b>{parts[2] or parts[1]}</b> <i>in {parts[3]}</i>."',
     # {{sub|KI}}
     "sub": "subscript(parts[1])",
     # {{sup|KI}}
@@ -354,8 +363,10 @@ templates_multi = {
     "t": "parts[-1]",
     # {{taxfmt|Gadus macrocephalus|species|ver=170710}}
     "taxfmt": "italic(parts[1])",
+    # {{tooltip|binding -- here, used in the sense of 'putting (a person) under definite (legal) obligations|[[binding]]}}
+    "tooltip": "parts[-1]",
     # {{trademark erosion|en|Zamboni|Frank J. Zamboni & Co. Inc.}}
-    "trademark erosion": "f'<i>{parts[2]}</i> was originally (and may still be) a trademark of {parts[3]}. Its use in the general sense is an example of trademark erosion. '",
+    "trademark erosion": "f'<i>{parts[2]}</i> was originally (and may still be) a trademark of {parts[3]}. Its use in the general sense is an example of trademark erosion.'",
     # {{wsource|Pro Sexto Roscio Amerino|lang=la}}
     "wsource": "[part for part in parts[1:] if '=' not in part][-1]",
 }
@@ -392,6 +403,7 @@ templates_multi["qualifier-lite"] = templates_multi["qualifier"]
 templates_multi["s"] = templates_multi["sense"]
 templates_multi["small caps"] = templates_multi["smallcaps"]
 templates_multi["smc"] = templates_multi["smallcaps"]
+templates_multi["staco"] = templates_multi["station code"]
 templates_multi["taxlink"] = templates_multi["taxfmt"]
 templates_multi["taxlink2"] = templates_multi["taxfmt"]
 templates_multi["taxlinknew"] = templates_multi["taxfmt"]
@@ -411,15 +423,20 @@ templates_other = {
     "Brai-ety": "Invented by Louis Braille, braille cells were arranged in numerical order and assigned to the letters of the French alphabet. Most braille alphabets follow this assignment for the 26 letters of the basic Latin alphabet or, in non-Latin scripts, for the transliterations of those letters. In such alphabets, the first ten braille letters (the first decade: ⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚) are assigned to the Latin letters A to J and to the digits 1 to 9 and 0. (Apart from '2', the even digits all have three dots: ⠃⠙⠋⠓⠚.)<br/><br/>The letters of the first decade are those cells with at least one dot in the top row and at least one in the left column, but none in the bottom row.  The next decade repeat the pattern with the addition of a dot at the lower left, the third decade with two dots in the bottom row, and the fourth with a dot on the bottom right. The fifth decade is like the first, but shifted downward one row. The first decade is supplemented by the two characters with dots in the right column and none in the bottom row, and that supplement is propagated to the other decades using the generation rules above. Finally, there are four characters with no dots in the top two rows. Many languages that use braille letters beyond the 26 of the basic Latin alphabet follow an approximation of the English or French values for additional letters.",
     "corruption": "corruption",
     "epi-def": "<i>Used as a specific epithet</i>",
+    "genericized trademark": "Genericized trademark",
     "grc-ark": "Arcadocypriot",
+    "grc-att": "Attic",
+    "grc-ion": "Ionic",
     "internationalism": "Internationalism",
     "LR": "\u200e",
     "nbsp": "&nbsp;",
     "mdash": "&mdash;",
     "ndash": "&ndash;",
+    "pre-Germanic": "pre-Germanic",
     "sic": "<sup>[<i>sic</i>]</sup>",
 }
 templates_other["en dash"] = templates_other["ndash"]
+templates_other["Genericized trademark"] = templates_other["genericized trademark"]
 
 
 # Release content on GitHub
@@ -546,16 +563,10 @@ def last_template_handler(
     if tpl in form_of_templates:
         form = form_of_templates[tpl]
         starter = form["value"]
-
         lang = data["1"] or (parts.pop(0) if parts else "")
-        initial_cap_raw = form["initial-cap"]
-        if initial_cap_raw == "English only" and lang == "en":
-            initial_cap = True
-        elif initial_cap_raw == "yes":
-            initial_cap = True
-        else:
-            initial_cap = False
-
+        initial_cap = (
+            (initial_cap_raw := form["initial-cap"]) == "English only" and lang == "en" or initial_cap_raw == "yes"
+        )
         ender = ""
         word = (data["2"] or (parts.pop(0) if parts else "")).split("#", 1)[0]
 
@@ -591,9 +602,7 @@ def last_template_handler(
             phrase += dot
         return phrase
 
-    if tpl == "script":
-        from .scripts import scripts
-
+    if tpl in {"sc", "script"}:
         return scripts[parts[0]]
 
     if tpl in ("zh-l", "zh-m"):
