@@ -351,8 +351,6 @@ templates_multi = {
     "t": "parts[-1]",
     # {{taxfmt|Gadus macrocephalus|species|ver=170710}}
     "taxfmt": "italic(parts[1])",
-    # {{taxlink|Gadus macrocephalus|species|ver=170710}}
-    "taxlink": "italic(parts[1])",
     # {{trademark erosion|en|Zamboni|Frank J. Zamboni & Co. Inc.}}
     "trademark erosion": "f'<i>{parts[2]}</i> was originally (and may still be) a trademark of {parts[3]}. Its use in the general sense is an example of trademark erosion. '",
     # {{wsource|Pro Sexto Roscio Amerino|lang=la}}
@@ -391,7 +389,9 @@ templates_multi["qualifier-lite"] = templates_multi["qualifier"]
 templates_multi["s"] = templates_multi["sense"]
 templates_multi["small caps"] = templates_multi["smallcaps"]
 templates_multi["smc"] = templates_multi["smallcaps"]
-templates_multi["taxlink2"] = templates_multi["taxlink"]
+templates_multi["taxlink"] = templates_multi["taxfmt"]
+templates_multi["taxlink2"] = templates_multi["taxfmt"]
+templates_multi["taxlinknew"] = templates_multi["taxfmt"]
 templates_multi["upright"] = templates_multi["noitalic"]
 
 # Templates that will be completed/replaced using custom text.
