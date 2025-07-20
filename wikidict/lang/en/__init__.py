@@ -503,7 +503,7 @@ def last_template_handler(
         >>> last_template_handler(["init of", "en", "OCR", "optical character reader", "nodot=1", "nocap=1"], "en")
         '<i>initialism of</i> <b>optical character reader</b>'
         >>> last_template_handler(["init of", "fr", "OCR", "optical character reader"], "en")
-        '<i>initialism of</i> <b>optical character reader</b>.'
+        '<i>initialism of</i> <b>optical character reader</b>'
 
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>'
@@ -544,16 +544,16 @@ def last_template_handler(
         form = form_of_templates[tpl]
         starter = form["value"]
 
+        lang = data["1"] or (parts.pop(0) if parts else "")
         initial_cap_raw = form["initial-cap"]
-        if initial_cap_raw == "no":
-            initial_cap = False
-        elif initial_cap_raw == "English only" and locale != "en":
-            initial_cap = False
-        else:
+        if initial_cap_raw == "English only" and lang == "en":
             initial_cap = True
+        elif initial_cap_raw == "yes":
+            initial_cap = True
+        else:
+            initial_cap = False
 
         ender = ""
-        lang = data["1"] or (parts.pop(0) if parts else "")
         word = (data["2"] or (parts.pop(0) if parts else "")).split("#", 1)[0]
 
         text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
