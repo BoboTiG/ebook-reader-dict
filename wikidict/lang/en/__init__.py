@@ -515,6 +515,9 @@ def last_template_handler(
         >>> last_template_handler(["pronunciation spelling of", "en", "everything", "from=AAVE"], "en")
         '<i>Pronunciation spelling of</i> <b>everything</b><i>, representing African-American Vernacular English</i>'
 
+        >>> last_template_handler(["script", "Cpmn"], "en")
+        'Cypro-Minoan'
+
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
     """
@@ -587,6 +590,11 @@ def last_template_handler(
         if dot := data["dot"]:
             phrase += dot
         return phrase
+
+    if tpl == "script":
+        from .scripts import scripts
+
+        return scripts[parts[0]]
 
     if tpl in ("zh-l", "zh-m"):
         return chinese(parts, data)

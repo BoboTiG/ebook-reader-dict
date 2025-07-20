@@ -18,6 +18,7 @@ FILES = {
     "de-langs.py": "wikidict/lang/de/langs.py",
     "de-lang-adjs.py": "wikidict/lang/de/lang_adjs.py",
     "en-form-of.py": "wikidict/lang/en/form_of.py",
+    "en-scripts.py": "wikidict/lang/en/scripts.py",
     "el-aliases.py": "wikidict/lang/el/aliases.py",
     "el-labels.py": "wikidict/lang/el/labels.py",
     "el-langs.py": "wikidict/lang/el/langs.py",
