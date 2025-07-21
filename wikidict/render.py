@@ -487,6 +487,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
     ''
     >>> adjust_wikicode('<ref name="Marshall 2001"><sup>he</sup></ref>', "en")
     ''
+    >>> adjust_wikicode('a<references></references>b', "fr")
+    'ab'
+    >>> adjust_wikicode('a<references>xcv</references>b', "fr")
+    'ab'
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -535,7 +539,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # <ref>foo</ref> → ''
     # <ref name="CFC">{{Import:CFC}}</ref> → ''
     # <ref name="CFC"><tag>...</tag></ref> → ''
-    code = re.sub(r"<ref[^>]*/?>[\s\S]*?(?:</ref>|$)", "", code)
+    code = re.sub(r"<ref[^>]*/?>[\s\S]*?(?:</\s*ref[^>]*>|$)", "", code)
     # <ref> → ''
     # </ref> → ''
     code = code.replace("<ref>", "").replace("</ref>", "")
