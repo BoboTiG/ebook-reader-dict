@@ -465,6 +465,27 @@ PERSON = {
     "Q190772": ("Siméon Denis Poisson", "French mathematician, mechanician and physicist (1781–1840)"),
     "Q23611872": ("Adèle Dumont D'Urville", "wife of French explorer Jules Dumont d'Urville (1798–1842)"),
     "Q10853588": ("Kamala Harris", "Vice President of the United States from 2021 to 2025"),
+    "Q123776": ("Henri de Saussure", "Swiss mineralogist and zoologist (1829-1905)"),
+    "Q312503": (
+        "John Lubbock, 1st Baron Avebury",
+        "English banker, Liberal politician, philanthropist, scientist and polymath (1834-1913)",
+    ),
+    "Q3434706": ("Robert C. Allen", "economic historian"),
+    "Q58142": ("George Yeo", "Singaporean business executive and former politician"),
+    "Q299547": ("Mathurin Jacques Brisson", "French zoologist and natural philosopher"),
+    "Q22686": ("Donald Trump", "president of the United States (2017–2021, 2025–present)"),
+    "Q7412735": ("Samuel T. Francis", "American journalist and writer (1947–2005)"),
+    "Q3814537": ("Thomas de Grey, 6th Baron Walsingham", "British politician, entomologist and cricketer (1843-1919)"),
+    "Q4667601": ("Abidin Bey", "Ottoman and Turkish politician"),
+    "Q122972": ("Louis Agassiz", "Swiss-American naturalist (1807–1873)"),
+    "Q1366734": ("Thomas Walter", "American botanist (c. 1740 - 1789)"),
+    "Q6383803": ("Keir Starmer", "Prime Minister of the United Kingdom since 2024"),
+    "Q157303": ("Georges Perec", "French novelist, filmmaker, documentalist, and essayist (1936–1982)"),
+    "Q40422": ("Keak da Sneak", "American rapper"),
+    "Q18912383": ("Northcote Whitridge Thomas", "British government anthropologist"),
+    "Q385288": ("Arnold van Gennep", "French ethnographer and folklorist (1873–1957)"),
+    "Q323228": ("William Kingdon Clifford", "English mathematician and philosopher"),
+    "Q11544781": ("Kin-ichi Sakurai", "Japanese amateur mineralogist"),
 }
 # Aliases
 PERSON["Q55622178"] = PERSON["Q41768377"]
