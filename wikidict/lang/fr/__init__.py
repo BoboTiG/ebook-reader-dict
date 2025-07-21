@@ -195,6 +195,7 @@ templates_italic = {
     **contexts,
     **domain_templates,
     **regions,
+    "3arabizi": "3arabizi",
     "adj-indéf-avec-de": "Avec de",
     "adverbe de lieu": "adverbe de lieu",
     "adverbe de manière": "adverbe de manière",
