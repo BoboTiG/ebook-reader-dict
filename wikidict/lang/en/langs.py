@@ -769,7 +769,9 @@ langs = {
     "bar": "Bavarian",
     "bas": "Basaa",
     "bat": "Baltic",
+    "bat-dni": "Dnieper Baltic",
     "bat-eas": "East Baltic",
+    "bat-gol": "Golyad",
     "bat-pro": "Proto-Baltic",
     "bat-wes": "West Baltic",
     "bau": "Badanchi",
@@ -9895,7 +9897,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,890
+}  # 9,892
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
