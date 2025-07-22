@@ -970,6 +970,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '# {{flexion|manger}}'
     >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
     "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
+
+    >>> adjust_wikicode("# ''Pluriel de'' {{lien|anisophylle|fr}}.\\n*''Pluriel de'' {{lien|anisophylle|fr}}.", "fr")
+    '# {{flexion|anisophylle}}\\n# {{flexion|anisophylle}}'
     """
     # <li value="2"> → ''
     code = re.sub(r"<li [^>]+>", "", code)
@@ -992,7 +995,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# ''Féminin singulier de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
     # `# ''Féminin (singulier) de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
     code = re.sub(
-        rf"{start}.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\{{\{{lien\|([^\|]+)\|.*",
+        rf"{start}.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\{{\{{lien\|([^\|\}}]+).*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -1026,7 +1029,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     )
     # `# ''Pluriel de'' {{lien|anisophylle|fr}}.` → `# {{flexion|anisophylle}}`
     code = re.sub(
-        rf"{start}(?:{forms}).*'\s*\{{\{{lien\|([^\|]+)\|.*",
+        rf"{start}(?:{forms}).*'\s*\{{\{{lien\|([^\|\}}]+).*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -1042,7 +1045,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     )
     # `# ''Troisième personne du singulier du subjonctif présent du verbe'' {{lien|venir|fr}}.` → `# {flexion|venir}}`
     code = re.sub(
-        rf"{start}(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\{{\{{lien\|([^\|]+)\|.*",
+        rf"{start}(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\{{\{{lien\|([^\|\}}]+).*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
