@@ -237,6 +237,8 @@ def last_template_handler(
         '<i>مَلَكَ</i> (<i>malaka</i>, «posseir, adquirir»)'
         >>> last_template_handler(["m", "grc", "αἰτία", "t=aitía", "trad=causa"], "ca")
         'αἰτία (<i>aitía</i>, «aitía»)'
+        >>> last_template_handler(["m", "la", "*fūricāre", "trad=furgar"], "ca")
+        '<i>*fūricāre</i> («furgar»)'
 
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
@@ -297,9 +299,6 @@ def last_template_handler(
     phrase = ""
 
     def parse_other_parameters(lang: str = "", word: str = "") -> str:
-        if word.startswith("*"):
-            return ""
-
         toadd = []
         trad_added = False
 
