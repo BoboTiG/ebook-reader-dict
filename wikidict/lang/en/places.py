@@ -4909,9 +4909,10 @@ placetypes_aliases = {
     "utwpmun": "united township municipality",
     "val": "valley",
     "vdc": "village development committee",
+    "vil": "village",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 111
+}  # 112
 
 recognized_qualifiers = {
     "abandoned": "abandoned",

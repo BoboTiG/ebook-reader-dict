@@ -426,7 +426,7 @@ def arabiser(texte: str) -> str:
                     pass
                 else:
                     transcription += en_arabe["A"]
-            
+
             elif a_traiter == "â":
                 if (
                     # pas de nouvel alif derrière une hammza portée par alif
@@ -442,23 +442,23 @@ def arabiser(texte: str) -> str:
                     # sinon : la hamza a déjà inséré un alif madda et on ne fait rien
                 else:
                     transcription += en_arabe["â"]
-            
+
             elif a_traiter == "@":
                 # ta arbouta : précédé de 'a' implicite, sauf quand derrière une voyelle longue
                 if texte[curseur - 1] not in "âîû_" and diacritiques:
                     transcription += en_arabe["a"]
                 transcription += en_arabe["@"]
-            
+
             elif a_traiter == "é":
                 # alif maksoura : précédé de 'a' implicite, sauf quand devant un 'ã' ou quand on efface les voyelles
                 if texte[curseur + 1] != "ã" and texte[curseur - 1] != "_":
                     transcription += en_arabe["a"]
                 transcription += en_arabe["é"]
-            
+
             # Quelques cas où on ne veut pas examiner la présence d'un ²
             elif a_traiter == "°":  # Sukun explicite
                 transcription += en_arabe["°"]
-            
+
             elif a_traiter in "*.":
                 transcription += en_arabe["*"]
 
@@ -488,7 +488,7 @@ def arabiser(texte: str) -> str:
                     and diacritiques
                 ):
                     transcription += en_arabe["°"]
-              
+
                 # Traitement différent suivant qu'on est en fin de mot ou en milieu :
                 if (
                     curseur > len(texte) - 3
@@ -521,7 +521,7 @@ def arabiser(texte: str) -> str:
                     else:
                         transcription += en_arabe["'"]
                     # fin de mot
-                
+
                 # hamza en milieu de mot
                 else:
                     double = False
@@ -532,18 +532,18 @@ def arabiser(texte: str) -> str:
                     # derrière un i, support ya sans point
                     if avant in "iîIy":
                         transcription += en_arabe["ì"]
-                    
+
                     # derrière un waw, hamza en ligne
                     elif avant in "ûw":
                         transcription += en_arabe["'"]
-                    
+
                     # derrière un u faut voir après
                     elif avant == "u":
                         if apres in "iî":
                             transcription += en_arabe["ì"]
                         else:
                             transcription += en_arabe["ù"]
-                    
+
                     # derrière un a faut voir après
                     elif avant == "a":
                         if apres in {"i", "î"}:

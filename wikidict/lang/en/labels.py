@@ -561,6 +561,7 @@ labels = {
     "NZE": "New Zealand",
     "Namibia": "Namibia",
     "Natal": "Natal",
+    "Navajo mythology": "Navajo mythology",
     "Nazi": "Nazism",
     "Nazis": "Nazism",
     "Nazism": "Nazism",
@@ -2744,7 +2745,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,739
+}  # 2,740
 
 syntaxes = {
     "&": {
