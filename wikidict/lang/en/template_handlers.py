@@ -3491,6 +3491,7 @@ template_mapping = {
     "th-l": render_th_l,
     "tlb": render_label,
     "transclude": render_transclude,
+    "transclude sense": render_transclude,
     "translit": render_foreign_derivation,
     "transliteration": render_foreign_derivation,
     "U": render_cap,
