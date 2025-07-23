@@ -977,11 +977,11 @@ def render_en_proper_noun(tpl: str, parts: list[str], data: defaultdict[str, str
 def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
-    'Arabic <i>الْعِرَاق</i> (<i>ālʿrāq</i>, “Iraq”)'
+    'Arabic الْعِرَاق (<i>ālʿrāq</i>, “Iraq”)'
     >>> render_foreign_derivation("bor", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
-    'Japanese <i>マエバリ</i>'
+    'Japanese マエバリ'
     >>> render_foreign_derivation("bor+", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
-    'Borrowed from Japanese <i>マエバリ</i>'
+    'Borrowed from Japanese マエバリ'
     >>> render_foreign_derivation("der", ["en", "fro", "-"], defaultdict(str))
     'Old French'
     >>> render_foreign_derivation("der", ["en", "mul", "Jaborosa parviflora"], defaultdict(str))
@@ -1031,7 +1031,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("obor", ["en", "ru", "СССР"], defaultdict(str))
     'Orthographic borrowing from Russian <i>СССР</i> (<i>SSSR</i>)'
     >>> render_foreign_derivation("unadapted borrowing", ["en", "ar", "قِيَاس", "", "measurement, analogy"], defaultdict(str))
-    'Unadapted borrowing from Arabic <i>قِيَاس</i> (<i>qīās</i>, “measurement, analogy”)'
+    'Unadapted borrowing from Arabic قِيَاس (<i>qīās</i>, “measurement, analogy”)'
 
     >>> render_foreign_derivation("adapted borrowing", ["ajp", "ota", "باشلامق"], defaultdict(str, {"t": "to begin", "tr": "başlamak"}))
     'Adapted borrowing of Ottoman Turkish باشلامق (<i>başlamak</i>, “to begin”)'
@@ -1041,7 +1041,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("psm", ["en", "yue", "-"], defaultdict(str))
     'Phono-semantic matching of Cantonese'
     >>> render_foreign_derivation("translit", ["en", "ar", "عَالِيَة"], defaultdict(str))
-    'Transliteration of Arabic <i>عَالِيَة</i> (<i>ʿālī</i>)'
+    'Transliteration of Arabic عَالِيَة (<i>ʿālī</i>)'
     >>> render_foreign_derivation("back-form", ["en", "zero derivation"], defaultdict(str, {"nocap":"1"}))
     'back-formation from <i>zero derivation</i>'
     >>> render_foreign_derivation("bf", ["en"], defaultdict(str))
@@ -1077,11 +1077,11 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("m", ["ine-pro", "*h₁ed-"], defaultdict(str, {"t":"to eat"}))
     '<i>*h₁ed-</i> (“to eat”)'
     >>> render_foreign_derivation("m", ["ar", "عِرْق", "", "root"], defaultdict(str))
-    '<i>عِرْق</i> (<i>ʿrq</i>, “root”)'
+    'عِرْق (<i>ʿrq</i>, “root”)'
     >>> render_foreign_derivation("m", ["pal"], defaultdict(str, {"tr":"ˀl'k'", "ts":"erāg", "t":"lowlands"}))
     "(<i>ˀl'k'</i> /erāg/, “lowlands”)"
     >>> render_foreign_derivation("m", ["ar", "عَرِيق", "", "deep-rooted"], defaultdict(str))
-    '<i>عَرِيق</i> (<i>ʿrīq</i>, “deep-rooted”)'
+    'عَرِيق (<i>ʿrīq</i>, “deep-rooted”)'
     >>> render_foreign_derivation("m", ["grc", "Τ//τ"], defaultdict(str, {"tr": "-"}))
     '<i>Τ / τ</i>'
 
@@ -1090,7 +1090,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("m+", ["en", "-"], defaultdict(str))
     'English'
     >>> render_foreign_derivation("m+", ["ja", "力車"], defaultdict(str, {"tr":"rikisha"}))
-    'Japanese <i>力車</i> (<i>rikisha</i>)'
+    'Japanese 力車 (<i>rikisha</i>)'
     """
     # Short path for the {{m|en|WORD}} template
     if tpl in {"m", "m-lite"} and len(parts) == 2 and not data:
@@ -1198,7 +1198,11 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     if tpl in {"l", "l-lite", "link", "ll"}:
         phrase += f" {word}"
     elif word:
-        if (starter == "partial calque of " and dst_locale in {"mul", "zh"}) or starter == "adapted borrowing of ":
+        if (
+            (starter == "partial calque of " and dst_locale in {"mul", "zh"})
+            or starter == "adapted borrowing of "
+            or dst_locale in {"ar", "ja"}
+        ):
             phrase += f" {word}"
         else:
             phrase += f" {italic(word)}"
