@@ -694,6 +694,38 @@ def render_deverbal(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return text
 
 
+def render_el_uk_us(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_el_uk_us("l-UK-US", ["enam", "elled"], defaultdict(str))
+    'enamelled (<i>UK</i>), enameled (<i>US</i>)'
+    >>> render_el_uk_us("l-UK-US", ["word1", "word2"], defaultdict(str))
+    'word1 (<i>UK</i>), word2 (<i>US</i>)'
+    """
+    match end := parts[1]:
+        case "isable":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}izable"
+        case "isation":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}ization"
+        case "ise":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}ize"
+        case "ised":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}ized"
+        case "iser":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}izer"
+        case "ising":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}izing"
+        case "elled":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}eled"
+        case "our":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}or"
+        case "oured":
+            word_uk, word_us = f"{parts[0]}{end}", f"{parts[0]}ored"
+        case _:
+            word_uk, word_us = parts[0], parts[1]
+
+    return f"{word_uk} (<i>UK</i>), {word_us} (<i>US</i>)"
+
+
 def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etydate("etydate", ["1880"], defaultdict(str))
@@ -3345,6 +3377,7 @@ template_mapping = {
     "deverbal": render_deverbal,
     "displaced": render_displaced,
     "doublet": render_morphology,
+    "el-UK-US": render_el_uk_us,
     "en-noun": render_en_noun,
     "en-proper noun": render_en_proper_noun,
     "etydate": render_etydate,
@@ -3389,6 +3422,7 @@ template_mapping = {
     "Köppen": render_köppen,
     "l": render_foreign_derivation,
     "l-lite": render_foreign_derivation,
+    "l-UK-US": render_el_uk_us,
     "label": render_label,
     "langname": render_langname,
     "langname-mention": render_foreign_derivation,
