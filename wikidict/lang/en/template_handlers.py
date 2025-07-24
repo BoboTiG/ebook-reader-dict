@@ -434,6 +434,14 @@ def render_chemical_symbol(tpl: str, parts: list[str], data: defaultdict[str, st
     return f"{text}."
 
 
+def render_clipped_compound(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_clipped_compound("clipped compound", ["en", "character set"], defaultdict(str))
+    'Clipped compound of <i>character set</i>'
+    """
+    return misc_variant("clipped compound", tpl, parts, data, word=word)
+
+
 def render_clipping(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_clipping("clipping", ["en", "automobile"], defaultdict(str))
@@ -2041,6 +2049,14 @@ def render_metathesis(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return misc_variant_no_term("metathesis", tpl, parts, data, word=word)
 
 
+def render_misconstruction(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_misconstruction("misconstruction", ["en", "commodious"], defaultdict(str))
+    'Misconstruction of <i>commodious</i>'
+    """
+    return misc_variant("misconstruction", tpl, parts, data, word=word)
+
+
 def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_morphology("affix", ["en"], defaultdict(str, {"alt1":"tisa-","pos1":"unique name","alt2":"-gen-", "t2": "transfer of genetic material (transduced)", "alt3":"-lec-", "t3":"selection and enrichment manipulation", "alt4":"-leu-", "t4":"leukocytes", "alt5":"-cel", "t5":"cellular therapy"}))
@@ -2178,6 +2194,8 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     tpl = {
         "dbt": "doublet",
         "piecewise_doublet": "piecewise doublet",
+        "pw dbt": "piecewise doublet",
+        "pwd": "piecewise doublet",
         "pwdbt": "piecewise doublet",
     }.get(tpl, tpl)
 
@@ -2800,6 +2818,14 @@ def render_reduplication(tpl: str, parts: list[str], data: defaultdict[str, str]
     return misc_variant("reduplication", tpl, parts, data, word=word)
 
 
+def render_rq(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_rq("RQ", ["King James Version"], defaultdict(str, {"book": "Mark", "chapter": "7", "verse": "33", "text": "And he took him aside from the multitude, and put his fingers into his ears, and he spit, and touched his tongue;"}))
+    '“And he took him aside from the multitude, and put his fingers into his ears, and he spit, and touched his tongue;”'
+    """
+    return f"“{data['text']}”"
+
+
 def render_semantic_shift(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_semantic_shift("ss", ["en"], defaultdict(str))
@@ -3395,6 +3421,7 @@ template_mapping = {
     "c.": render_dating,
     "chemical symbol": render_chemical_symbol,
     "clip": render_clipping,
+    "clipped compound": render_clipped_compound,
     "clipping": render_clipping,
     "clq": render_foreign_derivation,
     "codepoint": render_codepoint,
@@ -3490,6 +3517,7 @@ template_mapping = {
     "m-self": render_m_self,
     "mention": render_foreign_derivation,
     "metathesis": render_metathesis,
+    "misconstruction": render_misconstruction,
     "morse code abbreviation": render_morse_code_abbreviation,
     "morse code for": render_morse_code_for,
     "morse code prosign": render_morse_code_prosign,
@@ -3535,12 +3563,15 @@ template_mapping = {
     "pseudo-acronym": render_pseudo_acronym_of,
     "pseudo-acronym of": render_pseudo_acronym_of,
     "psm": render_foreign_derivation,
+    "pw dbt": render_morphology,
+    "pwd": render_morphology,
     "pwdbt": render_morphology,
     "rdp": render_reduplication,
     "rebracketing": render_rebracketing,
     "redup": render_reduplication,
     "reduplication": render_reduplication,
     "reduplication of": render_reduplication,
+    "RQ": render_rq,
     "ryu-r": render_ja_r,
     "semantic loan": render_foreign_derivation,
     "semantic shift": render_semantic_shift,
@@ -3570,6 +3601,7 @@ template_mapping = {
     "surface etymology": render_surface_analysis,
     "surname": render_surname,
     "syllabic abbreviation": render_syllabic_abbreviation,
+    "sync": render_syncopic_form,
     "syncopic form": render_syncopic_form,
     "taxon": render_taxon,
     "tcl": render_transclude,
