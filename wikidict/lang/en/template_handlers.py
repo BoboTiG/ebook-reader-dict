@@ -30,6 +30,7 @@ from .places import (
     recognized_placetypes,
     recognized_qualifiers,
 )
+from .transliterator import transliterate as english_transliterator
 
 
 def gender_number_specs(parts: str) -> str:
@@ -1268,6 +1269,31 @@ def render_fa_sp(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
         text += f" (“{t}”)"
     dot = "" if data["nodot"] == "1" else (data["dot"] or ".")
     return f"{text}{dot}"
+
+
+def render_fa_xlit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_fa_xlit("fa-xlit", ["اَرَاکِی"], defaultdict(str))
+    'arākī&nbsp;/ arâki'
+    """
+    # Source: https://en.wiktionary.org/w/index.php?title=Module:fa-translit&oldid=85098029
+
+    from .transliterator.fa import romanize_ira
+
+    def cls_tr(text: str) -> str:
+        # If // is present, ignore // and everything after
+        text = re.sub(r"//.*", "", text)
+        return english_transliterator("fa", text)
+
+    def ira_tr(text: str) -> str:
+        # If // is present, ignore everything before and including //
+        text = re.sub(r"^.*//", "", text)
+        result = english_transliterator("fa", text)
+
+        # Apply IRA romanization
+        return romanize_ira(result)
+
+    return f"{cls_tr(parts[0])}&nbsp;/ {ira_tr(parts[0])}"
 
 
 def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -3458,6 +3484,7 @@ template_mapping = {
     "etydate": render_etydate,
     "etyl": render_foreign_derivation,
     "fa sp": render_fa_sp,
+    "fa-xlit": render_fa_xlit,
     "false cognate": render_foreign_derivation,
     "fcog": render_foreign_derivation,
     "filter-avoidance spelling of": render_fa_sp,
