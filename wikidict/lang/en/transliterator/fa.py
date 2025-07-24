@@ -477,6 +477,8 @@ consonant = rf"[^{vowels}. -]"
 
 def romanize_ira(text: str) -> str:
     """Romanize text using IRA (International Romanization of Arabic) system."""
+    # Source: https://en.wiktionary.org/w/index.php?title=Module:fa-IPA&oldid=85693636
+
     # Initial preprocessing
     text = re.sub(r"^[-]", "\x01", text)  # Use \x01 as placeholder for \1
     text = re.sub(r"`", "", text)

@@ -1062,7 +1062,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     'Partial calque of Chinese 閩中語'
 
     >>> render_foreign_derivation("sl", ["en", "ru", "пле́нум", "", "plenary session"], defaultdict(str, {"nocap":"1"}))
-    'semantic loan of Russian <i>пле́нум</i> (<i>plenum</i>, “plenary session”)'
+    'semantic loan of Russian <i>пле́нум</i> (<i>plénum</i>, “plenary session”)'
     >>> render_foreign_derivation("learned borrowing", ["en", "la", "consanguineus"], defaultdict(str))
     'Learned borrowing from Latin <i>consanguineus</i>'
     >>> render_foreign_derivation("learned borrowing", ["en", "LL.", "trapezium"], defaultdict(str, {"notext":"1"}))
@@ -1101,7 +1101,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("l", ["mul", "☧", ""], defaultdict(str))
     '☧'
     >>> render_foreign_derivation("l", ["ru", "ру́сский", "", "Russian"], defaultdict(str, {"g":"m"}))
-    'ру́сский <i>m</i> (<i>russkij</i>, “Russian”)'
+    'ру́сский <i>m</i> (<i>rússkij</i>, “Russian”)'
     >>> render_foreign_derivation("link", ["en", "water vapour"], defaultdict(str))
     'water vapour'
     >>> render_foreign_derivation("ll", ["en", "cod"], defaultdict(str))
@@ -1368,7 +1368,7 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_given_name("given name", ["en" , "female"], defaultdict(str, {"from":"Hebrew", "m":"Daniel", "f":"Daniela"}))
     '<i>A female given name from Hebrew, masculine equivalent Daniel, feminine equivalent Daniela</i>'
     >>> render_given_name("given name", ["lv" , "male"], defaultdict(str, {"from":"Slavic languages", "eq":"pl:Władysław,cs:Vladislav,ru:Владисла́в"}))
-    '<i>A male given name from the Slavic languages, equivalent to Polish Władysław, Czech Vladislav or Russian Владисла́в (Vladislav)</i>'
+    '<i>A male given name from the Slavic languages, equivalent to Polish Władysław, Czech Vladislav or Russian Владисла́в (Vladisláv)</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"Germanic languages", "from2":"surnames"}))
     '<i>A male given name from the Germanic languages or transferred from the surname</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"from":"coinages", "var":"Cheryl", "var2":"Shirley"}))
@@ -2431,7 +2431,7 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
     >>> render_name_translit("name translit", ["en", "fa", "فرید<tr:farid>"], defaultdict(str, {"type":"male given name"}))
     '<i>A transliteration of the Persian male given name</i> <b>فرید</b> (<i>farid</i>)'
     >>> render_name_translit("name translit", ["en", "ru", "Ива́нович<t:son of Ivan>"], defaultdict(str, {"type":"patronymic"}))
-    '<i>A transliteration of the Russian patronymic</i> <b>Ива́нович</b> (<i>Ivanovič</i>, “<i>son of Ivan</i>”)'
+    '<i>A transliteration of the Russian patronymic</i> <b>Ива́нович</b> (<i>Ivánovič</i>, “<i>son of Ivan</i>”)'
     >>> render_name_translit("name translit", ["pt", "bg", "Ива́нов", "Ивано́в"], defaultdict(str, {"type":"surname"}))
     '<i>A transliteration of the Bulgarian surname</i> <b>Ива́нов</b> (<i>Ivanov</i>) <i>or</i> <b>Ивано́в</b> (<i>Ivanov</i>)'
     >>> render_name_translit("name translit", ["en", "el", "Γιάννης<eq:John>"], defaultdict(str, {"type":"male given name"}))
