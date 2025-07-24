@@ -3098,12 +3098,11 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
     No senseid case: https://en.wiktionary.org/wiki/Ionian_Sea
     {{tcl}} arg with @: https://en.wiktionary.org/wiki/'Sconset
     """
-    import subprocess
-
     from ... import render, utils
 
     source_dir = render.get_source_dir("en", "en")
     file = render.get_latest_json_file(source_dir)
+    assert file
 
     source_origin = parts[1]
     source = parts[-1]
@@ -3114,8 +3113,7 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
         source = source.split(":")[-1]
 
     for sid in sense_id.split(","):
-        command = ["/bin/fgrep", f'"{source}": "', str(file)]
-        output = subprocess.check_output(command, env={"LC_ALL": "C"}).strip().decode("utf-8")
+        output = utils.grep(file, f'"{source}": "')
         pattern = re.compile(
             rf"#+\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}\s*(.+)"
             if "{{senseid|" in output or "{{sid|" in output

@@ -5,9 +5,11 @@ from __future__ import annotations
 import logging
 import os
 import re
+import subprocess
 from collections import defaultdict, namedtuple
 from datetime import UTC, datetime
 from functools import cache, partial
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 import regex
@@ -314,6 +316,12 @@ def format_pos(locale: str, value: str) -> str:
         value = pattern(r"\1", value)
     value = part_of_speech.MERGE.get(locale, {}).get(value, value)
     return value.strip().title()
+
+
+def grep(file: Path, pattern: str) -> str:
+    """Find the given text `pattern` line in `file`."""
+    command = ["/bin/fgrep", pattern, str(file)]
+    return subprocess.check_output(command, env={"LC_ALL": "C"}).strip().decode("utf-8")
 
 
 @cache
