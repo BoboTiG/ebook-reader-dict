@@ -144,6 +144,7 @@ templates_ignored = (
     "listen",
     "multiple image",
     "multiple images",
+    "nl",
     "no entry",
     "non-lemma",
     "nonlemma",
@@ -262,6 +263,8 @@ templates_multi = {
     "color panel": "((parts[1] + ': ') if len(parts) > 2 else '') + color(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + (f'–{parts[2]}' if len(parts) > 2 else '') + ']')",
+    # {{doi|10.1159/000070783}}
+    "doi": "f'→ https://doi.org/{concat(parts[1:], '/')}'",
     # {{en:w|Pepe the Frog}} -> {{en|w|Pepe the Frog}}
     "en": "parts[-1]",
     # {{en-comparative of|term}}
@@ -335,6 +338,8 @@ templates_multi = {
     "PMID": "f'PMID {parts[1]}'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{rfv-term|enm|comered|section=comered}}
+    "rfv-term": "parts[2]",
     # {{Runr-def|ᛗ}}
     "Runr-def": 'f"The Runic character {parts[1]}."',
     # {{sense|foo}}
@@ -372,6 +377,7 @@ templates_multi = {
 }
 templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
+templates_multi["brackets"] = templates_multi["sqbrace"]
 templates_multi["colour panel"] = templates_multi["color panel"]
 templates_multi["datedef"] = templates_multi["defdate"]
 templates_multi["def-date"] = templates_multi["defdate"]
@@ -403,6 +409,7 @@ templates_multi["qualifier-lite"] = templates_multi["qualifier"]
 templates_multi["s"] = templates_multi["sense"]
 templates_multi["small caps"] = templates_multi["smallcaps"]
 templates_multi["smc"] = templates_multi["smallcaps"]
+templates_multi["sqb"] = templates_multi["sqbrace"]
 templates_multi["staco"] = templates_multi["station code"]
 templates_multi["taxlink"] = templates_multi["taxfmt"]
 templates_multi["taxlink2"] = templates_multi["taxfmt"]

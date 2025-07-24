@@ -3071,6 +3071,14 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return italic(f"{art} {parts[0]} {tpl}{from_text}") if parts and parts[0] else italic(f"{art} {tpl}{from_text}")
 
 
+def render_syllabic_abbreviation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_syllabic_abbreviation("syllabic abbreviation", ["en", "Johannesburg"], defaultdict(str))
+    'Syllabic abbreviation of <i>Johannesburg</i>'
+    """
+    return misc_variant("syllabic abbreviation", tpl, parts, data, word=word)
+
+
 def render_syncopic_form(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_syncopic_form("syncopic form", ["en", "babe"], defaultdict(str))
@@ -3520,6 +3528,7 @@ template_mapping = {
     "surface analysis": render_surface_analysis,
     "surface etymology": render_surface_analysis,
     "surname": render_surname,
+    "syllabic abbreviation": render_syllabic_abbreviation,
     "syncopic form": render_syncopic_form,
     "taxon": render_taxon,
     "tcl": render_transclude,
