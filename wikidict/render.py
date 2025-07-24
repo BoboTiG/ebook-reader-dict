@@ -280,7 +280,7 @@ def find_etymology(
                 "Variant forms.",
                 "Unknown",
             },
-            "ru": {"??", "От", "От ??", "Происходит от", "Происходит от ??"},
+            "ru": {"??", "Из ??", "От", "От ??", "Происходит от", "Происходит от ??"},
         }.get(lang_src, set())
         etyms = [etym for etym in etyms if etym not in useless]
 
