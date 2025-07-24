@@ -3020,7 +3020,7 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     '<i>A rare surname</i>'
     >>> render_surname("surname", ["en", "English"], defaultdict(str))
     '<i>An English surname</i>'
-    >>> render_surname("surname", ["en", "occupational"], defaultdict(str, {"A":"An"}))
+    >>> render_surname("surname", ["en", "occupational"], defaultdict(str, {"A": "An"}))
     '<i>An occupational surname</i>'
     >>> render_surname("surname", ["en"], defaultdict(str, {"from":"Latin"}))
     '<i>A surname from Latin</i>'
@@ -3044,11 +3044,22 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     '<i>A surname originating as an ethnonym</i>'
     >>> render_surname("surname", ["en"], defaultdict(str, {"from":"occupations"}))
     '<i>A surname originating as an occupation</i>'
+    >>> render_surname("surname", ["en", "male"], defaultdict(str, {"parent": "Пётр"}))
+    '<i>A male surname, meaning “son of Пётр”</i>'
+    >>> render_surname("surname", ["en", "female"], defaultdict(str, {"parent": "Пётр"}))
+    '<i>A female surname, meaning “daughter of Пётр”</i>'
+    >>> render_surname("surname", ["en", "male"], defaultdict(str, {"from":"occupations", "xlit": "Petrovich", "parent": "Пётр<eq:Peter>", "eq": "Peter"}))
+    '<i>A male surname, Petrovich, originating as an occupation, meaning “son of Пётр [=Peter]”, equivalent to English Peter</i>'
+
+    >>> render_surname("patronymic", ["en", "male"], defaultdict(str, {"from":"occupations", "xlit": "Petrovich", "parent": "Пётр<eq:Peter>", "eq": "Peter"}))
+    '<i>a male patronymic, Petrovich, originating as an occupation, meaning “son of Пётр [=Peter]”, equivalent to English Peter</i>'
     """
     if parts:
         parts.pop(0)  # Remove the lang
 
     art = data["A"] or ("An" if parts and parts[0].lower().startswith(("a", "e", "i", "o", "u")) else "A")
+    if tpl != "surname":
+        art = art.lower()
 
     from_value, from_text = data["from"], ""
     if from_value in {
@@ -3058,17 +3069,46 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
         "place names",
         "surnames",
     }:
-        from_text = f" transferred from the {from_value[:-1]}"
+        from_text = f"transferred from the {from_value[:-1]}"
     elif from_value in {"coinages", "matronymics", "patronymics"}:
-        from_text = f" originating as a {from_value[:-1]}"
+        from_text = f"originating as a {from_value[:-1]}"
     elif from_value in {"ethnonyms", "occupations"}:
-        from_text = f" originating as an {from_value[:-1]}"
+        from_text = f"originating as an {from_value[:-1]}"
     elif from_value == "the Bible":
-        from_text = " originating from the Bible"
+        from_text = "originating from the Bible"
     elif from_value:
-        from_text = f" from {from_value}"
+        from_text = f"from {from_value}"
 
-    return italic(f"{art} {parts[0]} {tpl}{from_text}") if parts and parts[0] else italic(f"{art} {tpl}{from_text}")
+    text: list[str] = []
+
+    starter = f"{art} "
+    if parts and parts[0]:
+        starter += f"{parts[0]} "
+    starter += tpl
+
+    if xlit := data["xlit"]:
+        text.extend((starter, xlit))
+        if from_text:
+            text.append(from_text)
+    else:
+        if from_text:
+            starter += f" {from_text}"
+        text.append(starter)
+
+    if parent := data["parent"]:
+        kind = {
+            "male": "son",
+            "female": "daughter",
+        }.get(parts[0] if parts and parts[0] else "", "son/daughter")
+        trad = ""
+        if "<eq" in parent:
+            parent, trad = parent.split("<eq:", 1)
+            trad = f" [={trad.removesuffix('>')}]"
+        text.append(f"meaning “{kind} of {parent}{trad}”")
+    if eq := data["eq"]:
+        text.append(f"equivalent to English {eq}")
+
+    return italic(", ".join(text))
 
 
 def render_syllabic_abbreviation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -3474,6 +3514,7 @@ template_mapping = {
     "onomatopoeic": render_onomatopoeic,
     "orthographic borrowing": render_foreign_derivation,
     "partial calque": render_foreign_derivation,
+    "patronymic": render_surname,
     "pcal": render_foreign_derivation,
     "pclq": render_foreign_derivation,
     "pedlink": render_pedlink,
