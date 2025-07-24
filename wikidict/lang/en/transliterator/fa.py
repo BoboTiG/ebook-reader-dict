@@ -8,7 +8,6 @@ Current version from 2025-05-25 01:59
 """
 
 import re
-import unicodedata
 
 # Unicode character definitions
 U = chr
@@ -320,122 +319,6 @@ def tr(text: str) -> str:
     text = text.replace("āa", "ā").replace("aaa", "ā").replace("āā", "ā").replace("aa", "ā")
     text = sub(f"ī([{vowels}])", r"iy\1", text)
     text = sub(f"ū([{vowels}])", r"uw\1", text)
-
-    return text
-
-
-def tr0(text: str) -> str:
-    """Transliterate Persian/Farsi text to Latin script."""
-
-    sub = re.sub
-
-    # Apply pre-diacritic checking substitutions
-    for pattern, replacement in before_diacritic_checking_subs:
-        text = sub(pattern, replacement, text)
-
-    # Check for diacritics
-    # if not has_diacritics(text):
-    #     return ""
-
-    # Define word boundaries
-    text = sub("#", "HASHTAG", text)
-    text = sub("^", "#", text)
-    text = sub("$", "#", text)
-    text = sub(r" \| ", "# | #", text)
-    text = sub(r"\s", "# #", text)
-    text = sub("\n", "#\n#", text)
-    text = sub(f"([{punctuation}])", r"#\1#", text)
-    text = "##" + sub(" ", "# #", text) + "##"
-    text = sub("-", "#-#", text)
-
-    # Character reformatting and exceptions
-    text = sub(high_hmz, f"#{high_hmz}#", text)
-    text = sub(f"#{vao}#", "#u#", text)
-    text = sub(f"#{vao}{jazm}{malif}", f"#w-{malif}", text)
-
-    # Tashdeed handling
-    text = sub(f"([{consonants}]){tashdid}", r"\1\1", text)
-    text = sub(f"([{consonants}]){tashdid}([{zzp}])", r"\1\1\2", text)
-    text = sub(f"([{consonants}])([{zzp}]){tashdid}", r"\1\1\2", text)
-    text = sub(f"{ye}([{zzp}]){tashdid}", r"yy\1", text)
-    text = sub(f"{vao}([{zzp}]){tashdid}", r"ww\1", text)
-    text = sub(f"{ye}{tashdid}([{zzp}])", r"yy\1", text)
-    text = sub(f"{vao}{tashdid}([{zzp}])", r"ww\1", text)
-
-    # Alif handling
-    text = sub(f"([{consonants2}]){zabar}{alif}", r"\1ā", text)
-    text = sub(f"([{consonants2}]){alif}", r"\1ā", text)
-    text = sub(f"{jazm}{malif}", "'ā", text)
-    text = sub(f"([{consonants2}]){malif}", r"\1'ā", text)
-    text = sub(f"{alif}{ye}", "ē", text)
-    text = sub(f"{alif}{vao}", "ō", text)
-    text = sub(f"{alif}{zer}{ye}", "ī", text)
-    text = sub(f"{alif}{pesh}{vao}", "ū", text)
-    text = sub(f"{tashdid}{alif}", f"{tashdid}ā", text)
-
-    # Semi vowel conversions
-    text = sub(f"{ye}ā", "yā", text)
-    text = sub(f"{vao}ā", "wā", text)
-    text = sub(f"{vao}([{diacritics}{zzp}])", r"w\1", text)
-    text = sub(f"{ye}([{diacritics}{zzp}])", r"y\1", text)
-    text = sub(f"{ye}([{semivowel}])([{semivowel}])", r"ē\1\2", text)
-    text = sub(f"{vao}([{semivowel}])([{semivowel}])", r"ō\1\2", text)
-    text = sub(f"([{diacritics}{zzp}]){ye}([{semivowel}])", r"\1y\2", text)
-    text = sub(f"([{diacritics}{zzp}]){vao}([{semivowel}])", r"\1w\2", text)
-    text = sub(f"([{consonants}]){ye}([{semivowel}])", r"\1y\2", text)
-    text = sub(f"([{consonants}]){vao}([{semivowel}])", r"\1w\2", text)
-
-    # Vaav/waaw/vao conversions
-    text = sub(f"{pesh}{vao}", "ū", text)
-    text = sub(f"{vao}([{diacritics}{zzp}])", r"w\1", text)
-    text = sub(f"({vowel}){vao}", r"\1w", text)
-
-    # Ye conversions
-    text = sub(f"{zer}{ye}", "ī", text)
-    text = sub(f"{ye}([{diacritics}{zzp}])", r"y\1", text)
-    text = sub(f"({vowel}){ye}", r"\1y", text)
-
-    # Alif with short vowel
-    text = sub(f"{alif}([{zzp}])", r"\1", text)
-
-    # Final changes - izafa
-    text = sub(f"ē{zer}#", "ē-yi#", text)
-    text = sub(f"{zer}y{zer}#", "ī-yi#", text)
-    text = sub(f"([^{consonants}{jazm}])y{zer}#", r"\1-yi#", text)
-    text = sub(f"([{consonants2}]){zer}#", r"\1-i#", text)
-    text = sub(f"(['\"])##{zer}#", r"\1-i#", text)
-
-    # Izafa corrections
-    text = sub(f"-i##({space_like_class})##([{sun_letters}]{jazm}#-#)", r"i\1\2", text)
-    text = sub(f"-i#-#([{sun_letters}]#-#)", r"i-\1", text)
-
-    # He deletion
-    text = sub(f"([{zzp}]){he}#{zwnj}", r"\1-", text)
-    text = sub(f"([{zzp}]){he}#", r"\1#", text)
-    text = sub(f"#{ain}", "#", text)
-
-    # Remove hashtags
-    text = sub("#", "", text)
-    text = sub("HASHTAG", "#", text)
-    text = sub(lrm, "", text)
-    text = sub(rlm, "", text)
-
-    # Convert all characters using mapping
-    result = ""
-    for char in text:
-        result += mapping.get(char, char)
-    text = result
-
-    # Final corrections
-    text = sub("āa", "ā", text)
-    text = sub("aaa", "ā", text)
-    text = sub("āā", "ā", text)
-    text = sub("aa", "ā", text)
-    text = sub(f"ī([{vowels}])", r"iy\1", text)
-    text = sub(f"ū([{vowels}])", r"uw\1", text)
-
-    # Normalize Unicode
-    text = unicodedata.normalize("NFC", text)
 
     return text
 
