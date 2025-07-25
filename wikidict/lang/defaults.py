@@ -66,13 +66,7 @@ def last_template_handler(
         '42 000'
         >>> last_template_handler(["formatnum", "42000"], "no")
         '42 000'
-
-        >>> last_template_handler(["transliterator", "ar", "سم"], "fr")
-        'sm'
-        >>> last_template_handler(["transliterator", "ar"], "fr", word="زب")
-        'zb'
     """
-    from ..transliterator import transliterate
     from ..user_functions import capitalize, extract_keywords_from, lookup_italic, number, term
 
     tpl, *parts = template
@@ -95,12 +89,6 @@ def last_template_handler(
 
     if tpl == "Wikidata entity link":
         return render_wikidata_entity_link(tpl, parts, data, word=word)
-
-    # Handle the specific {{transliterator}} template (which is a Wiktionary module)
-    if tpl == "transliterator":
-        lang = parts[0]
-        text = parts[1] if len(parts) == 2 else word
-        return transliterate(lang, text)
 
     if tpl == "!":
         return "|"

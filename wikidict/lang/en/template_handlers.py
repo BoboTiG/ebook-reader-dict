@@ -7,7 +7,6 @@ from typing import TypedDict
 
 from num2words import num2words
 
-from ...transliterator import transliterate
 from ...user_functions import (
     capitalize,
     concat,
@@ -30,7 +29,7 @@ from .places import (
     recognized_placetypes,
     recognized_qualifiers,
 )
-from .transliterator import transliterate as english_transliterator
+from .transliterator import transliterate
 
 
 def gender_number_specs(parts: str) -> str:
@@ -1283,12 +1282,12 @@ def render_fa_xlit(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     def cls_tr(text: str) -> str:
         # If // is present, ignore // and everything after
         text = re.sub(r"//.*", "", text)
-        return english_transliterator("fa", text)
+        return transliterate("fa", text)
 
     def ira_tr(text: str) -> str:
         # If // is present, ignore everything before and including //
         text = re.sub(r"^.*//", "", text)
-        result = english_transliterator("fa", text)
+        result = transliterate("fa", text)
 
         # Apply IRA romanization
         return romanize_ira(result)

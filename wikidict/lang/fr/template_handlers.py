@@ -16,6 +16,7 @@ from ...user_functions import (
 )
 from ...utils import process_special_pipe_template
 from .langs import langs
+from .transliterator import transliterate
 
 
 def word_tr_sens(w: str, tr: str, sens: str, use_italic: bool = True) -> str:
@@ -1431,6 +1432,17 @@ def render_transitif(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     return f"{italic(phrase)}{strong(complement)}{italic(')')}"
 
 
+def render_transliterator(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_transliterator("transliterator", ["ar", "سم"], defaultdict(str))
+    'sm'
+    >>> render_transliterator("transliterator", ["ar"], defaultdict(str), word="زب")
+    'zb'
+    """
+    text = parts[1] if len(parts) == 2 else word
+    return transliterate(parts[0], text)
+
+
 def render_unite(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_unite("unité", ["1234567"], defaultdict(str, {}))
@@ -1828,6 +1840,7 @@ template_mapping = {
     "trad-": render_trad,
     "trad+": render_trad,
     "transitif+": render_transitif,
+    "transliterator": render_transliterator,
     "Variante de": render_variante_ortho,
     "variante de": render_variante_ortho,
     "variante du radical de Kangxi": render_variante_du_radical_de_kangxi,

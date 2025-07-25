@@ -4,10 +4,12 @@ Links:
   - https://fr.wiktionary.org/wiki/Module:transliterator
   - https://fr.wiktionary.org/wiki/Module:transliterator/data
 
-Current version from 2025-07-01T22:40:31
-  - https://fr.wiktionary.org/w/index.php?title=Module:transliterator/data&oldid=38377112
+Current version from 2023-06-17T20:45:58
+  - https://fr.wiktionary.org/w/index.php?title=Module:transliterator&oldid=32365708
 """
 
+# Source: https://fr.wiktionary.org/w/index.php?title=Module:transliterator/data&oldid=38377112
+# Updated: 2025-07-01T22:40:31
 TRANSLITERATIONS = {
     "common": {
         "-": "-",
