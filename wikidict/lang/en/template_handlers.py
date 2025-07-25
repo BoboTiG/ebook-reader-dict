@@ -1,4 +1,5 @@
 import contextlib
+import logging
 import math
 import re
 import unicodedata
@@ -30,6 +31,8 @@ from .places import (
     recognized_qualifiers,
 )
 from .transliterator import transliterate
+
+log = logging.getLogger(__name__)
 
 
 def gender_number_specs(parts: str) -> str:
@@ -1521,6 +1524,19 @@ def render_he_m(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return render_foreign_derivation("m", parts, data, word=word)
 
 
+def render_he_root(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_he_root("he-root", ["ל", "מ", "ד"], defaultdict(str))
+    'From the root ל־מ־ד'
+    >>> render_he_root("he-root", ["ל", "מ", "ד"], defaultdict(str, {"tr": "l-m-d", "nocap": "1"}))
+    'from the root ל־מ־ד (l-m-d)'
+    """
+    text = f"{'f' if data['nocap'] else 'F'}rom the root {'־'.join(parts)}"
+    if tr := data["tr"]:
+        text += f" ({tr})"
+    return text
+
+
 def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str))
@@ -2426,27 +2442,29 @@ def render_mul_kanadef(tpl: str, parts: list[str], data: defaultdict[str, str], 
 def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_name_translit("name translit", ["en", "ka", "შევარდნაძე"], defaultdict(str, {"type":"surname"}))
-    '<i>A transliteration of the Georgian surname</i> <b>შევარდნაძე</b>'
+    '<i>a transliteration of the Georgian surname</i> <b>შევარდნაძე</b>'
     >>> render_name_translit("name translit", ["en", "fa", "فرید<tr:farid>"], defaultdict(str, {"type":"male given name"}))
-    '<i>A transliteration of the Persian male given name</i> <b>فرید</b> (<i>farid</i>)'
+    '<i>a transliteration of the Persian male given name</i> <b>فرید</b> (<i>farid</i>)'
     >>> render_name_translit("name translit", ["en", "ru", "Ива́нович<t:son of Ivan>"], defaultdict(str, {"type":"patronymic"}))
-    '<i>A transliteration of the Russian patronymic</i> <b>Ива́нович</b> (<i>Ivánovič</i>, “<i>son of Ivan</i>”)'
+    '<i>a transliteration of the Russian patronymic</i> <b>Ива́нович</b> (<i>Ivánovič</i>, “<i>son of Ivan</i>”)'
     >>> render_name_translit("name translit", ["pt", "bg", "Ива́нов", "Ивано́в"], defaultdict(str, {"type":"surname"}))
-    '<i>A transliteration of the Bulgarian surname</i> <b>Ива́нов</b> <i>or</i> <b>Ивано́в</b>'
+    '<i>a transliteration of the Bulgarian surname</i> <b>Ива́нов</b> <i>or</i> <b>Ивано́в</b>'
     >>> render_name_translit("name translit", ["en", "el", "Γιάννης<eq:John>"], defaultdict(str, {"type":"male given name"}))
-    '<i>A transliteration of the Greek male given name</i> <b>Γιάννης</b>, <i>equivalent to John</i>'
+    '<i>a transliteration of the Greek male given name</i> <b>Γιάννης</b>, <i>equivalent to John</i>'
     >>> render_name_translit("name translit", ["fr", "ja"], defaultdict(str, {"type":"female given name"}))
-    '<i>A transliteration of a Japanese female given name</i>'
+    '<i>a transliteration of a Japanese female given name</i>'
     >>> render_name_translit("name translit", ["en", "bg,mk,sh", "Никола"], defaultdict(str, {"type":"male given name", "eq": "Nicholas"}))
-    '<i>A transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b>, <i>equivalent to Nicholas</i>'
+    '<i>a transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b>, <i>equivalent to Nicholas</i>'
     >>> render_name_translit("name translit", ["en", "bg, mk,  sh ", "Никола"], defaultdict(str, {"type":"male given name", "eq": "Nicholas"}))
-    '<i>A transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b>, <i>equivalent to Nicholas</i>'
+    '<i>a transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b>, <i>equivalent to Nicholas</i>'
+    >>> render_name_translit("name translit", ["en", "grc", "Ἀέτιος"], defaultdict(str, {"type":"male given name", "xlit": "Aetius"}))
+    '<i>a transliteration of the Ancient Greek male given name</i> <b>Ἀέτιος</b>, <i><b>Aetius</b></i>'
     """
     parts.pop(0)  # Destination language
     src_langs = parts.pop(0)
 
     origins = concat([langs[src_lang.strip()] for src_lang in src_langs.split(",")], sep=", ", last_sep=" or ")
-    text = italic(f"A transliteration of {'the' if parts else 'a'} {origins} {data['type']}")
+    text = italic(f"a transliteration of {'the' if parts else 'a'} {origins} {data['type']}")
     if not parts:
         return text
 
@@ -2482,6 +2500,9 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
         text += f" {italic('or')} {strong(parts[0])}"
         if transliterated:
             text += f" ({italic(transliterated)})"
+
+    if xlit := data["xlit"]:
+        text += f", {italic(strong(xlit))}"
 
     return text
 
@@ -3104,13 +3125,31 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
     >>> render_surname("patronymic", ["en", "male"], defaultdict(str, {"from":"occupations", "xlit": "Petrovich", "parent": "Пётр<eq:Peter>", "eq": "Peter"}))
     '<i>a male patronymic, Petrovich, originating as an occupation, meaning “son of Пётр [=Peter]”, equivalent to English Peter</i>'
+
+    >>> render_surname("foreign name", ["it", "en"], defaultdict(str, {"type":"surname"}))
+    '<i>a surname in English</i>'
+    >>> render_surname("foreign name", ["en", "pl", "Wałęsa"], defaultdict(str, {"type":"surname"}))
+    '<i>a surname in Polish</i>, <b>Wałęsa</b>'
+    >>> render_surname("foreign name", ["it", "grc", "Σωκράτης"], defaultdict(str, {"type":"male given name"}))
+    '<i>a male given name in Ancient Greek</i>, <b>Σωκράτης</b>'
+    >>> render_surname("foreign name", ["en", "la", "Aetius"], defaultdict(str, {"type":"male given name"}))
+    '<i>a male given name in Latin</i>, <b>Aetius</b>'
     """
     if parts:
         parts.pop(0)  # Remove the lang
 
-    art = data["A"] or ("An" if parts and parts[0].lower().startswith(("a", "e", "i", "o", "u")) else "A")
-    if tpl != "surname":
-        art = art.lower()
+    if not (art := data["A"]):
+        art = "A" if tpl == "surname" else "a"
+        if kind := data["type"]:
+            if kind[0].lower() in "aeiou":
+                art += "n"
+        elif (
+            len(parts) > (1 if tpl == "foreign name" else 0)
+            and (kind := parts[1 if tpl == "foreign name" else 0])
+            and kind
+            and kind[0].lower() in "aeiou"
+        ):
+            art += "n"
 
     from_value, from_text = data["from"], ""
     if from_value in {
@@ -3133,9 +3172,11 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     text: list[str] = []
 
     starter = f"{art} "
-    if parts and parts[0]:
+    if parts and parts[0] and tpl != "foreign name":
         starter += f"{parts[0]} "
-    starter += tpl
+    starter += data["type"] or {"foreign name": "surname"}.get(tpl, tpl)
+    if parts and parts[0] and tpl == "foreign name":
+        starter += f" in {langs[parts[0]]}"
 
     if xlit := data["xlit"]:
         text.extend((starter, xlit))
@@ -3159,7 +3200,14 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     if eq := data["eq"]:
         text.append(f"equivalent to English {eq}")
 
-    return italic(", ".join(text))
+    final = italic(", ".join(text))
+
+    if tpl == "foreign name" and len(parts) > 1:
+        final += f", <b>{parts[1]}</b>"
+        if trans := transliterate(parts[0], parts[1]):
+            final += f" ({trans})"
+
+    return final
 
 
 def render_syllabic_abbreviation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -3400,10 +3448,10 @@ def render_xlit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     """
     >>> render_xlit("xlit", ["ar", "عُظْمَى"], defaultdict(str))
     'ʕuẓmā'
+    >>> render_xlit("xlit", ["zz", "foo"], defaultdict(str))
+    ''
     """
-    if text := transliterate(parts[0], parts[1]):
-        return text
-    raise ValueError(f"Unhandled transliteration lang: {parts[0]}")
+    return transliterate(parts[0], parts[1])
 
 
 template_mapping = {
@@ -3497,6 +3545,7 @@ template_mapping = {
     "false cognate": render_foreign_derivation,
     "fcog": render_foreign_derivation,
     "filter-avoidance spelling of": render_fa_sp,
+    "foreign name": render_surname,
     "frac": render_frac,
     "g": render_g,
     "geochronology": render_geochronology,
@@ -3504,6 +3553,7 @@ template_mapping = {
     "Han simp": render_han_simp,
     "he-l": render_he_l,
     "he-m": render_he_m,
+    "he-root": render_he_root,
     "historical given name": render_historical_given_name,
     "ic": render_ipa_char,
     "in": render_morphology,

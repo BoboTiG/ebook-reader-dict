@@ -563,7 +563,10 @@ def last_template_handler(
         return ""
 
     if lookup_template(template[0]):
-        return render_template(word, template)
+        text = render_template(word, template)
+        if tpl == "xlit" and not text and all_templates is not None:
+            all_templates.append((f"{tpl}:{parts[0]}", word, "missed"))
+        return text
 
     data = extract_keywords_from(parts)
 
