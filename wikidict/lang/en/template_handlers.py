@@ -3396,6 +3396,16 @@ def render_wasei_eigo(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return text
 
 
+def render_xlit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_xlit("xlit", ["ar", "عُظْمَى"], defaultdict(str))
+    'ʕuẓmā'
+    """
+    if text := transliterate(parts[0], parts[1]):
+        return text
+    raise ValueError(f"Unhandled transliteration lang: {parts[0]}")
+
+
 template_mapping = {
     "&lit": render_lit,
     "...": render_nb,
@@ -3655,6 +3665,7 @@ template_mapping = {
     "vernacular": render_vern,
     "vi-l": render_vi_l,
     "wasei eigo": render_wasei_eigo,
+    "xlit": render_xlit,
     #
     # Variants
     #
