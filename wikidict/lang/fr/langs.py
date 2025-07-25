@@ -2310,6 +2310,7 @@ langs = {
     "grec byzantin": "grec byzantin",
     "grec cargésien": "grec cargésien",
     "grec chypriote": "grec chypriote",
+    "grec marioupolitain": "grec marioupolitain",
     "grg": "madi",
     "grh": "gbiri-niragu",
     "gri": "ghari",
@@ -4514,7 +4515,7 @@ langs = {
     "nxu": "narau",
     "nxx": "nafri",
     "ny": "nyanja",
-    "nya": "chichewa",
+    "nya": "nyanja",
     "nyb": "nyangbo",
     "nye": "nyengo",
     "nyh": "nyigina",
@@ -7147,5 +7148,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 7,142
+}  # 7,143
 # END

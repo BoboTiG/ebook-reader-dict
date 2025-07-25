@@ -127,7 +127,7 @@ form_of_templates = {
     "verb form of": {"value": "inflection of:", "initial-cap": "no"},
 }  # 117
 
-# Aliases (74)
+# Aliases (76)
 form_of_templates["abbr of"] = form_of_templates["abbreviation of"]
 form_of_templates["abbrev of"] = form_of_templates["abbreviation of"]
 form_of_templates["alt case"] = form_of_templates["alternative case form of"]
@@ -136,6 +136,7 @@ form_of_templates["alt case form of"] = form_of_templates["alternative case form
 form_of_templates["alt case of"] = form_of_templates["alternative case form of"]
 form_of_templates["alt form"] = form_of_templates["alternative form of"]
 form_of_templates["alt form of"] = form_of_templates["alternative form of"]
+form_of_templates["alt of"] = form_of_templates["alternative form of"]
 form_of_templates["alt sp"] = form_of_templates["alternative spelling of"]
 form_of_templates["alt sp of"] = form_of_templates["alternative spelling of"]
 form_of_templates["alt spell"] = form_of_templates["alternative spelling of"]
@@ -161,6 +162,7 @@ form_of_templates["dated sp"] = form_of_templates["dated spelling of"]
 form_of_templates["dim of"] = form_of_templates["diminutive of"]
 form_of_templates["euph form"] = form_of_templates["euphemistic form of"]
 form_of_templates["femeq"] = form_of_templates["female equivalent of"]
+form_of_templates["freq of"] = form_of_templates["frequentative of"]
 form_of_templates["honor alt case"] = form_of_templates["honorific alternative case form of"]
 form_of_templates["honour alt case"] = form_of_templates["honorific alternative case form of"]
 form_of_templates["inf form"] = form_of_templates["informal form of"]

@@ -50,11 +50,12 @@ tags = {
     "plpl": "nurplurala",
     "prov": "proverbo",
     "sapl": "samformplurala",
+    "sbsf": "sen fleksio",
     "senk": "sen komparado",
     "sing": "nursingulara",
     "sla": "slanga",
     "stat": "loka statika",
     "tneu": "neuxtruma(t)",
     "vul": "vulgara",
-}  # 51
+}  # 52
 # END
