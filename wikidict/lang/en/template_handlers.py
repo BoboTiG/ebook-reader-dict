@@ -1017,7 +1017,7 @@ def render_en_proper_noun(tpl: str, parts: list[str], data: defaultdict[str, str
 def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
-    'Arabic الْعِرَاق (<i>ālʿrāq</i>, “Iraq”)'
+    'Arabic الْعِرَاق (<i>al-ʕirāq</i>, “Iraq”)'
     >>> render_foreign_derivation("bor", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
     'Japanese マエバリ'
     >>> render_foreign_derivation("bor+", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
@@ -1071,7 +1071,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("obor", ["en", "ru", "СССР"], defaultdict(str))
     'Orthographic borrowing from Russian <i>СССР</i> (<i>SSSR</i>)'
     >>> render_foreign_derivation("unadapted borrowing", ["en", "ar", "قِيَاس", "", "measurement, analogy"], defaultdict(str))
-    'Unadapted borrowing from Arabic قِيَاس (<i>qīās</i>, “measurement, analogy”)'
+    'Unadapted borrowing from Arabic قِيَاس (<i>qiyās</i>, “measurement, analogy”)'
 
     >>> render_foreign_derivation("adapted borrowing", ["ajp", "ota", "باشلامق"], defaultdict(str, {"t": "to begin", "tr": "başlamak"}))
     'Adapted borrowing of Ottoman Turkish باشلامق (<i>başlamak</i>, “to begin”)'
@@ -1081,7 +1081,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("psm", ["en", "yue", "-"], defaultdict(str))
     'Phono-semantic matching of Cantonese'
     >>> render_foreign_derivation("translit", ["en", "ar", "عَالِيَة"], defaultdict(str))
-    'Transliteration of Arabic عَالِيَة (<i>ʿālī</i>)'
+    'Transliteration of Arabic عَالِيَة (<i>ʕāliya</i>)'
     >>> render_foreign_derivation("back-form", ["en", "zero derivation"], defaultdict(str, {"nocap":"1"}))
     'back-formation from <i>zero derivation</i>'
     >>> render_foreign_derivation("bf", ["en"], defaultdict(str))
@@ -1117,11 +1117,11 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("m", ["ine-pro", "*h₁ed-"], defaultdict(str, {"t":"to eat"}))
     '<i>*h₁ed-</i> (“to eat”)'
     >>> render_foreign_derivation("m", ["ar", "عِرْق", "", "root"], defaultdict(str))
-    'عِرْق (<i>ʿrq</i>, “root”)'
+    'عِرْق (<i>ʕirq</i>, “root”)'
     >>> render_foreign_derivation("m", ["pal"], defaultdict(str, {"tr":"ˀl'k'", "ts":"erāg", "t":"lowlands"}))
     "(<i>ˀl'k'</i> /erāg/, “lowlands”)"
     >>> render_foreign_derivation("m", ["ar", "عَرِيق", "", "deep-rooted"], defaultdict(str))
-    'عَرِيق (<i>ʿrīq</i>, “deep-rooted”)'
+    'عَرِيق (<i>ʕarīq</i>, “deep-rooted”)'
     >>> render_foreign_derivation("m", ["grc", "Τ//τ"], defaultdict(str, {"tr": "-"}))
     '<i>Τ / τ</i>'
 
@@ -2469,7 +2469,7 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
             case "t":
                 text += f" ({transliterated}“{italic(value)}”)"
             case "tr":
-                text += f" ({transliterated}{italic(value)})"
+                text += f" ({italic(value)})"
             case _:
                 assert 0, f"Unhandled {kind=} in render_name_translit()"
     elif transliterated:
