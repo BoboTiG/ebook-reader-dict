@@ -312,7 +312,7 @@ FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
 : pron <i>gender</i>.
 & Multiple Etymology
-<html><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
+<html><p><b>Noun</b></p><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
 
 
 """
@@ -320,7 +320,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
 : pron <i>gender</i>.
 & Multiple Etymology
-<html><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
+<html><p><b>Noun</b></p><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
 
 """
@@ -503,28 +503,28 @@ def test_df_format(tmp_path: Path) -> None:
         output.read_text(encoding="utf-8")
         == r"""@ estre
 : \ɛtʁ\
-<html><b>Verbe</b><ol><li>Définition de 'estre'.</li></ol></html>
+<html><p><b>Verbe</b></p><ol><li>Définition de 'estre'.</li></ol></html>
 
 @ être
 : \ɛtʁ\ <i>m</i>.
-<html><b>Verbe</b><ol><li>Définition de 'être'.</li></ol></html>
+<html><p><b>Verbe</b></p><ol><li>Définition de 'être'.</li></ol></html>
 
 @ suis
 : <b>estre</b> \ɛtʁ\
-<html><b>Verbe</b><ol><li>Définition de 'estre'.</li></ol></html>
+<html><p><b>Verbe</b></p><ol><li>Définition de 'estre'.</li></ol></html>
 
 @ suis
 : <b>suivre</b> \sɥivʁ\
-<html><b>Verbe</b><ol><li>Définition de 'suivre'.</li></ol></html>
+<html><p><b>Verbe</b></p><ol><li>Définition de 'suivre'.</li></ol></html>
 
 @ suis
 : <b>être</b> \ɛtʁ\ <i>m</i>.
-<html><b>Verbe</b><ol><li>Définition de 'être'.</li></ol></html>
+<html><p><b>Verbe</b></p><ol><li>Définition de 'être'.</li></ol></html>
 
 @ suivre
 : \sɥivʁ\
 & suis
-<html><b>Verbe</b><ol><li>Définition de 'suivre'.</li></ol></html>
+<html><p><b>Verbe</b></p><ol><li>Définition de 'suivre'.</li></ol></html>
 
 """
     )

@@ -105,7 +105,7 @@ WORD_TPL_DICTFILE = Template(
 {%- endfor %}
 <html>
 {%- for pos, pos_definitions in definitions -%}
-    <b>{{ pos }}</b><ol>
+    <p><b>{{ pos }}</b></p><ol>
     {%- for definition in pos_definitions -%}
         {%- if definition is string -%}
             <li>{{ definition }}</li>
