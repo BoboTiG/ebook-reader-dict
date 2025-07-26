@@ -337,12 +337,19 @@ def is_cyrillic(char: str) -> bool:
 
 
 @cache
+def is_japanese_kana(char: str) -> bool:
+    """Check if a character is Hiragana, or Katakana."""
+    return "\u3040" <= char <= "\u30ff"
+
+
+@cache
 def guess_prefix(word: str) -> str:
     """Determine the word prefix for the given *word*.
 
-    Inspiration: https://github.com/pettarin/penelope/blob/master/penelope/prefix_kobo.py#L16
+    Inspiration: me ᕦ(ò_óˇ)ᕤ  <-- aka BoboTiG ^^
     Inspiration: https://pgaskin.net/dictutil/dicthtml/prefixes.html
-    Inspiration: me ᕦ(ò_óˇ)ᕤ
+    Inspiration: https://github.com/pettarin/penelope/blob/v3.1.3/penelope/prefix_kobo.py#L16
+    Inspiration: https://github.com/cessen/kobo_jp_dict/blob/2023-01-23/src/kobo.rs#L190 (for Japanese support)
 
     Converted from https://github.com/pgaskin/dictutil/blob/v0.3.2/kobodict/util.go#L44.
 
@@ -530,12 +537,27 @@ def guess_prefix(word: str) -> str:
         >>> guess_prefix("б-p")
         'б-'
 
-        Japanese seems unreliable as of now:
-        https://github.com/pgaskin/dictutil/blob/6708cff9a06dbd088ec2267a2314028a9a00b5a7/kobodict/util_test.go#L47-L51
+        # Japanese-style punctuation
+        >>> guess_prefix(" 】")
+        '11'
+
+        # Japanese Hiragana
         >>> guess_prefix("あ")
-        'あa'
-        >>> guess_prefix("アークとう")
-        'アー'
+        'あ'
+        >>> guess_prefix("あかつき")
+        'あか'
+
+        # Japanese Katakana
+        >>> guess_prefix("ア")
+        'ア'
+        >>> guess_prefix("アカツキ")
+        'アカ'
+
+        # Japanese Kanji
+        >>> guess_prefix("日")
+        '日a'
+        >>> guess_prefix("日大本")
+        '日大'
     """
     if "\x00" in (prefix := word):
         prefix = prefix.split("\x00", 1)[0]
@@ -552,6 +574,9 @@ def guess_prefix(word: str) -> str:
 
     if is_cyrillic(prefix[0]):
         return "" if prefix[-1] == "/" else prefix
+
+    if is_japanese_kana(prefix[0]):
+        return prefix
 
     if len(prefix) < 2:
         prefix += "a"
