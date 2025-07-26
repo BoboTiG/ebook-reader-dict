@@ -3433,14 +3433,16 @@ def render_vi_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
 def render_wasei_eigo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
+    >>> render_wasei_eigo("wasei eigo", [], defaultdict(str))
+    'Wasei eigo (和製英語; pseudo-anglicism)'
     >>> render_wasei_eigo("wasei eigo", ["family", "computer"], defaultdict(str))
     'Wasei eigo (和製英語; pseudo-anglicism) derived from <i>family</i>&nbsp;+&nbsp;<i>computer</i>'
     >>> render_wasei_eigo("wasei eigo", ["family", "computer"], defaultdict(str, {"nocap": "1"}))
     'wasei eigo (和製英語; pseudo-anglicism) derived from <i>family</i>&nbsp;+&nbsp;<i>computer</i>'
     """
-    text = "w" if data["nocap"] else "W"
-    text += "asei eigo (和製英語; pseudo-anglicism) derived from "
-    text += concat([italic(part) for part in parts], "&nbsp;+&nbsp;")
+    text = f"{'w' if data['nocap'] else 'W'}asei eigo (和製英語; pseudo-anglicism)"
+    if parts:
+        text += f" derived from {concat([italic(part) for part in parts], '&nbsp;+&nbsp;')}"
     return text
 
 
@@ -3714,6 +3716,7 @@ template_mapping = {
     "vern": render_vern,
     "vernacular": render_vern,
     "vi-l": render_vi_l,
+    "waei": render_wasei_eigo,
     "wasei eigo": render_wasei_eigo,
     "xlit": render_xlit,
     #
