@@ -303,10 +303,10 @@ def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: 
 
 
 FORMATTED_WORD_KOBO = """\
-<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></p><var><variant name="multiple etymology"/></var></w>
+<w><p><a name="Multiple Etymologies" /><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></p><var><variant name="multiple etymology"/></var></w>
 """
 FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
-<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
+<w><p><a name="Multiple Etymologies" /><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
 """
 FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
@@ -437,7 +437,7 @@ def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
     être = "".join(formatter.handle_word("être", words))
     suis = "".join(formatter.handle_word("suis", words))
     suivre = "".join(formatter.handle_word("suivre", words))
-    assert suis.count('<a name="suis"/>') == 3
+    assert suis.count('<a name="suis" />') == 3
     assert "<b>estre</b>" in suis
     assert "<b>suivre</b>" in suis
     assert "<b>être</b>" in suis

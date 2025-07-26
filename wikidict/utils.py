@@ -370,6 +370,18 @@ def guess_prefix(word: str) -> str:
         (dictionary.debug) got alternative search terms: ".vi", ".VI", "vi" for word ".vi"
         (ui.debug) static QByteArray Unzipper::extractFile("/mnt/onboard/.kobo/dict/dicthtml-fr.zip", "11.html")
 
+        (dictionary.debug) HtmlForJapanese:  "レ"  (originally:  "レ" ) => prefix:  "レ"
+        (dictionary.debug) HtmlForJapanese:  "レ"  => In prefix file:  "レ"
+        (dictionary.debug) SearchForJapaneseWordInHtml: => index:  "レ" Regex:  "(<a name="レ" />.*</w>)"
+        (dictionary.debug) got alternative search terms:  ("レ")  for word:  "レ"
+        (dictionary.debug) SearchForJapaneseWordInHtml: => index:  "レ" Regex:  "(<a name="レ" />.*</w>)"
+
+        (dictionary.debug) HtmlForJapanese:  "レイモン"  (originally:  "レイモン" ) => prefix:  "レイ"
+        (dictionary.debug) HtmlForJapanese:  "レイモン"  => In prefix file:  "レイ"
+        (dictionary.debug) SearchForJapaneseWordInHtml: => index:  "レイモン" Regex:  "(<a name="レイモン" />.*</w>)"
+        (dictionary.debug) got alternative search terms:  ("レイモン")  for word:  "レイモン"
+        (dictionary.debug) SearchForJapaneseWordInHtml: => index:  "レイプ" Regex:  "(<a name="レイプ" />.*</w>)
+
         >>> guess_prefix("test")
         'te'
         >>> guess_prefix("a-")

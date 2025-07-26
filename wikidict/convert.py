@@ -34,9 +34,11 @@ if TYPE_CHECKING:
     from .stubs import Groups, Variants, Words
 
 # Kobo-related dictionaries
+# Note: We cannot remove the space before the slash in `<a name="{{ word }}" />` because
+#       the Kobo lookup regexp for Japanese words is `(<a name="WORD" />.*</w>)`.
 WORD_TPL_KOBO = Template(
     """\
-<w><p><a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}<br/><br/>
+<w><p><a name="{{ word }}" /><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}<br/><br/>
 {%- for pos, pos_definitions in definitions -%}
     <b>{{ pos }}</b><ol>
     {%- for definition in pos_definitions -%}
