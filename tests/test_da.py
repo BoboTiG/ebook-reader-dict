@@ -78,7 +78,7 @@ def setup_lua_ctx() -> None:
         ),
         (
             "hund",
-            ["[ˈhunə-]", "[ˈhunˀ]"],
+            ["/ˈhunˀ/"],
             [
                 "Menes at stamme fra indoeuropæisk sprog <i>ḱʷn̥tós</i>, fra <i>ḱwṓ</i> og derfra videre til germansk sprog <i>*hundaz</i> og fra oldnordisk hundr."
             ],

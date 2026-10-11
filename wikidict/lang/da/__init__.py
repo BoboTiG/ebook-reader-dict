@@ -116,9 +116,20 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     []
     >>> find_pronunciations("{{IPA|/bɛ̜ːˀ/|lang=da}}", "da")
     ['/bɛ̜ːˀ/']
+    >>> find_pronunciations("{{IPA|/fuːl/|[fuːˀl]|lang=da}}", "da")
+    ['/fuːl/']
     """
     pattern = re.compile(rf"\{{\{{IPA(?:\|(.*?))?\|lang={locale}\}}\}}")
-    return sorted(item for sublist in (re.findall(pattern, code) or []) for item in sublist.split("|") if item)
+    pron = next(
+        (
+            item.replace("[", "/").replace("]", "/")
+            for sublist in (re.findall(pattern, code) or [])
+            for item in sublist.split("|")
+            if item
+        ),
+        "",
+    )
+    return [pron] if pron else []
 
 
 ALL_FORMS = [
