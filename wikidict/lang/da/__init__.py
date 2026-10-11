@@ -138,6 +138,7 @@ ALL_FORMS = [
     "ental bestemt af",
     "ental flertal af",
     "flertal af",
+    "flertal ubestemt af",
     "genitivform af",
     "genitiv bestemt ental af",
     "genitiv bestemt flertal af",
