@@ -160,13 +160,15 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     ['\\ɑ\\']
     >>> find_pronunciations("{{pron|un|fr} {{pron|ɔ̃|fr}}\n'''fongus''' {{pron|fɔ̃.ɡys|fr}} {{m}}", "fr")
     ['\\fɔ̃.ɡys\\']
+    >>> find_pronunciations("'''papa''' {{pron|paˈpa|conv}}", "fr")
+    ['\\paˈpa\\']
     """
     pattern = re.compile(rf"\{{\{{pron(?:\|lang={locale})?\|([^}}\|]++)")
     for line in code.splitlines():
         if not line.startswith("'''"):
             continue
         for pron in pattern.findall(line):
-            return [f"\\{pron.replace('ˈ', '')}\\"]
+            return [f"\\{pron}\\"]
     return []
 
 
