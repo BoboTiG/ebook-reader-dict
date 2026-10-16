@@ -8,5 +8,5 @@ python-idzip==0.3.10
 requests==2.34.2
 rich==15.0.0
 scour==0.38.2
-wikitextparser==2.0.0
+wikitextparser==3.0.0
 git+https://github.com/reader-dict/wikitextprocessor.git@main
