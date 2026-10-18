@@ -50,7 +50,7 @@ def setup_lua_ctx() -> None:
                 ]
             },
             [],
-            ["a", "as"],
+            [],
         ),
         (
             "ababalhar",
@@ -294,7 +294,7 @@ def setup_lua_ctx() -> None:
             [],
             {},
             ["imbira"],
-            ["imbira"],
+            [],
         ),
         (
             "Ku",
@@ -525,7 +525,7 @@ def setup_lua_ctx() -> None:
             ["Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>."],
             {"Artigo": ["ortografia antiga de uma"]},
             [],
-            ["ũas", "ũu", "ũus"],
+            [],
         ),
         ("UTC", [], [], {"Sigla": ["(estrangeirismo) ver TUC"]}, [], []),
     ],

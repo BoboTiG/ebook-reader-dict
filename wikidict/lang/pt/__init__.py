@@ -309,7 +309,7 @@ def adjust_wikicode(
 
     >>> context.new_word("ị")
     >>> adjust_wikicode("{{flex.mult}}", "pt", word="ị")
-    '# {{rev-flexion|Ị}}'
+    ''
     """
     # `=={{Substantivo|pt}}<sup>1</sup>==` → `=={{Substantivo 1|pt}}==`
     code = re.sub(r"==\s*+\{\{Substantivo\|(\w++)\}\}\s*+<sup>(\d++)</sup>\s*+==", r"=={{Substantivo \2|\1}}==", code)
@@ -405,14 +405,14 @@ def adjust_wikicode(
 
                         tpl_name = tpl_sub[2 : max(0, tpl_sub.find("|")) or tpl_sub.find("}")].strip()
                         variant_handlers_mod.append_to_reverse_variants(tpl_name)
-                        forms = utils.process_templates(
+                        if forms := utils.process_templates(
                             word,
                             tpl_sub,
                             locale,
                             templates_status=templates_status,
                             variant_only=True,
-                        )
-                        lines.extend(f"# {{{{rev-flexion|{form}}}}}" for form in sorted(forms.split("|")))
+                        ):
+                            lines.extend(f"# {{{{rev-flexion|{form}}}}}" for form in sorted(forms.split("|")))
 
                     tpl_code = ""
                     in_tpl = False

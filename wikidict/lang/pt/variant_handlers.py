@@ -11,7 +11,7 @@ def cleanup(form: str) -> str:
     return cleaned
 
 
-def table_to_forms(word: str, wikitext: str) -> list[str]:
+def table_to_forms(word: str, wikitext: str, *, is_tpl_flex: bool = False) -> list[str]:
     wikitext = re.sub(r'(?:class|colspan|rowspan)="[^"]*+"', "", wikitext)
     wikitext = re.sub(r"<sup>\d++</sup>", "", wikitext)
     wikitext = wikitext.replace("|| ", "\n| ")
@@ -32,6 +32,10 @@ def table_to_forms(word: str, wikitext: str) -> list[str]:
             and line != "|"
         )
     ]
+
+    # We want reverse variants for the base form only
+    if is_tpl_flex and not (f"'''{word}'''" in lines[0] or f"'''{word}'''" in lines[1]):
+        return []
 
     forms: set[str] = set()
     for line in lines:
@@ -72,11 +76,12 @@ def render_reverse_variant(tpl: str, parts: list[str], data: defaultdict[str, st
         return parts[0]
 
     table = context.expand(utils.reconstruct_tpl(tpl, parts, data), "pt")
+    is_tpl_flex = tpl.startswith("flex.")
     if not table.startswith("{|"):
         if (idx := table.find("{|")) == -1:
             return ""
         table = table[idx:]
-    return "|".join(table_to_forms(word, table))
+    return "|".join(table_to_forms(word, table, is_tpl_flex=is_tpl_flex))
 
 
 handlers = {
