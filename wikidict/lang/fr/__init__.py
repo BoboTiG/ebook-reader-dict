@@ -180,6 +180,7 @@ ALL_FORMS = [
     "masculin ou féminin pluriel",
     "participe présent",
     "pluriel d",
+    "un des pluriels d",
     "pluriel habituel",
     "pluriel inhabituel",
 ]
