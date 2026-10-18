@@ -221,7 +221,17 @@ def process(file: Path, locale: str) -> bool:
             appendix_matcher,
             is_monolingual=is_monolingual,
         )
-        if not title or not code or title.startswith(("Unsupported titles/", "Títulos não suportados/")):
+        if (
+            not title
+            or not code
+            or title.startswith(
+                (
+                    "Titres non pris en charge/",  # FR
+                    "Títulos não suportados/",  # PT
+                    "Unsupported titles/",  # EN
+                )
+            )
+        ):
             continue
 
         title = unescape(title, entities=constants.HTML_REPL_TITLE)
