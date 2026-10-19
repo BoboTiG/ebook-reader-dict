@@ -8,6 +8,7 @@ ids = {6, 14}  # File, and Category
 results: dict[str, list[str]] = {}
 # XXX_LOCALES
 locales = (
+    "bg",
     "ca",
     "cs",
     "da",

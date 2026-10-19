@@ -117,6 +117,7 @@ POS_TRANSLINGUAL = {
     "跨語言",
 }
 INTERNATIONAL_POS = {
+    "bg": "межд.",
     "ca": "int.",
     "cs": "mez.",
     "da": "int.",
@@ -147,6 +148,7 @@ INTERNATIONAL_POS = {
     "zh": "国际",
 }
 POS_SYNONYMS = [
+    ("bg", "Синоними"),
     ("ca", "Sinònims"),
     ("cs", "Synonyma"),
     ("da", "Synonymer"),
@@ -378,6 +380,8 @@ def find_etymology(
         return items
 
     match lang_src:
+        case "bg":
+            items = [line.lstrip("#:") for line in parsed_section.contents.splitlines()]
         case "cs":
             items = []
             for line in parsed_section.contents.splitlines():
@@ -623,7 +627,7 @@ def find_sections(word: str, code: str, lang_src: str, lang_dst: str) -> tuple[l
     if lang_src == "de":
         # DE sets the eventual gender in the top-level section
         current_genders = lang.find_genders[lang_src](top_sections[0].contents, lang_src)
-    elif lang_src in {"ru", "uk"}:
+    elif lang_src in {"bg", "ru", "uk"}:
         # Genders are found in inflections
         current_genders = lang.find_genders[lang_src](top_sections[0].contents, lang_src)
 
@@ -652,7 +656,7 @@ def find_sections(word: str, code: str, lang_src: str, lang_dst: str) -> tuple[l
                 pos = title
             else:
                 pos = prettify_pos(top_title, section, lang_src, lang_dst)
-                if lang_src in {"ru", "uk"} and current_genders and "|" not in pos:
+                if lang_src in {"bg", "ru", "uk"} and current_genders and "|" not in pos:
                     pos += f"|{fmt_genders(current_genders)}"
             ret[pos].append(section)
         elif DEBUG_SECTIONS == "1":

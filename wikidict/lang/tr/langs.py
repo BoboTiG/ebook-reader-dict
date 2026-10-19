@@ -33,7 +33,7 @@ langs = {
     "co": "korsikaca",
     "cr": "krice",
     "cs": "çekçe",
-    "cu": "eski slavca",
+    "cu": "eski kilise slavcası",
     "cv": "çuvaşça",
     "cy": "galce",
     "da": "danca",
