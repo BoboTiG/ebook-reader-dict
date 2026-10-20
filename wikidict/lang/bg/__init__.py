@@ -8,7 +8,7 @@ LANG = __file__.rsplit("/", 2)[-2]
 
 random_word_url = "https://bg.wiktionary.org/wiki/%D0%A1%D0%BF%D0%B5%D1%86%D0%B8%D0%B0%D0%BB%D0%BD%D0%B8:%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"
 
-module_trans = "Модуль"
+module_trans = "Модул"
 template_trans = "Шаблон"
 
 section_level = 1
@@ -17,6 +17,7 @@ head_sections = ("{{-bg-}}",)
 etyl_section = ("етимология",)
 sections = (
     *etyl_section,
+    # https://bg.wiktionary.org/wiki/Уикиречник:Шаблони
     "съкращение",  # abbreviation
     "abbr",
     "прилагателно име",  # adjective
@@ -27,9 +28,13 @@ sections = (
     "член",  # article
     "art",
     "съюз",  # conjunction
-    "conj",
+    "con",
+    "детерминатив",  # determiner
+    "determiner",
     "израз",  # expression
     "expr",
+    "идиоматичен израз", # idiomatic expression
+    "idiom",
     "междуметие",  # interjection
     "inter",
     "съществително име",  # noun
@@ -53,6 +58,8 @@ sections = (
     # "letter",  # See #2634
     "значение",  # meaning
     "синоними",  # synonyms
+    "наставка", # suffix
+    "suffix",
     "synonyms",
     "глагол",  # verb
     "verb",
