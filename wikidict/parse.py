@@ -153,8 +153,89 @@ def xml_parse_element(
     return empty
 
 
+def preprocess_bg(body: str) -> str:
+    lines: list[str] = []
+    in_template = False
+    main_title = ""
+    current_section_title = None
+    current_section_content: list[str] = []
+
+    def flush_section() -> None:
+        nonlocal current_section_title, current_section_content
+        if not current_section_title:
+            return
+
+        if (title := current_section_title.lower()) not in {
+            "id",  # word
+            "език",  # language
+            "тип",  # type
+        }:
+            content = "\n".join(current_section_content).strip()
+            if content:
+                lines.append(f"=={main_title}==" if title == "значение" else f"==={title}===")
+                lines.append(content)
+
+        current_section_content.clear()
+        current_section_title = None
+
+    interesting_sections = tuple(
+        [f"{{{{{tpl}" for tpl in [*lang.sections["bg"], "en-"]]
+        + [f"{{{{ {tpl}" for tpl in [*lang.sections["bg"], "en-"]]
+    )
+
+    for raw_line in body.splitlines():
+        if not (stripped_line := raw_line.strip()):
+            continue
+
+        # Handle text outside of templates
+        if not in_template:
+            if stripped_line.startswith("{{") and stripped_line.lower().startswith(interesting_sections):
+                in_template = True
+                main_title = stripped_line.lstrip("{ ").split("|", 1)[0].strip().lower().split("-", 1)[-1]
+            else:
+                lines.append(raw_line)
+            continue
+
+        # Handle template closing (even if followed immediately by another template on the same line, e.g. `}}{Форма|`)
+        if stripped_line.startswith("}}"):
+            flush_section()
+            in_template = False
+            if remainder := stripped_line[2:].strip():
+                if remainder.startswith("{{") and remainder.lower().startswith(interesting_sections):
+                    in_template = True
+                    main_title = remainder.lstrip("{").split("|", 1)[0].strip().lower()
+                else:
+                    lines.append(remainder)
+            continue
+
+        # Match section titles allowing spaces (e.g., СРОДНИ ДУМИ)
+        section_match = re.match(r"^\s*+\|?\s*+([A-ZА-Я0-9_]++(?:[ ]++[A-ZА-Я0-9_]++)*+)\s*+=\s*+(.*)$", raw_line)
+        if section_match:
+            flush_section()
+            current_section_title = section_match.group(1)
+            initial_value = section_match.group(2).strip()
+            if initial_value:
+                current_section_content.append(initial_value)
+        else:
+            if current_section_title is not None:
+                current_section_content.append(raw_line)
+            else:
+                lines.append(raw_line)
+
+    # Flush any remaining open section
+    flush_section()
+
+    return "\n".join(lines)
+
+
 def preprocess(locale: str, body: str) -> str:
     match locale:
+        case "bg":
+            # `{{-bg-}}` → `={{-bg-}}=`
+            body = re.sub(r"^\{\{(-\w++-)\}\}", r"={{\1}}=", body, flags=re.MULTILINE)
+
+            # Transform spaghetti templates into more structured data
+            body = preprocess_bg(body)
         case "da":
             # `{{=da=}}` → `=={{da}}==`
             body = re.sub(r"^\{\{=(\w+)=\}\}", r"=={{\1}}==", body, flags=re.MULTILINE)
@@ -237,8 +318,18 @@ def process(file: Path, locale: str) -> bool:
         title = unescape(title, entities=constants.HTML_REPL_TITLE)
         body = preprocess(lang_dst, unescape(code, entities=constants.HTML_REPL_BODY))
 
-        # [RU] Redirections (`#перенаправление [[REDIRECT_TO]]`)
+        # [BG] Redirections (`{{Пояснение|TITLE}}\n* [[REDIRECT_TO]]\n* [[REDIRECT_TO]]`)
         if (
+            lang_dst == "bg"
+            and body.startswith("{{Пояснение|")
+            and (base_forms := re.findall(r"^\* \[\[([^\]]++)\]\]", body, flags=re.MULTILINE))
+        ):
+            for base_form in base_forms:
+                context.new_page(title, 0, None, base_form)
+            continue
+
+        # [RU] Redirections (`#перенаправление [[REDIRECT_TO]]`)
+        elif (
             lang_dst == "ru"
             and body.startswith("#перенаправление")
             and (m := re.search(r"#перенаправление\s*+\[\[([^\]]++)\]\]", body))

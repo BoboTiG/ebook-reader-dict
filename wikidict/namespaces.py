@@ -5,6 +5,7 @@ Auto-generated with `python -m scripts`.
 
 # START
 namespaces = {
+    "bg": ["Image", "Картинка", "Категория", "Файл"],
     "ca": ["Categoria", "Fitxer", "Image", "Imatge"],
     "cs": ["Image", "Kategorie", "Obrázok", "Soubor"],
     "da": ["Billede", "Fil", "Image", "Kategori"],
