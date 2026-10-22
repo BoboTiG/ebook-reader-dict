@@ -231,11 +231,19 @@ def preprocess_bg(body: str) -> str:
 def preprocess(locale: str, body: str) -> str:
     match locale:
         case "bg":
-            # `{{-bg-}}` → `={{-bg-}}=`
-            body = re.sub(r"^\{\{(-\w++-)\}\}", r"={{\1}}=", body, flags=re.MULTILINE)
+            # Redirections (`{{Пояснение|TITLE}}\n* [[BASE_FORM]]\n* [[BASE_FORM]]`)
+            if body.startswith("{{Пояснение|") and (
+                base_forms := re.findall(r"^\* \[\[([^\]]++)\]\]", body, flags=re.MULTILINE)
+            ):
+                body = "={{-bg-}}=\n==съществително име=="
+                for base_form in base_forms:
+                    body += f"\n# {{{{flexion|{base_form}}}}}"
+            else:
+                # `{{-bg-}}` → `={{-bg-}}=`
+                body = re.sub(r"^\{\{(-\w++-)\}\}", r"={{\1}}=", body, flags=re.MULTILINE)
 
-            # Transform spaghetti templates into more structured data
-            body = preprocess_bg(body)
+                # Transform spaghetti templates into more structured data
+                body = preprocess_bg(body)
         case "da":
             # `{{=da=}}` → `=={{da}}==`
             body = re.sub(r"^\{\{=(\w+)=\}\}", r"=={{\1}}==", body, flags=re.MULTILINE)
@@ -318,18 +326,8 @@ def process(file: Path, locale: str) -> bool:
         title = unescape(title, entities=constants.HTML_REPL_TITLE)
         body = preprocess(lang_dst, unescape(code, entities=constants.HTML_REPL_BODY))
 
-        # [BG] Redirections (`{{Пояснение|TITLE}}\n* [[REDIRECT_TO]]\n* [[REDIRECT_TO]]`)
-        if (
-            lang_dst == "bg"
-            and body.startswith("{{Пояснение|")
-            and (base_forms := re.findall(r"^\* \[\[([^\]]++)\]\]", body, flags=re.MULTILINE))
-        ):
-            for base_form in base_forms:
-                context.new_page(title, 0, None, base_form)
-            continue
-
         # [RU] Redirections (`#перенаправление [[REDIRECT_TO]]`)
-        elif (
+        if (
             lang_dst == "ru"
             and body.startswith("#перенаправление")
             and (m := re.search(r"#перенаправление\s*+\[\[([^\]]++)\]\]", body))

@@ -33,7 +33,7 @@ sections = (
     "determiner",
     "израз",  # expression
     "expr",
-    "идиоматичен израз", # idiomatic expression
+    "идиоматичен израз",  # idiomatic expression
     "idiom",
     "междуметие",  # interjection
     "inter",
@@ -58,7 +58,7 @@ sections = (
     # "letter",  # See #2634
     "значение",  # meaning
     "синоними",  # synonyms
-    "наставка", # suffix
+    "наставка",  # suffix
     "suffix",
     "synonyms",
     "глагол",  # verb
