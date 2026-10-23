@@ -231,7 +231,9 @@ def preprocess_bg(body: str) -> str:
     return "\n".join(lines)
 
 
-def preprocess(locale: str, body: str) -> str:
+def preprocess(locale: str, title: str, body: str) -> str:
+    body = body.strip()
+
     match locale:
         case "bg":
             # Redirections (`{{Пояснение|TITLE}}\n* [[BASE_FORM]]\n* [[BASE_FORM]]`)
@@ -241,6 +243,10 @@ def preprocess(locale: str, body: str) -> str:
                 body = "={{-bg-}}=\n==съществително име=="
                 for base_form in base_forms:
                     body += f"\n# {{{{flexion|{base_form}}}}}"
+            elif body.count("\n") == 0:
+                if not body.startswith(("{{бързо", "[[Категория")):
+                    log.warning("Single-line word: %r", title)
+                return ""
             else:
                 # `{{-bg-}}` → `={{-bg-}}=`
                 body = re.sub(r"^\{\{(-\w++-)\}\}", r"={{\1}}=", body, flags=re.MULTILINE)
@@ -327,7 +333,8 @@ def process(file: Path, locale: str) -> bool:
             continue
 
         title = unescape(title, entities=constants.HTML_REPL_TITLE)
-        body = preprocess(lang_dst, unescape(code, entities=constants.HTML_REPL_BODY))
+        if not (body := preprocess(lang_dst, title, unescape(code, entities=constants.HTML_REPL_BODY))):
+            continue
 
         # [RU] Redirections (`#перенаправление [[REDIRECT_TO]]`)
         if (

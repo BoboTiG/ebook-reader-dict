@@ -60,6 +60,6 @@ def page() -> Callable[[str, str], str]:
     def _page(word: str, locale: str) -> str:
         data = Path(os.environ["CWD"]) / "data" / locale
         file = data / f"{word}.wiki"
-        return preprocess(locale, file.read_text(encoding="utf-8"))
+        return preprocess(locale, word, file.read_text(encoding="utf-8"))
 
     return _page

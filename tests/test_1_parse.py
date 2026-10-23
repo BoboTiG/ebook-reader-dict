@@ -535,6 +535,6 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
     ],
 )
 def test_preprocess(locale: str, body: str, expected: str) -> None:
-    processed = parse.preprocess(locale, body)
+    processed = parse.preprocess(locale, "", body)
     print(processed)
     assert processed == expected

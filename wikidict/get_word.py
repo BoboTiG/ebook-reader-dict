@@ -30,7 +30,7 @@ def get_word(word: str, locale: str, *, templates_status: list[tuple[str, str]] 
 
     # Header section adjustments may be required to search for specific locale
     lang_src, _ = utils.guess_locales(locale, use_log=False)
-    code = preprocess(lang_src, code)
+    code = preprocess(lang_src, word, code)
 
     if not context.setup_modules_db(locale):
         sys.exit(1)
