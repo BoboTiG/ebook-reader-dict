@@ -71,6 +71,10 @@ definitions_to_ignore = (
     "Значението на думата все още не е въведено",  # definition missing
 )
 
+templates_ignored = (
+    "{{бързо}",  # asked for removal
+)
+
 
 GENDERS = {
     "среден": "cp",
