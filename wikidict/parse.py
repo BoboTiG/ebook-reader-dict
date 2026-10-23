@@ -169,11 +169,16 @@ def preprocess_bg(body: str) -> str:
             "id",  # word
             "език",  # language
             "тип",  # type
-        }:
-            content = "\n".join(current_section_content).strip()
-            if content:
-                lines.append(f"=={main_title}==" if title == "значение" else f"==={title}===")
-                lines.append(content)
+        } and current_section_content:
+            lines.append(f"=={main_title}==" if title == "значение" else f"==={title}===")
+            if (
+                title == "значение"
+                and len(current_section_content) == 1
+                and not current_section_content[0].startswith("#")
+            ):
+                lines.append("# " + current_section_content[0])
+            else:
+                lines.extend(current_section_content)
 
         current_section_content.clear()
         current_section_title = None
@@ -209,12 +214,10 @@ def preprocess_bg(body: str) -> str:
             continue
 
         # Match section titles allowing spaces (e.g., СРОДНИ ДУМИ)
-        section_match = re.match(r"^\s*+\|?\s*+([A-ZА-Я0-9_]++(?:[ ]++[A-ZА-Я0-9_]++)*+)\s*+=\s*+(.*)$", raw_line)
-        if section_match:
+        if section_match := re.match(r"^\s*+\|?\s*+([A-ZА-Я0-9_]++(?:[ ]++[A-ZА-Я0-9_]++)*+)\s*+=\s*+(.*)$", raw_line):
             flush_section()
             current_section_title = section_match.group(1)
-            initial_value = section_match.group(2).strip()
-            if initial_value:
+            if initial_value := section_match.group(2).strip():
                 current_section_content.append(initial_value)
         else:
             if current_section_title is not None:
