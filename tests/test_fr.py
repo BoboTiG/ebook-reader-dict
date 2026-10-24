@@ -156,7 +156,6 @@ def setup_lua_ctx() -> None:
             ],
             {
                 "Suffixe": ["<i>Forme courante du pluriel de</i> -al."],
-                "Variantes": ["-als, <i>(Dans certains cas particuliers)</i>."],
             },
             [],
             [],
@@ -453,7 +452,6 @@ def setup_lua_ctx() -> None:
                 "Nom|m.": [
                     "<i>(Linguistique)</i> Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
                 ],
-                "Variantes": ["pin yin"],
             },
             [],
             [],
@@ -501,7 +499,6 @@ def setup_lua_ctx() -> None:
                 "Interjection|inv.": [
                     "<i>(Familier)</i> <i>(Par euphémisme)</i> <i>(Vieilli)</i> Pour marquer l’étonnement ou l'énervement."
                 ],
-                "Variantes": ["pristi"],
             },
             [],
             [],
