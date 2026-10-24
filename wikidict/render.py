@@ -147,36 +147,36 @@ INTERNATIONAL_POS = {
     "uk": "міжн.",
     "zh": "国际",
 }
-POS_SYNONYMS = [
-    ("bg", "Синоними"),
-    ("ca", "Sinònims"),
-    ("cs", "Synonyma"),
-    ("da", "Synonymer"),
-    ("de", "Synonyme"),
-    ("en", "Synonym"),
-    ("eo", "Sinonimoj"),
-    ("es", "Sinónimo"),
-    ("fi", "Synonyymi"),
-    ("fr", "Synonymes"),
-    ("it", "Sinonimi"),
-    ("ja", "類義語"),
-    ("ko", "유의어"),
-    ("la", "Synonyma"),
-    ("lt", "Sinonimai"),
-    ("mg", "Dika-Mitovy"),
-    ("nl", "Synoniemen"),
-    ("no", "Synonymer"),
-    ("pl", "Synonimy"),
-    ("pt", "Sinónimo"),
-    ("ro", "Sinonime"),
-    ("ru", "Синонимы"),
-    ("uk", "Синоніми"),
-    ("zh", "同义词"),
-]
-POS_NOTES = [
-    ("en", "Usage Note"),
-    ("nl", "Opmerkingen"),
-]
+POS_SYNONYMS = {
+    "bg": "Синоними",
+    "ca": "Sinònims",
+    "cs": "Synonyma",
+    "da": "Synonymer",
+    "de": "Synonyme",
+    "en": "Synonym",
+    "eo": "Sinonimoj",
+    "es": "Sinónimo",
+    "fi": "Synonyymi",
+    "fr": "Synonymes",
+    "it": "Sinonimi",
+    "ja": "類義語",
+    "ko": "유의어",
+    "la": "Synonyma",
+    "lt": "Sinonimai",
+    "mg": "Dika-Mitovy",
+    "nl": "Synoniemen",
+    "no": "Synonymer",
+    "pl": "Synonimy",
+    "pt": "Sinónimo",
+    "ro": "Sinonime",
+    "ru": "Синонимы",
+    "uk": "Синоніми",
+    "zh": "同义词",
+}
+POS_NOTES = {
+    "en": "Usage Note",
+    "nl": "Opmerkingen",
+}
 
 
 def fmt_genders(genders: list[str]) -> str:
@@ -211,18 +211,12 @@ def find_definitions(
                         target_pos.append(pos_def)
 
     # Move synonyms below definitions
-    for some_lang, some_pos in POS_SYNONYMS:
-        if lang_src == some_lang:
-            if some_pos in definitions:
-                definitions[some_pos] = definitions.pop(some_pos)
-            break
+    if (pos_syn := POS_SYNONYMS.get(lang_src)) and pos_syn in definitions:
+        definitions[pos_syn] = definitions.pop(pos_syn)
 
-    # # Move notes at the end
-    for some_lang, some_pos in POS_NOTES:
-        if lang_src == some_lang:
-            if some_pos in definitions:
-                definitions[some_pos] = definitions.pop(some_pos)
-            break
+    # Move notes at the end
+    if (pos_notes := POS_NOTES.get(lang_src)) and pos_notes in definitions:
+        definitions[pos_notes] = definitions.pop(pos_notes)
 
     return OrderedDict(definitions)
 
