@@ -111,6 +111,7 @@ definitions_to_ignore = (
 templates_ignored = (
     "{{?",
     "{{créer-séparément",
+    "{{exemple",
     "{{ébauche",
     "{{écouter",
     "{{étymologie-chinoise-SVG",

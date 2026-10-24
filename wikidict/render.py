@@ -356,12 +356,18 @@ def find_etymology(
     *,
     templates_status: list[tuple[str, str]] | None = None,
 ) -> list[Definition]:
-    """Find the etymology.
+    r"""Find the etymology.
+
+    >>> _ = context.reset("fr")
+    >>> context.new_word("kleñvel")
+
+    >>> find_etymology("kleñvel", "fr", "fr", wtp.Section("== {{langue|fr}} ==\n=== {{S|étymologie}} ===\n: {{composé de|lang=br|klañv|-el|m=oui}}.\n: '''Kleñvel''' (''cleuell'', [[Catholicon#Nom_propre|Catholicon]] 1499)<ref>Albert {{pc|Deshayes}}, ''Dictionnaire étymologique du breton'', Douarnenez, Le Chasse-Marée, 2003, p. 396b.</ref>, v., tomber malade, de ''klañv'' + ''-el''.\n#* {{exemple | lang=br | klañvet eo}}"))
+    ['Dérivé de <i>klañv</i>, avec le suffixe <i>-el</i>.', '<b>Kleñvel</b> (<i>cleuell</i>, Catholicon 1499)<ref>Albert Deshayes, <i>Dictionnaire étymologique du breton</i>, Douarnenez, Le Chasse-Marée, 2003, p. 396b.</ref>, v., tomber malade, de <i>klañv</i> + <i>-el</i>.']
 
     >>> _ = context.reset("sv")
-    >>> context.new_word("word")
+    >>> context.new_word("Artur")
 
-    >>> find_etymology("Artur", "sv", "sv", wtp.Section("==Svenska==\\n===Substantiv===\\n#:{{etymologi|Denna namnform kom till Sverige som namn via {{härledning|sv|la|Arthurus, Arturus}}, möjligen av kymriska ''[[arth]]'' (\\"björn\\"), av {{härledning|sv|cel-uce|*artos|björn}}.\\nParallellt med det keltiska ursprunget har två andra teorier framförts: antingen av ett romerskt släktnamn (Artorius), och/eller ett nordiskt mansnamn, ''[[Arnþor]]'' (\\"Arntor\\"), sammansatt av ''Ar(i)n-'' (\\"örn\\") och ''‑tor'' (\\"dunder, åska\\").}}"))
+    >>> find_etymology("Artur", "sv", "sv", wtp.Section("==Svenska==\n===Substantiv===\n#:{{etymologi|Denna namnform kom till Sverige som namn via {{härledning|sv|la|Arthurus, Arturus}}, möjligen av kymriska ''[[arth]]'' (\"björn\"), av {{härledning|sv|cel-uce|*artos|björn}}.\nParallellt med det keltiska ursprunget har två andra teorier framförts: antingen av ett romerskt släktnamn (Artorius), och/eller ett nordiskt mansnamn, ''[[Arnþor]]'' (\"Arntor\"), sammansatt av ''Ar(i)n-'' (\"örn\") och ''‑tor'' (\"dunder, åska\").}}"))
     ['Denna namnform kom till Sverige som namn via latinska&nbsp;<i>Arthurus, Arturus</i>, möjligen av kymriska <i>arth</i> ("björn"), av urkeltiska&nbsp;<i>*artos</i>&nbsp;(”björn”).Parallellt med det keltiska ursprunget har två andra teorier framförts: antingen av ett romerskt släktnamn (Artorius), och/eller ett nordiskt mansnamn, <i>Arnþor</i> ("Arntor"), sammansatt av <i>Ar(i)n-</i> ("örn") och <i>‑tor</i> ("dunder, åska").']
     """
 
@@ -420,14 +426,21 @@ def find_etymology(
                         definitions.append(phrase)
                         tableindex += 1
                     else:
-                        definitions.append(
-                            utils.process_templates(word, section_item, lang_dst, templates_status=templates_status)
-                        )
+                        if defi := utils.process_templates(
+                            word, section_item, lang_dst, templates_status=templates_status
+                        ):
+                            definitions.append(defi)
+
                         subdefinitions: list[SubDefinition] = []
                         for sublist in section.sublists(i=idx):
                             subdefinitions.extend(
-                                utils.process_templates(word, subcode, lang_dst, templates_status=templates_status)
+                                subdefi
                                 for subcode in sublist.items
+                                if (
+                                    subdefi := utils.process_templates(
+                                        word, subcode, lang_dst, templates_status=templates_status
+                                    )
+                                )
                             )
                         if subdefinitions:
                             definitions.append(tuple(subdefinitions))
