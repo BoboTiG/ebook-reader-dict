@@ -137,6 +137,10 @@ def find_genders(code: str, locale: str) -> list[str]:
     ['f']
     >>> find_genders("'''42''' {{pron|ka.ʁɑ̃t.dø|fr}} {{invar}}", "fr")
     ['inv']
+    >>> find_genders("'''42''' {{pron|ka.ʁɑ̃t.dø|fr}} {{i}}", "fr")
+    []
+    >>> find_genders("'''42''' {{pron|ka.ʁɑ̃t.dø|fr}} {{pp}}", "fr")
+    []
     """
     pattern = re.compile(rf"\{{([fmpinvar]++)(?:[ ]\?\|{locale})*+\}}")
     res: set[str] = set()
@@ -145,7 +149,7 @@ def find_genders(code: str, locale: str) -> list[str]:
             res.update(sgen)
         elif gender == "invar":
             res.add("inv")
-        else:
+        elif gender not in {"i", "pp"}:
             res.add(gender)
     return utils.unique(sorted(res))
 
